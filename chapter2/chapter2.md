@@ -81,17 +81,94 @@ _String interpolations_ is the recommended way to build a string from multiple t
 
 > As far as the confidence goes, I think you will appreciate that it is not because you succeeded at everything you did, but because with the help of your friends, you were not afraid to fail.
 
+In Swift, `if-else` is similar with C/C++, except that the condition has no parenthesis`()` around.Here is an example:
 
+```sw
+var getuptime = 7
+if getuptime==7{
+	print("cook yourself a breakfast")
+}
+else{
+	print("go out to have a breakfast")
+}
+```
 
+`switch` is similar as well , except without `default`.
 
+```sw
+switch getuptime{
+case 7:
+    print("cook yourself")
+default:
+    print("go out")
+}
+```
 
+Notice that there is no indentation(缩进) at the beginning of `case` line。
 
+Besides, when using `switch` statement, we can use `...` to define a range from lower bound to upper bound(including two bounds) such as  `5000...9999`.
 
+## Array and Dictionaries
 
+### Array
 
+There is no square brackets after the var-name:
 
+```sw
+var bookCollections = ["book1","book2"]
+//add an element
+bookCollections.append("book3")
+//the number of bookCollection, no () behind
+bookCollections.count
+```
 
+* `For Statement`
 
+```sw
+for index in 0...2{
+    print(bookCollections[index])
+}
+for book in bookCollections{
+    print(book)
+}
+```
+
+Similar to `if-else` statement, there is no brakets around the condition statement.
+
+<font color = "red">Notice:</font>the `print` of Swift has Auto-Feed function. If you execute `print("\n")`, you will get two newline!
+
+### Dictionaries
+
+```sw
+var collections = ["one":"book1","two":"book2","three":"book3"]
+for (key,value) in collections{
+    print(key+" "+value)
+//    print(value)
+}
+```
+
+After several times trying, the sequence of result is total random. If we change the iterator `key,value` to just one element, the result will be as follows, the sequence is random as well.
+
+```markdown
+(key: "three", value: "book3")
+(key: "one", value: "book1")
+(key: "two", value: "book2")
+```
+
+We can define the dictionary's key-type and value-type explicitly like this, which can be omitted as well.
+
+```sw
+var emojiDict : [String:String] = ["👻":"Ghost",
+                                   "💩":"pop",
+                                   "😱":"Scream",
+                                   "👾":"Alien monster",
+                                   "😠":"Angry"]
+```
+
+## <font color = "red">Optional</font>
+
+>Some developers struggle to understand the concept of Optionals. The fundamental idea is actually quite simple. Before accessing a variable that may have no value, Swift encourages you to verify it first. You have to make sure it has a value before any further processing. Thus, this can avoid app crashes.
+>
 
 
 
