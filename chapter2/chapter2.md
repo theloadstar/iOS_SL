@@ -170,5 +170,103 @@ var emojiDict : [String:String] = ["👻":"Ghost",
 >Some developers struggle to understand the concept of Optionals. The fundamental idea is actually quite simple. Before accessing a variable that may have no value, Swift encourages you to verify it first. You have to make sure it has a value before any further processing. Thus, this can avoid app crashes.
 >
 
+Here is a question: 
 
+```sw
+var emojiDict : [String:String] = ["👻":"Ghost",
+                                   "💩":"pop",
+                                   "😱":"Scream",
+                                   "👾":"Alien monster",
+                                   "😠":"Angry"]
 
+var wordToLookup = "👻"// Fill in the Ghost emoji //
+var meaning = emojiDict[wordToLookup]// Fill in the code for accessing the value //
+print(meaning)
+
+wordToLookup = "😠"// Fill in the Angry emoji //
+meaning = emojiDict[wordToLookup]// Fill in the code for accessing the value //
+print(meaning)
+```
+
+The results:
+
+```
+Optional("Ghost")
+Optional("Angry")
+```
+
+This means `meaning` may have no value. For example, if we change `"👻"` to `"👿"`, the corresponding result will be `nil`.
+
+> Up till now, all the variables or constants we worked with have an initial value. This is a must in Swift. A non-optional variable gurantees to have a value.
+
+If we have to define some var with no value, use the `optional` type by `?` like this:
+
+```sw
+var job:String ?
+```
+
+And since optional type can have no initial value, we must explicitly specify the type of optional type var.
+
+* How can optional type help us write better code?
+
+See the code below:
+
+```sw
+var job:String?
+job = "Coder"
+var statement = "I am a"+job
+```
+
+Xcode will report an error in line3, even if we assign a value to optinal type var job. We must perform verification to find out whether the optional has a value. which is called _Forced Unwrapping_.
+
+### Forced Unwrapping
+
+We can use `if-else` to achieve unwrapping:
+
+```sw
+if job != nil{
+    var statement = "I am a"+job!
+    print(statement)
+}
+```
+
+<font color = "red">Two Notes:</font>
+
+1. the operator `!=` must have whitespace on the both sides.
+2. Do not forget the exclamation mark `!` at the end of line 2, which tells Xcode that you ensure the optional variable has a value, and it is safe to use.(**In fact, we can just add`!` to achieve that...**)
+
+### Optional Binding
+
+As we can see, using `!` to tell Xcode the var is safe to be wrapped is still unsafe, because Xcode won't report a warning or error when using `!` even if we don't assign any value to optional-type.
+
+```sw
+var job:String?
+//job = "Coder"
+
+//if job != nil{
+    let statement = "I am a"+job!
+    print(statement)
+//}
+```
+
+Xcode won't report any errors or warnings until executing the program.
+
+There is a better way to access the underlying value of an optional value called _Optional Binding_, which is recommanded.
+
+```sw
+if let jobwhite = job{
+    let statement = "I am a "+jobwhite
+    print(statement)
+}
+```
+
+In fact , we can use the same name, because the first `job` is a temporary variable in `if-else` statement.
+
+```sw
+if let job = job{
+    let statement = "I am a "+job
+    print(statement)
+}
+```
+
+We don't need to use `!` here 🥳

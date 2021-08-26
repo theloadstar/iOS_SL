@@ -63,8 +63,24 @@ var emojiDict : [String:String] = ["👻":"Ghost",
 
 var wordToLookup = "👻"// Fill in the Ghost emoji //
 var meaning = emojiDict[wordToLookup]// Fill in the code for accessing the value //
-print(meaning)
-
+if let meaning = meaning{
+    print(meaning)
+}
 wordToLookup = "😠"// Fill in the Angry emoji //
 meaning = emojiDict[wordToLookup]// Fill in the code for accessing the value //
-print(meaning)
+if let meaning = meaning{
+    print(meaning)
+}
+
+var job:String?
+job = "Coder"
+
+//if job != nil{
+//    let statement = "I am a"+job!
+//    print(statement)
+//}
+
+if let job = job{
+    let statement = "I am a "+job
+    print(statement)
+}
