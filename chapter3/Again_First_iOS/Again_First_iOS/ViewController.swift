@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.black
     }
 
     @IBAction func showMessage(sender:UIButton){
@@ -26,10 +27,10 @@ class ViewController: UIViewController {
         if let wordtoLookup = selectedbutton.titleLabel?.text{
             let meaning = emojiDictionary[wordtoLookup]
             //指示框的标题、内容
-            let alertController = UIAlertController(title: "Meaning~🥳", message: meaning, preferredStyle: UIAlertController.Style.alert)
+            let alertController = UIAlertController(title: "Meaning~🥳", message: meaning, preferredStyle: UIAlertController.Style.actionSheet)
             //指示框的动作
             alertController.addAction(UIAlertAction(title: "OK~Got it!", style: UIAlertAction.Style.default, handler: nil))
-            //暂时不晓得🤷‍♂️激活动画？
+            //Presents a view controller modally.
             present(alertController,animated: true,completion: nil)
         }
         

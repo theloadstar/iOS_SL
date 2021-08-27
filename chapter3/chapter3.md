@@ -1,6 +1,6 @@
 This chapter uses _Single View Application_ to develop the first simple iOS app.
 
-# Main.storyboard
+# Main.storyboard Concepts
 
 layout as follows:
 
@@ -86,10 +86,12 @@ layout as follows:
 
 # To Do
 
-- [ ] What's this line for? If commented, the button won't work; but if I change the `true` to `false`, nothing seems to change.
+- [x] What's this line for? If commented, the button won't work; but if I change the `true` to `false`, nothing seems to change.
 
   ```sw
   present(alertController,animated: true,completion: nil)
   ```
+
+  To *Presents a view controller modally.* See [chapter4](../chapter4/chapter4.md)
 
 - [ ] In the line9 of exercise code `selectedbutton.titleLabel?.text`, is the mark `?` means that the `selectedbutton.titleLabel` is a optional type?
