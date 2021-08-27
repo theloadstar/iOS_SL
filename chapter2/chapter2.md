@@ -14,7 +14,7 @@
 
 This part aims to getting familiar with Swift basic grammar with a Playground, which is not so difficult.
 
-## Constants and Variables
+# Constants and Variables
 
 Swift uses `let` to define constant type, while using `var` to define variable type
 
@@ -40,7 +40,7 @@ Besides `Int`, we can use `Double`, `String`, `Bool` and so on to indicate a var
 
 > “In Playgrounds, you can hold the option key, and click any variable name to reveal the variable type, deduced by the compiler.”
 
-## String
+# String
 
 Swift uses the dot synax to access the build-in methods and the properties of a variable.
 
@@ -77,7 +77,7 @@ var totalPriceMessage = "The price of the book is $ \(totalPrice)"
 
 _String interpolations_ is the recommended way to build a string from multiple types. You wraps the variable for string conversion in parentheses(小括号), prefixed(前缀) by a backslash(反斜杠).
 
-## Control Flow Basics
+# Control Flow Basics
 
 > As far as the confidence goes, I think you will appreciate that it is not because you succeeded at everything you did, but because with the help of your friends, you were not afraid to fail.
 
@@ -108,9 +108,9 @@ Notice that there is no indentation(缩进) at the beginning of `case` line。
 
 Besides, when using `switch` statement, we can use `...` to define a range from lower bound to upper bound(including two bounds) such as  `5000...9999`.
 
-## Array and Dictionaries
+# Array and Dictionaries
 
-### Array
+## Array
 
 There is no square brackets after the var-name:
 
@@ -137,7 +137,7 @@ Similar to `if-else` statement, there is no brakets around the condition stateme
 
 <font color = "red">Notice:</font>the `print` of Swift has Auto-Feed function. If you execute `print("\n")`, you will get two newline!
 
-### Dictionaries
+## Dictionaries
 
 ```sw
 var collections = ["one":"book1","two":"book2","three":"book3"]
@@ -165,7 +165,7 @@ var emojiDict : [String:String] = ["👻":"Ghost",
                                    "😠":"Angry"]
 ```
 
-## <font color = "red">Optional</font>
+# <font color = "red">Optional</font>
 
 >Some developers struggle to understand the concept of Optionals. The fundamental idea is actually quite simple. Before accessing a variable that may have no value, Swift encourages you to verify it first. You have to make sure it has a value before any further processing. Thus, this can avoid app crashes.
 >
@@ -219,7 +219,7 @@ var statement = "I am a"+job
 
 Xcode will report an error in line3, even if we assign a value to optinal type var job. We must perform verification to find out whether the optional has a value. which is called _Forced Unwrapping_.
 
-### Forced Unwrapping
+## Forced Unwrapping
 
 We can use `if-else` to achieve unwrapping:
 
@@ -235,7 +235,7 @@ if job != nil{
 1. the operator `!=` must have whitespace on the both sides.
 2. Do not forget the exclamation mark `!` at the end of line 2, which tells Xcode that you ensure the optional variable has a value, and it is safe to use.(**In fact, we can just add`!` to achieve that...**)
 
-### Optional Binding
+## Optional Binding
 
 As we can see, using `!` to tell Xcode the var is safe to be wrapped is still unsafe, because Xcode won't report a warning or error when using `!` even if we don't assign any value to optional-type.
 
@@ -270,3 +270,60 @@ if let job = job{
 ```
 
 We don't need to use `!` here 🥳
+
+# PlayGround UI - Have A Try
+
+Let's put the code
+
+```sw
+let containerView = UIView(frame: CGRect(x:0,y:0,width: 300,height: 300))
+containerView.backgroundColor = UIColor.orange
+
+let emojiLabel = UILabel(frame: CGRect(x:95,y:20, width: 150, height: 150))
+emojiLabel.text = wordToLookup
+emojiLabel.font = UIFont.systemFont(ofSize: 100.0)
+
+containerView.addSubview(emojiLabel)
+```
+
+(不得不说markdown对Swift的支持不太行啊，也可能是Typora的锅。。。)
+
+1. line1->create the view
+
+2. line4->use the UILabel to display the text, as an emoji is a character in iOS.
+
+3. line6-> the parameter `ofsize` is for setting the size of font, as for as I can infer.
+
+4. line8-> add to the origin view
+
+   Here comes the result🤣
+
+   <img src="../graph/chapter2_playground_UI_1.png" alt="chapter2_playground_UI_1" style="zoom:50%;" />
+
+Continue:
+
+```sw
+let meaningLabel = UILabel(frame: CGRect(x: 110, y: 100, width: 150, height: 150))
+meaningLabel.text = meaning
+meaningLabel.font = UIFont.systemFont(ofSize: 30)
+meaningLabel.textColor = UIColor.white
+containerView.addSubview(meaningLabel)
+```
+
+Easy to understand, right?
+
+<img src="../graph/chapter2_playground_UI_2.png" alt="image-20210827094955720" style="zoom:50%;" />
+
+Let's have some DIY:
+
+```sw
+let DIYLabel = UILabel(frame: CGRect(x: 90, y: 150, width: 150, height: 150))
+DIYLabel.text = "👻DIY🤣"
+DIYLabel.font = UIFont.systemFont(ofSize: 30.0)
+DIYLabel.textColor = UIColor.green
+containerView.addSubview(DIYLabel)
+```
+
+<img src="../graph/chapter2_playground_UI_3.png" alt="image-20210827095431412" style="zoom:50%;" />
+
+小打小闹，随便整整～

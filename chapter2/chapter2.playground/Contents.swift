@@ -84,3 +84,25 @@ if let job = job{
     let statement = "I am a "+job
     print(statement)
 }
+
+//UI
+let containerView = UIView(frame: CGRect(x:0,y:0,width: 300,height: 300))
+containerView.backgroundColor = UIColor.orange
+
+let emojiLabel = UILabel(frame: CGRect(x:95,y:20, width: 150, height: 150))
+emojiLabel.text = wordToLookup
+emojiLabel.font = UIFont.systemFont(ofSize: 100.0)
+
+containerView.addSubview(emojiLabel)
+
+let meaningLabel = UILabel(frame: CGRect(x: 110, y: 100, width: 150, height: 150))
+meaningLabel.text = meaning
+meaningLabel.font = UIFont.systemFont(ofSize: 30)
+meaningLabel.textColor = UIColor.white
+containerView.addSubview(meaningLabel)
+
+let DIYLabel = UILabel(frame: CGRect(x: 90, y: 150, width: 150, height: 150))
+DIYLabel.text = "👻DIY🤣"
+DIYLabel.font = UIFont.systemFont(ofSize: 30.0)
+DIYLabel.textColor = UIColor.green
+containerView.addSubview(DIYLabel)
