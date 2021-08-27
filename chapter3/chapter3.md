@@ -53,3 +53,43 @@ layout as follows:
 
   <img src="graph/change_button_color.png" alt="change_button_color" style="zoom:33%;" />
 
+  # Exercise
+
+  Not so hard
+
+  ```sw
+  @IBAction func showMessage(sender:UIButton){
+          
+          let emojiDictionary = ["👾":"Alien Monster",
+                                 "😈":"Little Evil",
+                                 "👻":"Little Monster",
+                                 "🥴":"Drunk"]
+          //get the selected button
+          let selectedbutton = sender
+          if let wordtoLookup = selectedbutton.titleLabel?.text{
+              let meaning = emojiDictionary[wordtoLookup]
+              //指示框的标题、内容
+              let alertController = UIAlertController(title: "Meaning~🥳", message: meaning, preferredStyle: UIAlertController.Style.alert)
+              //指示框的动作
+              alertController.addAction(UIAlertAction(title: "OK~Got it!", style: UIAlertAction.Style.default, handler: nil))
+              //暂时不晓得激活动画？
+              present(alertController,animated: true,completion: nil)
+          }
+          
+          
+      }
+  ```
+
+  result:
+
+  &emsp;&emsp;&emsp;<img src="graph/exercise_result_1.png" alt="exercise_result_1" style="zoom: 40%;" /> <img src="graph/exercise_result_2.png" alt="exercise_result_2" style="zoom: 40%;" />
+
+# To Do
+
+- [ ] What's this line for? If commented, the button won't work; but if I change the `true` to `false`, nothing seems to change.
+
+  ```sw
+  present(alertController,animated: true,completion: nil)
+  ```
+
+- [ ] In the line9 of exercise code `selectedbutton.titleLabel?.text`, is the mark `?` means that the `selectedbutton.titleLabel` is a optional type?

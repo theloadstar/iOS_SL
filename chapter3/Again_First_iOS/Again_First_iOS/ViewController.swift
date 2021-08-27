@@ -16,12 +16,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showMessage(sender:UIButton){
-        //指示框的标题、内容
-        let alertController = UIAlertController(title: "Welcome to my first app AGAIN!!!🥳", message: "HELLO! iOS!", preferredStyle: UIAlertController.Style.alert)
-        //指示框的动作
-        alertController.addAction(UIAlertAction(title: "OK~", style: UIAlertAction.Style.default, handler: nil))
-        //暂时不晓得🤷‍♂️激活动画？
-        present(alertController,animated: true,completion: nil)
+        
+        let emojiDictionary = ["👾":"Alien Monster",
+                               "😈":"Little Evil",
+                               "👻":"Little Monster",
+                               "🥴":"Drunk"]
+        //get the selected button
+        let selectedbutton = sender
+        if let wordtoLookup = selectedbutton.titleLabel?.text{
+            let meaning = emojiDictionary[wordtoLookup]
+            //指示框的标题、内容
+            let alertController = UIAlertController(title: "Meaning~🥳", message: meaning, preferredStyle: UIAlertController.Style.alert)
+            //指示框的动作
+            alertController.addAction(UIAlertAction(title: "OK~Got it!", style: UIAlertAction.Style.default, handler: nil))
+            //暂时不晓得🤷‍♂️激活动画？
+            present(alertController,animated: true,completion: nil)
+        }
+        
+        
     }
 }
 
