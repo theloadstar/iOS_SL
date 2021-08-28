@@ -96,6 +96,8 @@ Needs:
 
 This kind of constrains are *space constrains*, using `Add new constrains` button to create.This time, the tutorial uses *Control-drag* approach to apply auto layout.
 
+# Control Drag
+
 > In Interface Builder, you can control-drag from an item to itself or to another item along the axis(坐标轴) for which you want to add constraints.
 
 Steps:
@@ -112,3 +114,30 @@ After these, the preview displays normally.
 
 ![label_preview_after](graph/label_preview_after.png)
 
+However, there is still an yellow warning, what's that?
+
+![wanrning](graph/wanrning.png)
+
+I wonder I have created right and bottom constraints, which can confirm the position of label, why still say "Leading coonstraint is missing" ?
+
+This is because when the language is right-to-left language(e.g. Arabic), current constraints won't work anymore. Use the mothod memtioned above (issue fixing) to fix it.
+
+![wanrningfix](graph/wanrningfix.png)
+
+![warningfixed](graph/warningfixed.png)
+
+# Safe Areas
+
+You can understand it as the area that is safe for designing.Generally, Safe Area is the whole screen excluding the top and bottom area.
+
+![SafeArea](graph/SafeArea1.png)
+
+Safe Areas can update themselves helping developers easier to work with layout constraints.
+
+![SafeArea2](graph/SafeArea2.png)
+
+# Editing Constraints
+
+Choose the constraint in the document outline view or just click certain constraint, than in the `Attribute inspector` or `Size inspector` menu, you can customize the distance. Or just double-click certain constraint, editing in the pop-over window.
+
+![EditingConstraints](graph/EditingConstraints.png)

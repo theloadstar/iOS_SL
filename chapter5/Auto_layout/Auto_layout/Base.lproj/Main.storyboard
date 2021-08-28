@@ -23,7 +23,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Chapter5:Auto Layout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggr-l1-uqh">
-                                <rect key="frame" x="151" y="747" width="263" height="21"/>
+                                <rect key="frame" x="141" y="747" width="263" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -31,9 +31,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ggr-l1-uqh" secondAttribute="trailing" id="6UH-TN-wve"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ggr-l1-uqh" secondAttribute="trailing" constant="10" id="6UH-TN-wve"/>
                             <constraint firstItem="HKn-UH-xtG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MrP-Pg-zOe"/>
                             <constraint firstItem="HKn-UH-xtG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="emv-XO-ALK"/>
+                            <constraint firstItem="Ggr-l1-uqh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="mFE-0p-eHl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ggr-l1-uqh" secondAttribute="bottom" constant="94" id="uYv-dc-LGU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
