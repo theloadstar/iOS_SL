@@ -130,7 +130,7 @@ This is because when the language is right-to-left language(e.g. Arabic), curren
 
 You can understand it as the area that is safe for designing.Generally, Safe Area is the whole screen excluding the top and bottom area.
 
-![SafeArea](graph/SafeArea1.png)
+<img src="graph/SafeArea1.png" alt="SafeArea" style="zoom:50%;" />
 
 Safe Areas can update themselves helping developers easier to work with layout constraints.
 
