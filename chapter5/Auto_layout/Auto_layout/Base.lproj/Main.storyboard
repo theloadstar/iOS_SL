@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Hi~Everyone~"/>
                                 <connections>
-                                    <action selector="showmessageWithSend:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PFd-Ce-Lqu"/>
+                                    <action selector="showmessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDL-Jd-vjR"/>
                                 </connections>
                             </button>
                         </subviews>
