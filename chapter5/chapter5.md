@@ -77,3 +77,38 @@ use `+` button to add another device preview.
 
 ![quickpreview](graph/quickpreview.png)
 
+~~<font color = "red">Note:</font> click `show editor only` rather than clicking `~~
+
+# Add a label and Constraints for it
+
+>Labels in iOS are usually used for displaying simple text and messages.
+
+If I add a new label `Welcome to Chapter5:Auto Layout` at the lower-right position, here comes the preview:
+
+![label_preview_brfore](graph/label_preview_brfore.png)
+
+Obviously, we need to add some constraints to the label.
+
+Needs:
+
+1. The label is 0 points away from the right margin of the view
+2. The label is 20 points away from the bottom margin of the view
+
+This kind of constrains are *space constrains*, using `Add new constrains` button to create.This time, the tutorial uses *Control-drag* approach to apply auto layout.
+
+> In Interface Builder, you can control-drag from an item to itself or to another item along the axis(坐标轴) for which you want to add constraints.
+
+Steps:
+
+1. `control`+`drag` to the parent view until the view become blue
+
+2. release, you'll see a pop-over menu.
+
+   <img src="graph/controllerdrag.png" alt="controllerdrag" style="zoom:50%;" />
+
+3. The first one means the tail of safe area, i.e. the right margin. The third one means the left margin.
+
+After these, the preview displays normally.
+
+![label_preview_after](graph/label_preview_after.png)
+
