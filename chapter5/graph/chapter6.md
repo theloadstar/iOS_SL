@@ -149,3 +149,11 @@ OK, still got a problem in iPhone SE landscape mode:
 ![iphonese](../../chapter6/graph/iphonese.png)
 
 One way to solve this one is to hide the "need help" label in all iPhone landscape mode.(Is there any more solutions? ~~No, by far.~~ Yes, just make the two big stack a big one and adjust the dis between. But if do so, the size classes which are the purpose of this chapterare, are useless in this chapter.)Choose the "need help" label and find `Hidden` property in `Attribute inspector`, and set a new size class.
+
+# Preserving Vector Data
+
+Though vector has the advantage of high quality when scaling up or down, Xcode automatically converts it into three static images like image set `user2`, causing quality losing. And *Preserving Vector Data* solve this problem.To enable this, go to `Assets.scassets`, choose one image and click `Preserving Vector Data` in `Attribute inspector` menu.
+
+In iPad Pro 12.9, the change are obvious between image1 and image3.
+
+![PreservingVectorData](../../chapter6/graph/PreservingVectorData.png)
