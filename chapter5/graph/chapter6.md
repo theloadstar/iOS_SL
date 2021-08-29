@@ -210,3 +210,7 @@ Here is my steps:
      ![exercise2_8](../../chapter6/graph/exercise2_8.png)
 
 DONE, BMS
+
+# Compared
+
+Compare to the standard answer, the tutorial doesn't hide the `student tutor`, just let the botton to overlap them.And the first big stack view(the one on the top) defined three more constraints of top,leading,trailing.
