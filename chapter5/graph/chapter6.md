@@ -62,3 +62,39 @@ The following are the content of tutorial:
 Sample:
 
 ![stackpropertiessamples](../../chapter6/graph/stackpropertiessamples.png)
+
+---
+
+When I put three views to the storyboard, I find that the no-vector image(user2) is more clear, funny😂
+
+<img src="../../chapter6/graph/threeviews.png" alt="threeviews" style="zoom:50%;" />
+
+---
+
+* Set the aspect ratio(宽高比):
+
+`control-drag`  horizontally and then click `Aspect Ratio`(这操作属实把我惊呆了，不愧你是，)， then the aspect ratio is locked.Similarly, we can lock the width and height as well.
+
+![Settheaspectratio](../../chapter6/graph/Settheaspectratio.png)
+
+<font color = "red">Note</font>: After setting the aspect ratio, the width or height of the image may change, just leave it.
+
+---
+
+When we nest the Label stackview and image stackview into one stack view, make sure the `Alignment` is set to <font color = "red">Fill</font> , so that we the image stack view, which is set to `Fill` as well can automatically resize itself oon larger screen like iPad.
+
+---
+
+* add contraints to the stack view: top,leading and trailing.(50,10,10)
+  1. use `control` + drag (myself)
+  2. click `add new contraints`(tutorial, more simple)
+
+---
+
+By far, our layout works well in different meachines, except small screen like iPhone SE and 4s: the `Instant Developer` is truncated because of the width of screen.
+
+And in landscape mode, the image is truncated as well
+
+![truncated](../../chapter6/graph/truncated.png)
+
+To fix the first problem, choose the label, and click` Autoshrink` -> `Minimun Font Size`, this tells Xcode to determine the suitable font size so that it can perfectly be displayed.
