@@ -28,13 +28,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkn-yx-kef">
+                                <rect key="frame" x="165.5" y="114" width="83" height="92"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="77"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8B-t5-FSQ">
+                                <rect key="frame" x="20" y="736" width="40" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ggr-l1-uqh" secondAttribute="trailing" constant="10" id="6UH-TN-wve"/>
+                            <constraint firstItem="Ggr-l1-uqh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P8B-t5-FSQ" secondAttribute="trailing" constant="8" symbolic="YES" id="HiN-Au-a6M"/>
                             <constraint firstItem="HKn-UH-xtG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MrP-Pg-zOe"/>
+                            <constraint firstItem="Fkn-yx-kef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WcF-bY-ezu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P8B-t5-FSQ" secondAttribute="bottom" constant="84" id="Yxw-34-D7G"/>
                             <constraint firstItem="HKn-UH-xtG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="emv-XO-ALK"/>
+                            <constraint firstItem="P8B-t5-FSQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fTm-uY-ejL"/>
                             <constraint firstItem="Ggr-l1-uqh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="mFE-0p-eHl"/>
+                            <constraint firstItem="Fkn-yx-kef" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="sqT-E5-8kq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ggr-l1-uqh" secondAttribute="bottom" constant="94" id="uYv-dc-LGU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

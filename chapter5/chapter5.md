@@ -141,3 +141,9 @@ Safe Areas can update themselves helping developers easier to work with layout c
 Choose the constraint in the document outline view or just click certain constraint, than in the `Attribute inspector` or `Size inspector` menu, you can customize the distance. Or just double-click certain constraint, editing in the pop-over window.
 
 ![EditingConstraints](graph/EditingConstraints.png)
+
+# Exercise
+
+Easy to complete.
+
+![chapter5_exercise](graph/chapter5_exercise.png)
