@@ -98,3 +98,5 @@ And in landscape mode, the image is truncated as well
 ![truncated](../../chapter6/graph/truncated.png)
 
 To fix the first problem, choose the label, and click` Autoshrink` -> `Minimun Font Size`, this tells Xcode to determine the suitable font size so that it can perfectly be displayed.
+
+For the second one, let's see if the tutorial mentions it later.
