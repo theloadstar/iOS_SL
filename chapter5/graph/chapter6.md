@@ -157,3 +157,56 @@ Though vector has the advantage of high quality when scaling up or down, Xcode a
 In iPad Pro 12.9, the change are obvious between image1 and image3.
 
 ![PreservingVectorData](../../chapter6/graph/PreservingVectorData.png)
+
+# Exercise 2
+
+Here is my steps:
+
+* Fisrt, set the background image:
+
+  1. add image view to the View, set the constraints to the for edges of 0.
+  2. To make the image fill in the image view, choose the background view, set the `Content Mode` value to `Scale to Fill` in the `Attribute inspector` menu.
+
+* Next, two text labels:
+
+  1. For `Ask me anything`, set the front to `heavy`, size 40. The otherone is 17
+  2. Make two labels embed in one stack view, set the spaceing to 10
+  3. The numbers mentioned above were thought casually, after preview, adjust the number to `38 18 8` correspondingly.
+
+  ![exercise2_1](../../chapter6/graph/exercise2_1.png)
+
+  ![exercise2_2](../../chapter6/graph/exercise2_2.png)
+
+* Then, the Student&Tutor .
+
+  1. Drag a image view and a Label, set to student relevant, change the color of text
+  2. set these two one stack, change the spacing to 8.
+  3. paste an other one, set to tutor relevant
+  4. embed these two stack one stack view,spacing 37
+  5. Now there two stack left, embed! Then we get one whole stack view.Define constraints: centerX, top=safe area.top
+
+  ![exercise2_3](../../chapter6/graph/exercise2_3.png)
+
+  6. When in landscape mode , the `student tutor` labels are hard to recognize because of color.Simply change it to black in iPhone landscape does not work, since the content of iPhone SE overlapped among black background. So I decide to hide these two labels in iPhone landscape mode.
+
+     ![exercise2_4](../../chapter6/graph/exercise2_4.png)
+
+     results:
+
+     ![exercise2_5](../../chapter6/graph/exercise2_5.png)
+
+* Finally , two buttons.
+
+  1. <font color = "red">NOTICE:</font> These two button can change sizes as the screen changes, so we can't simply set the width&height value of button itself, otherwise, the result will be like this:
+
+     ![exercise2_6](../../chapter6/graph/exercise2_6.png)
+
+  2. Thus, we drag to buttons, embed in one stack view, and <font color = "red">make sure the `Distribution` is set to `Fill Equally`</font>, make constraints: centerX, leading, trailing and bottom
+
+  3. results:
+
+     ![exercise2_7](../../chapter6/graph/exercise2_7.png)
+
+     ![exercise2_8](../../chapter6/graph/exercise2_8.png)
+
+DONE, BMS
