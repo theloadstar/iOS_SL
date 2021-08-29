@@ -147,3 +147,7 @@ Choose the constraint in the document outline view or just click certain constra
 Easy to complete.
 
 ![chapter5_exercise](graph/chapter5_exercise.png)
+
+# Summary
+
+It's just the basics content of Auto-Layout above, the tutorial will explore more as digging deeper.
