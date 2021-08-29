@@ -100,3 +100,52 @@ And in landscape mode, the image is truncated as well
 To fix the first problem, choose the label, and click` Autoshrink` -> `Minimun Font Size`, this tells Xcode to determine the suitable font size so that it can perfectly be displayed.
 
 For the second one, let's see if the tutorial mentions it later.
+
+---
+
+* Add two buttons:
+
+I find the width of two buttons resized after embeded in stack view. At first I add two width constraints of them, then the tutorial says that we can add just one constraint to the button stack view.
+
+---
+
+# Adapting Stack Views Using Size Classes
+
+We now have new problems:
+
+<img src="../../chapter6/graph/orientationproblem.png" alt="orientationproblem" style="zoom:50%;" />
+
+1. the whole stack view is too far from the top.
+2. the middle image overlapped with the bottons.
+
+We need to fix these, <font color = "red">remember that all changes are only works for iPhone ,</font>since iPad looks good.
+
+* New concept: **Adaptive Layout** and **Size Class**
+
+With *Adaptive Layout*, our app can adapt UI to a particular device and device orientation.And *Size Class* is thhe concept to achieve that. *Size Class* identifies two types of dimensions: regular(large) and compact(small). 
+
+![sizeclasses](../../chapter6/graph/sizeclasses.png)
+
+![sizeclasses2](../../chapter6/graph/sizeclasses2.png)
+
+So the reason is clearly: at first the mode is `wC hR`, everything looks good. While changes to `wC hC`, the height is too compact to hold the images and buttons.
+
+Thus, the solution is here: choose the constraint between safe area top and stack view top, in the `Attribute inspector` menu, click the `+` button near the `Constant`. 
+
+![sizeclasses3](../../chapter6/graph/sizeclasses3.png)
+
+Since we only concern the height, set the width to *any*,the height to *compact*, the set the value to 15.
+
+![sizeclasses](../../chapter6/graph/sizeclasses4.png)
+
+Now, the change only takes effect in iPhone landscape mode.Now pay attention to the second problem.
+
+Size classes can also apply for other property, not only constraint.Choose the stack view (the big one that contains image stack), in the `Attribute inspector` menu, click the `+` button near the `Alignment`. set the width to *any*,the height to *compact*, the set the value to `Center`, then the second problem fixed.
+
+---
+
+OK, still got a problem in iPhone SE landscape mode:
+
+![iphonese](../../chapter6/graph/iphonese.png)
+
+One way to solve this one is to hide the "need help" label in all iPhone landscape mode.(Is there any more solutions? ~~No, by far.~~ Yes, just make the two big stack a big one and adjust the dis between. But if do so, the size classes which are the purpose of this chapterare, are useless in this chapter.)Choose the "need help" label and find `Hidden` property in `Attribute inspector`, and set a new size class.
