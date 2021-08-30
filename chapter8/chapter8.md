@@ -32,7 +32,7 @@ As for `Constrain to margins`, here are some answer from stackoverflow:
 
 Here, introducing two classes: `UITableViewDataSource` and `UITableViewDelegate`.The formmer provides the data information, while the latter provides the size (aka apperance) information of tableview. BTW, tableview belongs to class `UITableVIew`. The relation is as following:
 
-![relation](graph/relation.png)
+<span jump id="relation">![relation](graph/relation.png)</span>
 
 Pay attention to the concept <font color = "red">delegation pattern</font>, it's very important in iOS programming.
 
@@ -85,7 +85,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 4. IndexPath？
 5. dequeueReusableCell，这个书上有解释，但没解释其参数语法
 
-经过顺藤摸瓜般的搜索，最终找到了[这篇文章](https://www.jianshu.com/p/b355e2e389bb)，之后，一切便得豁然开朗了起来。
+经过顺藤摸瓜般的搜索，最终找到了[这篇文章](https://www.jianshu.com/p/b355e2e389bb)，之后，一切变得豁然开朗了起来。
 
 Swift的函数语法里，其函数定义时，会有两个参数名：外部参数名与内部参数名，如只有一个参数名，则说明内外部参数名同名。顾名思义，一个在调用的时候外部用，一个在函数内部用。调用的时候，<font color = "red">需要写上外部参数名，不得省略</font>，除非在定义的时候前面有下划线`_` ！如以下代码：
 
@@ -183,5 +183,21 @@ join2("hello", "world", for: "-")
 
 ---
 
+The first method aims to informing the table view the number of rows in a section.The second one aims for getting the current table cell and put corresponding text there.
 
+* mark `?`
+
+  Here, the type of `cell.textLabel` is *optional*, of course we can use `if let` pattern to vertify, alternatively , placing a `?` after has the same effect.
+
+# Connecting D&D
+
+Connecting DataSource and Delegate.
+
+Pay attention to the graph [relation](#relation).The `ViewController` is *Delegate*, so we need to tell `TableView`. Hole `control` and drag from `Table View` to `View Controller`, release and choose both `delegate` `datasource`. Then we can check these connections in `Connections inspector` or just right-click
+
+![connect](graph/connect.png)
+
+![connect](graph/connect2.png)
+
+![connect3](graph/connect3.png)
 
