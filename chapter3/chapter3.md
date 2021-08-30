@@ -94,4 +94,6 @@ layout as follows:
 
   To *Presents a view controller modally.* See [chapter4](../chapter4/chapter4.md)
 
-- [ ] In the line9 of exercise code `selectedbutton.titleLabel?.text`, is the mark `?` means that the `selectedbutton.titleLabel` is a optional type?
+- [x] In the line9 of exercise code `selectedbutton.titleLabel?.text`, is the mark `?` means that the `selectedbutton.titleLabel` is a optional type?
+
+  chapter8's Note answers the question: we can use `if-let` pattern to verify,or just add `?` after .
