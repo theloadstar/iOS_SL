@@ -4,7 +4,7 @@
 
 Advantage:
 
-![advantage](../../chapter7/graph/advantage.png)
+![advantage](../chapter7/graph/advantage.png)
 
 So, when you got an idea, sketch it on paper! You don't need to be an expert in drawing, you just need to visualize your main point.
 
