@@ -13,6 +13,7 @@
 		16F693E126DE1FDC00027AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F693E026DE1FDC00027AE7 /* Assets.xcassets */; };
 		16F693E426DE1FDC00027AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F693E226DE1FDC00027AE7 /* LaunchScreen.storyboard */; };
 		16F693EC26DE233D00027AE7 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693EB26DE233D00027AE7 /* RestaurantTableViewController.swift */; };
+		16F693EE26DE36DD00027AE7 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693ED26DE36DD00027AE7 /* RestaurantTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		16F693E326DE1FDC00027AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16F693E526DE1FDC00027AE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16F693EB26DE233D00027AE7 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		16F693ED26DE36DD00027AE7 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				16F693D926DE1FDB00027AE7 /* SceneDelegate.swift */,
 				16F693DD26DE1FDB00027AE7 /* Main.storyboard */,
 				16F693EB26DE233D00027AE7 /* RestaurantTableViewController.swift */,
+				16F693ED26DE36DD00027AE7 /* RestaurantTableViewCell.swift */,
 				16F693E026DE1FDC00027AE7 /* Assets.xcassets */,
 				16F693E226DE1FDC00027AE7 /* LaunchScreen.storyboard */,
 				16F693E526DE1FDC00027AE7 /* Info.plist */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F693EE26DE36DD00027AE7 /* RestaurantTableViewCell.swift in Sources */,
 				16F693D826DE1FDB00027AE7 /* AppDelegate.swift in Sources */,
 				16F693DA26DE1FDB00027AE7 /* SceneDelegate.swift in Sources */,
 				16F693EC26DE233D00027AE7 /* RestaurantTableViewController.swift in Sources */,

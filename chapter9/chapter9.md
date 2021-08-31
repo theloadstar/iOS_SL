@@ -248,5 +248,12 @@ Not so hard, just adjust the layout of storyboard.
 I'll do this one from scratch, and won't record everything this time.
 
 * When define the constraints of the big stack view, don't check `contraint to margin` this time
+
 * The content mode of imageview is `Aspect Fill`
+
+* do not forget change this line's `let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath)` `withIdentifier` value to datacell !!!
+
+* Label name changes after connections maked
+
+  ![exercise2_1](graph/exercise2_1.png)
 
