@@ -69,13 +69,13 @@ Lock the width and height of image view.
 
 # Update cell data
 
-By default, the class of prototype cell is `UITableViewCell`. And thta's why we can't update data in `RestaurantUITableViewController.swift`, in my understanding. So, we need to create a custom class `RestaurantTableViewCell` for prototype cell like table view controller.Then, we define four var in the class.
+By default, the class of prototype cell is `UITableViewCell`. And that's why we can't update data in `RestaurantUITableViewController.swift`, in my understanding. So, we need to create a custom class `RestaurantTableViewCell` for prototype cell like table view controller.Then, we define four var in the class.
 
 ```sw
 @IBOutlet var nameLabel : UILabel!
-    @IBOutlet var locationLabel : UILabel!
-    @IBOutlet var typeLabel : UILabel!
-    @IBOutlet var thumbnailImageView : UIImageView!
+@IBOutlet var locationLabel : UILabel!
+@IBOutlet var typeLabel : UILabel!
+@IBOutlet var thumbnailImageView : UIImageView!
 ```
 
 ---
@@ -138,5 +138,39 @@ When the connections are done, we will see the changes in the `RestaurantTableVi
 
 （流批，太细了👍，Orz）
 
+# Controller and Cell
 
+Now, let's make a small summary: What's the difference between  `RestauranTableViewController` and `RestaurantTableViewCell` ?
+
+IMU, the former is for controllering the whole tableview, like what to display. The latter is for customing the element's name, like the four labels' name.
+
+# updating the table view controller
+
+![dequeue](graph/dequeue.png)
+
+As the graph shows, the method `dequeueReusableCell` returning type is `UITableViewCell`, we need to convert it to `RestaurantTableViewCell`, which is called `downcasting`. Use `as!` to achieve that.
+
+```
+let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as! RestaurantTableViewCell
+```
+
+---
+
+`as!` and `as?`
+
+> If you're quite sure that the downcasting can perform correctly, use as! to perform the conversion. In case you're not sure if the value of one type can be converted to another, use as? to perform an optional downcasting. You're required to perform additional checking to see if the downcasting is successful or not.
+>
+
+---
+
+Two one lines, easy to understand
+
+```sw
+cell.nameLabel.text = restaurantNames[indexPath.row]
+cell.thumbnailImageView.image = UIImage(named: restaurantNames[indexPath.row])
+```
+
+Let's run! Wow~~\~\~\~\~\~\~\~\~\~\~\~\~\~
+
+<img src="graph/firstresult1.png" alt="firstresult1" style="zoom:30%;" /> <img src="graph/firstresult2.png" alt="firstresult2" style="zoom:30%;" />
 
