@@ -243,5 +243,10 @@ result:
 
 ## 2
 
+Not so hard, just adjust the layout of storyboard.
 
+I'll do this one from scratch, and won't record everything this time.
+
+* When define the constraints of the big stack view, don't check `contraint to margin` this time
+* The content mode of imageview is `Aspect Fill`
 
