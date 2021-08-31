@@ -170,6 +170,8 @@ cell.nameLabel.text = restaurantNames[indexPath.row]
 cell.thumbnailImageView.image = UIImage(named: restaurantNames[indexPath.row])
 ```
 
+<font color = "red">Note</font>:There is no `?` after Label, because we use `!` when defining in `RestaurantTableViewCell`
+
 Let's run! Wow~~\~\~\~\~\~\~\~\~\~\~\~\~\~
 
 <img src="graph/firstresult1.png" alt="firstresult1" style="zoom:30%;" /> <img src="graph/firstresult2.png" alt="firstresult2" style="zoom:30%;" />
@@ -216,6 +218,30 @@ Looks beautiful, right? I think the right one is more beautiful, whose value is 
    ```
 
    Note, code these in `RestaurantTableViewCell.swift`, to achieve ` when an image view is assigned, the didSet code block will be called`
+
+   <font color = "red">If you use both methods,</font> Xcode will use the second, test BMS.
+
+# Exercise
+
+## 1
+
+Easy to complete:
+
+```sw
+var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
+
+var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
+    ...
+    
+cell.locationLabel.text = restaurantLocations[indexPath.row]
+cell.typeLabel.text = restaurantTypes[indexPath.row]
+```
+
+result:
+
+<img src="graph/exercise1result.png" alt="exercise1result" style="zoom:50%;" />
+
+## 2
 
 
 
