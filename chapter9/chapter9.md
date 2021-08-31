@@ -66,3 +66,77 @@ Embed these three as a stack view, embed the stack view and image view as a new 
 `Constrain to margins` is checked so that the contraints are based on the stack view's container: `prototype cell`
 
 Lock the width and height of image view.
+
+# Update cell data
+
+By default, the class of prototype cell is `UITableViewCell`. And thta's why we can't update data in `RestaurantUITableViewController.swift`, in my understanding. So, we need to create a custom class `RestaurantTableViewCell` for prototype cell like table view controller.Then, we define four var in the class.
+
+```sw
+@IBOutlet var nameLabel : UILabel!
+    @IBOutlet var locationLabel : UILabel!
+    @IBOutlet var typeLabel : UILabel!
+    @IBOutlet var thumbnailImageView : UIImageView!
+```
+
+---
+
+Code Explanation:
+
+1. Why is `!` ? Here, we use `!` to indicate that these var must have value when used.
+
+   see [ref](https://www.cnblogs.com/yaozuopan/p/12134404.html)
+
+   > 类的属性
+   >
+   > ```sw
+   > class MyClass {
+   > 	var value: String!
+   > 	var optionalValue: String? // defaulit is nil, 所有定义为可选类型的，可选值都是nil, 和数据类型没有关系。
+   > }
+   > ```
+   >
+   > 在MyClass定义了2个属性：value和optionalValue，其中optionalValue为可选类型；这表示<font color = "red">value在使用之前一定是赋了值的(一定有值)</font>，optionalValue则有可能值缺失。下面先来看看几个代码片段来深入了解感叹号( ! )与问号( ? )之谜
+
+2. What's the difference between `UIImage` and `UIImageView` ?
+
+   Let's put the explanations from official directly:
+
+   ![UIImageView](graph/UIImageView.png)
+
+   ![UIImage](graph/UIImage.png)
+
+   Together with the code in chapter8 (Actually in chapter9 BMS):
+
+   `cell.imageView?.image = UIImage(named: restaurantNames[indexPath.row])`
+
+   Now we can say that `UIImage` aims to managing, while `UIImageVIew` aims to displaying, IMU.
+
+3. `@IBoutlet`: indicate a property that can be connected with a view object in a storyboard, like color, size, title and so on.
+
+   > If you want to change the value or properties of a UI element (e.g. label), <font color = "red">you have to establish a connection between them</font> so that an object in your code can obtain a reference to an object defined in a storyboard.
+   >
+
+   `@IBAction`: indicate an action method
+
+   Both provide an interface exposed to storyboard (between storyboard and source code.)
+
+---
+
+<font color = "red">Set the prototype cell's class to `RestaurantTableViewCell`</font> before establishing the connections.
+
+# Make Connections
+
+It's a little different between `@IBAction` and `@IBoutlet` 's connection establishing.
+
+We know that to make *Action* connections, hold `control` and drag from button to the top menu. Here, we need to right-click `datacell`, which has been defined as `RestaurantTableViewCell` class, than in the pop-over menu, drap from the circle to the coresponding label.
+
+![iboutletconnection](graph/iboutletconnection.png)
+
+When the connections are done, we will see the changes in the `RestaurantTableViewCell` ![Restauranttableviewcellchange](graph/Restauranttableviewcellchange.png)
+
+![Restauranttableviewcellchange2](graph/Restauranttableviewcellchange2.png)
+
+（流批，太细了👍，Orz）
+
+
+

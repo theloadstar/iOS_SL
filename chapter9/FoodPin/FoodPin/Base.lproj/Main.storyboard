@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="datacell" rowHeight="87" id="Rpm-Lg-zte">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="datacell" rowHeight="87" id="Rpm-Lg-zte" customClass="RestaurantTableViewCell" customModule="FoodPin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rpm-Lg-zte" id="hyH-H1-PU2">
@@ -65,6 +65,12 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="OOp-uk-aj3" secondAttribute="trailing" id="naR-VD-rXJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationLabel" destination="Grv-cI-PmY" id="qsG-Ya-yL6"/>
+                                    <outlet property="nameLabel" destination="BdQ-gJ-YKy" id="Q5g-Lt-njP"/>
+                                    <outlet property="thumbnailImageView" destination="ZKN-IM-Pxf" id="BkP-xr-ITv"/>
+                                    <outlet property="typeLabel" destination="HG0-kX-MeI" id="zvl-Zw-WkX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
