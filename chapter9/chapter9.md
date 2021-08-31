@@ -174,3 +174,35 @@ Let's run! Wow~~\~\~\~\~\~\~\~\~\~\~\~\~\~
 
 <img src="graph/firstresult1.png" alt="firstresult1" style="zoom:30%;" /> <img src="graph/firstresult2.png" alt="firstresult2" style="zoom:30%;" />
 
+# Circular Image
+
+> Every view in the UIKit (e.g. UIView, UIImageView) is backed by an instance of the CALayer class (i.e. layer object). The layer object is designed to manage the backing store for the view and handles view-related animations.
+>
+> The layer object provides various attributes that can be set to control the visual content of the view such as:
+>
+> * Background color
+> * Border and border width
+> * Shadow color, width, etc
+> * Opacity
+> * Corner radius
+
+Corner radius is the attribute we need to change.And there are two ways to change it:
+
+1. Storyboard:
+
+   * choose the image view, in the *identify menu*, click `+` button of *User Defined Runtime Attributes*, set the corsponding as the graph. Note that the value should be half of width to make the view circular (to make the result looks better, I reset the number of image view size to 70-70)
+
+     ![circular](graph/circular.png)
+
+   * in *Attribute inspector*, make sure to check `Clip to Bounds`
+
+   * result
+
+     <img src="graph/circularresult.png" alt="circularresult" style="zoom:40%;" /> <img src="graph/circularresult2.png" alt="circularresult" style="zoom:40%;" />
+
+Looks beautiful, right? I think the right one is more beautiful, whose value is 25.（圆角矩形hhh
+
+2. 
+
+
+
