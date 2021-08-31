@@ -202,7 +202,20 @@ Corner radius is the attribute we need to change.And there are two ways to chang
 
 Looks beautiful, right? I think the right one is more beautiful, whose value is 25.（圆角矩形hhh
 
-2. 
+2. Code(prefered):use `didset`.
+
+   > `didSet` is known as a property observer in Swift. As its name suggests, the code block specified in didSet will be called every time a property's value is set. In the code above, when an image view is assigned, the `didSet`  code block will be called to change the corner radius and set the clipsToBounds value to true.
+
+   ```sw
+   @IBOutlet var thumbnailImageView : UIImageView!{
+           didSet{
+               thumbnailImageView.layer.cornerRadius = thumbnailImageView.layer.bounds.width/2.7;
+               thumbnailImageView.clipsToBounds = true;
+           }
+       }
+   ```
+
+   Note, code these in `RestaurantTableViewCell.swift`, to achieve ` when an image view is assigned, the didSet code block will be called`
 
 
 
