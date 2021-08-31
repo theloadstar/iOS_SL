@@ -201,3 +201,48 @@ Pay attention to the graph [relation](#relation).The `ViewController` is *Delega
 
 ![connect3](graph/connect3.png)
 
+result:
+
+<img src="graph/D&Dresult.png" alt="D&Dresult" style="zoom:50%;" />
+
+# Add Thumbnail
+
+Just add one line in the second method:
+
+`cell.imageView?.image = UIImage(name = "restaurant")`
+
+<img src="graph/image_result.png" alt="image_result" style="zoom:50%;" />
+
+# Hide the status bar
+
+Before, I just align the stack view top along with the safe area top so that table view won't overlap with status bar. Now, why not just hide the status bar?
+
+```sw
+override var prefersStatusBarHidden: Bool{
+        return true
+    }
+```
+
+
+
+<img src="graph/hidebar.png" alt="hidebar" style="zoom:50%;" />
+
+<span jump id = "to do">To Do</span>: How to hide the bar as scrollong up and unhide as scrollong down?
+
+
+
+# Exercise
+
+Easy to complete
+
+<img src="graph/exercise.png" alt="exercise" style="zoom:50%;" />
+
+```sw
+var restaurantImages = ["Cafe Deadend", "Homei", "Teakha", "Cafe Loisl", "Petite Oyster", "For Kee Restaurant", "Po's Atelier", "Bourke Street Bakery", "Haigh's Chocolate", "Palomino Espresso", "Upstate", "Traif", "Graham Avenue Meats And Deli", "Waffle & Wolf", "Five Leaves", "Cafe Lore", "Confessional", "Barrafina", "Donostia", "Royal Oak", "CASK Pub and Kitchen"]
+...
+cell.imageView?.image = UIImage(named: restaurantImages[indexPath.row])
+```
+
+# To Do
+
+- [ ] [to-do-1](#to do)
