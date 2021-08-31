@@ -39,3 +39,30 @@ Next one is same as chapter8's exercise.
 
 # Customize Table View Cell
 
+## Design prototype cells
+
+Obviously, we must change the style of prototype cell form `basic` to `custom`. Then , we can change the height of the cell as preferring. Here, I set the height of the cell to `87`, (uncheck `Automatic` )
+
+After this, we can DIY the elements in the prototype cell. Firstly, we drag an `ImageView` to the cell. My own sizes of image are as following:
+
+![imagesize](graph/imagesize.png)
+
+Then, drag three labels:
+
+* Name:change the font of this one to `Text Style Headline`
+
+  ![NameLabel](graph/NameLabel.png)
+
+* Location: Subhead Dark Gray
+
+* Type: Same as Location
+
+  ![threelabels](graph/threelabels.png)
+
+Embed these three as a stack view, embed the stack view and image view as a new stack view.Add four constraints to the stack view.
+
+![fourconstraints](graph/fourconstraints.png)
+
+`Constrain to margins` is checked so that the contraints are based on the stack view's container: `prototype cell`
+
+Lock the width and height of image view.
