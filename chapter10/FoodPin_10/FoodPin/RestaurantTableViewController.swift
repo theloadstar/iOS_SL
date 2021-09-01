@@ -41,17 +41,30 @@ class RestaurantTableViewController: UITableViewController {
         optionMenu.addAction(callAction)
         
         //check-in action
-        let CheckInHandler = { (action:UIAlertAction!) -> Void in
+        /*let CheckInHandler = { (action:UIAlertAction!) -> Void in
 //            let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
         }
         optionMenu.addAction(UIAlertAction(title: "Check In", style: .default, handler: CheckInHandler))
         //uncheck in
-        
+        optionMenu.addAction(UIAlertAction(title: "UnCheck", style: .default, handler: {
+            (action:UIAlertAction!)->Void in
+//            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .none
+        }))*/
+        //two check
+        let CheckHandler = {(action:UIAlertAction!) -> Void in
+            cell?.accessoryType = ((cell?.accessoryType) == UITableViewCell.AccessoryType.none) ? .checkmark : .none
+        }
+        let CheckTitle = ((cell?.accessoryType) == UITableViewCell.AccessoryType.none) ? "Check In" : "Check Out"
+        let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
+        optionMenu.addAction(CheckAction)
         
         optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(optionMenu, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Table view data source

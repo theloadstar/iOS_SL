@@ -66,13 +66,13 @@ let CheckInHandler = { (action:UIAlertAction!) -> Void in
         optionMenu.addAction(UIAlertAction(title: "Check In", style: .default, handler: CheckInHandler))
 ```
 
-<img src="graph/twoactions1.png" alt="twoactions1" style="zoom:25%;" /> <img src="graph/twoactions2.png" alt="twoactions2" style="zoom:25%;" /> <img src="graph/twoactions3.png" alt="twoactions3" style="zoom:25%;" />
+<img src="graph/twoaction.jpg" alt="twoaction" style="zoom:25%;" /> 
 
 ---
 
 DIY TIME
 
-Running the code, I found that if tapping *Check-In*, the check-mark won't dissapear until rerunning. So I code a uncheck action:
+Running the code, I found that if tapping *Check-In*, the check-mark won't dissapear until rerunning. So I code a uncheck action, the Closurepar is embeded.
 
 ```sw
 //uncheck in
@@ -83,3 +83,37 @@ Running the code, I found that if tapping *Check-In*, the check-mark won't dissa
         }))
 ```
 
+![uncheck](graph/uncheck.png)
+
+Futher more, how about display the two-check button dynamically? Let me try.
+
+```sw
+let CheckHandler = {(action:UIAlertAction!) -> Void in
+            cell?.accessoryType = ((cell?.accessoryType) == UITableViewCell.AccessoryType.none) ? .checkmark : .none
+        }
+        let CheckTitle = ((cell?.accessoryType) == UITableViewCell.AccessoryType.none) ? "Check In" : "Check Out"
+        let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
+        optionMenu.addAction(CheckAction)
+```
+
+![uncheck](graph/diy.jpg)
+
+Wow~~
+
+Got two attentions:
+
+1. Both two sides of operator must have spacing!
+2. Like `UITableViewCell.AccessoryType.none`, if you don't know, check the official docs!
+
+---
+
+> For a table view cell, the right part is reserved for an accessory view. There are four types of built-in accessory views including disclosure indicator, detail disclosure button, checkmark and detail.
+>
+
+By far, the row remains highlighted in gray after tapping , use the following line to fix:
+
+```sw
+tableView.deselectRow(at: indexPath, animated: true)
+```
+
+So Funny!
