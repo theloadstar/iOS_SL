@@ -187,6 +187,48 @@ A tiny note: have you notice the key value `self` ? Why add this one? Maybe we j
 
 ![bounds](graph/bounds.png)
 
+# Exercise
+
+## 1
+
+Exercise 1 is DIY BMS.
+
+## 2
+
+Not so hard as well(叉腰).
+
+1. add an imageview in storyboard
+
+2. create a new *@IBoutlet* var `HeartImage`, and make connection with step1
+
+3. Downcast `cell` in func `func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)` to `RestaurantTableViewCell`
+
+4. comment line 65 in `RestaurantTableViewController` and add this line:
+
+   ```sw
+   cell.HeartImage.image = ((self.RestaurantisChecked[indexPath.row]) == false) ? UIImage(named: "heart-tick") : .none
+   ```
+
+   `nil` is Okey as well
+
+5. comment line 101 and add this to update *dequeueReusableCell*:
+
+   ```sw
+   cell.HeartImage.image = (RestaurantisChecked[indexPath.row] == false) ? nil : UIImage(named: "heart-tick")
+   ```
+
+![exercise2result](graph/exercise2result.png)
+
+Perfect!
+
+BTW, my first trial was set the name of new imageView to "heart-tick" directly, leading displaying the image in every cell whether Check In/Out
+
+My second attemp excludes step 3&4, causing only displaying the image after scrolling🤣
+
+---
+
+Oh-My-Gosh, the stand answer just using the property `isHidden` ! In fact, my first thought is the same, but I can't find the name of this preperty!🤦‍♂️
+
 # To Do
 
 - [ ] self and closure, weak self ? hard self ? capture closure?
