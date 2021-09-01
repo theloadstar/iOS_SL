@@ -257,3 +257,34 @@ I'll do this one from scratch, and won't record everything this time.
 
   ![exercise2_1](graph/exercise2_1.png)
 
+---
+
+I got a problem when I finish exercise2:
+
+如图，有字段会被省去，即无法从右向左排列。~~后来经过与标准答案的对比，以及自己的思索，发现了问题所在。~~想错了，并不是spacing的问题。
+
+<img src="graph/exercise2problem1.png" alt="exercise2problem1" style="zoom:50%;" />
+
+我的stack view的结构如下图所示：
+
+![image-20210831220758526](graph/exercise2stackview.png)
+
+~~即先是Name与posion为一个水平stack view，之后再与下面的type为一个纵向stack view。这样会出现什么问题？？？~~
+
+~~水平stack view之间会有间隙Spacing！！！而且这个间隙不是动态变化的，设置以后始终都是这个值！！！这就意味着这里的水平stackview设置了固定的间隙，两个Label一定要满足这个spacing~~
+
+对于水平方向的stack view，要想实现根据屏幕尺寸自动布局，就必须<font color = "red">设置水平方向的contraints</font>。所以，自己的作答里，先水平再竖直，水平方向上需要设立相对于superview，即竖直stack的contraint。之后竖直stack设立四个constraints；标答里先竖直再水平，只需水平设置四个contraints，这样水平方向的contraints（尤其是trailing方向的）就兼顾了自己作答里水平stack与竖直stack尾端contraint的作用，故contraints总数少了一个。
+
+<font color = "red">每个contraint的superview都是其嵌套的view，故设立多个stackview嵌套时，会不可避免地需要设立多组contraints</font>。因此最好在设计之初就遵循以下原则尽量少嵌套stackview
+
+总结就是那个方向需要变化，就将这个方向的stack作为最大的stack以减少contraints的数量。比如这里name和location需要根据屏幕尺寸水平缩放，故最好像表达那样将水平stack作为较大的stack。
+
+还遇到一个问题：图片的宽度不会变。这里也就需要对图片进行contraints。<font color = "red">不要滥用stack view</font>，像这里的image完全可以独立出来。当然，放进stack view也没问题。<font color = "red">最外侧的view需要设立四周的contraints</font>，故放进stack时最大的stack需要多设立一个top contraint（加上上面提到的水平右侧constraint，总共多两个）；不放进时，最外层由image+stack构成，image设立上左右，stack设立上下左右。放进去时，由于image是左右到顶的，而下面三个标签不是，需要重新设计contraints，较为繁琐。
+
+一个原则，哪个需要缩放就对哪个设立contraints，例如上面提到的name与position构成的水平stack、image
+
+result：
+
+![exercise2result](graph/exercise2result.png)
+
+![exercise2result2](graph/exercise2result2.png)
