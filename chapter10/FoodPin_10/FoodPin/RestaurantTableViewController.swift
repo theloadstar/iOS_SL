@@ -20,7 +20,7 @@ class RestaurantTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.cellLayoutMarginsFollowReadableWidth = true;
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,6 +33,12 @@ class RestaurantTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)
         
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        if let popoverController = optionMenu.popoverPresentationController{
+            if let cell = tableView.cellForRow(at: indexPath){
+                popoverController.sourceView = cell
+                popoverController.sourceRect = cell.bounds
+            }
+        }
         // call action
         let callActionHandler = { (action:UIAlertAction!) -> Void in
             let alertMessage = UIAlertController(title: "Servise Unavailable", message: "This Servise is not ready yet", preferredStyle: .alert)

@@ -156,9 +156,36 @@ A tiny note: have you notice the key value `self` ? Why add this one? Maybe we j
 
 这一点似乎与强引用有关，目前我们先理解为这样使用能够改变闭包外变量的值。加入To-Do中
 
+# Crash! On iPad
 
+1. The cells look too long on iPad, especially in lanscape mode.Use this is `viewDidLoad`
 
+   ```
+   tableView.cellLayoutMarginsFollowReadableWidth = true;
+   ```
 
+   ![iPadlayout](graph/iPadlayout.jpg)
+
+2. Crash when we tap any of the cells. This is because iOS uses different presentation style on iPad. We must provide call-location info to use pop-over present style.To fix that, add these code lines:
+
+   ```sw
+   if let popoverController = optionMenu.popoverPresentationController{
+               if let cell = tableView.cellForRow(at: indexPath){
+                   popoverController.sourceView = cell
+                   popoverController.sourceRect = cell.bounds
+               }
+           }
+   ```
+
+   Explanations:
+
+   > When the app is run on iPhone, the popoverPresentationController property of the alert controller (i.e optionMenu) is set to nil. Conversely, it will store the popover presentation controller when the app is run on iPad. Therefore, we use if let to check if the popoverPresentationController property has a value. If yes, we configure its sourceView to the cell that triggers the action. Optionally, we set the sourceRect property to the cell's bounds, so that the popover will be originated from the center of the cell.
+
+   ![sourceview](graph/sourceview.png)
+
+![sourcerect](graph/sourcerect.png)
+
+![bounds](graph/bounds.png)
 
 # To Do
 
