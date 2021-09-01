@@ -16,6 +16,8 @@ class RestaurantTableViewController: UITableViewController {
 
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
+    var RestaurantisChecked = Array(repeating: false, count: 21)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,9 +56,10 @@ class RestaurantTableViewController: UITableViewController {
         }))*/
         //two check
         let CheckHandler = {(action:UIAlertAction!) -> Void in
-            cell?.accessoryType = ((cell?.accessoryType) == UITableViewCell.AccessoryType.none) ? .checkmark : .none
+            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
+            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
         }
-        let CheckTitle = ((cell?.accessoryType) == UITableViewCell.AccessoryType.none) ? "Check In" : "Check Out"
+        let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
         let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
         optionMenu.addAction(CheckAction)
         
@@ -88,6 +91,7 @@ class RestaurantTableViewController: UITableViewController {
         cell.thumbnailImageView.image = UIImage(named: restaurantNames[indexPath.row])
         cell.locationLabel.text = restaurantLocations[indexPath.row]
         cell.typeLabel.text = restaurantTypes[indexPath.row]
+        cell.accessoryType = (RestaurantisChecked[indexPath.row] == false) ? .none : .checkmark
         
         return cell
     }

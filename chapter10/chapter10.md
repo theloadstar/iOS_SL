@@ -117,3 +117,49 @@ tableView.deselectRow(at: indexPath, animated: true)
 ```
 
 So Funny!
+
+# Bug
+
+When we *Check In* a restaurant, we'll find some other one checked as well. This is because we use `dequeueReusableCell`. In our code, we only update the image view and labels when the table view reuses the same cell. The accessory view is not updated.
+
+So, the solution is clear. We need to track the checked items and update the reusablecell.
+
+First, declare an array:
+
+```sw
+var RestaurantisChecked = Array(repeating: false, count: 21)
+```
+
+Then, we can change our DIY code like this:
+
+```sw
+...
+let CheckHandler = {(action:UIAlertAction!) -> Void in
+            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
+            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+        }
+        let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
+...
+```
+
+BTW, we can just add line4 and leave others as they are.
+
+Finally, we can update `dequeueReusableCell`
+
+```sw
+cell.accessoryType = (RestaurantisChecked[indexPath.row] == false) ? .none : .checkmark
+```
+
+Bug Fixed !!! 🥳
+
+A tiny note: have you notice the key value `self` ? Why add this one? Maybe we just understand this as a rule:![selfcl](graph/selfcl.png)
+
+这一点似乎与强引用有关，目前我们先理解为这样使用能够改变闭包外变量的值。加入To-Do中
+
+
+
+
+
+# To Do
+
+- [ ] self and closure, weak self ? hard self ? capture closure?
