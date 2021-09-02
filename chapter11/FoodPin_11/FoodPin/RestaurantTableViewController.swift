@@ -102,15 +102,40 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            restaurantNames.remove(at: indexPath.row)
-            RestaurantisChecked.remove(at: indexPath.row)
-            restaurantTypes.remove(at: indexPath.row)
-            restaurantLocations.remove(at: indexPath.row)
-            
+    // swipe for deletion
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            restaurantNames.remove(at: indexPath.row)
+//            RestaurantisChecked.remove(at: indexPath.row)
+//            restaurantTypes.remove(at: indexPath.row)
+//            restaurantLocations.remove(at: indexPath.row)
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){ (action, sourceView, completionHandler) in
+            //delete row
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantLocations.remove(at: indexPath.row)
+            self.restaurantTypes.remove(at: indexPath.row)
+            self.RestaurantisChecked.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            //dismiss the action button
+            completionHandler(true)
         }
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share"){(action, sourceView, completionhandler) in
+            let defaultText = "Just Checking in at " + self.restaurantNames[indexPath.row]
+            let activilityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            self.present(activilityController, animated: true, completion: nil)
+            
+            completionhandler(true)
+        }
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        return swipeConfiguration
     }
     
     override var prefersStatusBarHidden: Bool{
