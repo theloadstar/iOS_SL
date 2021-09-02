@@ -133,3 +133,26 @@ results:
 <img src="graph/shareimage.jpg" alt="shareimage"  />
 
 Note the difference between the share view with the former one.
+
+# SF Symbols
+
+>  integrate seamlessly with the San Francisco system font
+
+As long as our devices run iOS 13, we can use this Symbols. And Apple provides a Mac app *SF Symbols* for developers to explore the symbols.
+
+![SFSymbols](graph/SFSymbols.png)
+
+Now we can use the symbols to customize our swipe-left buttons.Just add `.image` of `UIContextualAction` like this:
+
+```sw
+deleteAction.backgroundColor = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)
+deleteAction.image = UIImage(systemName: "trash")
+```
+
+As for `UIColor`, easy to understand. We can get color RGB value from [Adobe](https://color.adobe.com/zh/create/color-wheel) or [Flat](https://www.flatuicolorpicker.com/orange-rgb-color-model/)
+
+This section I did'n download the zip file the tutorial mentions, which is blank after unzipping.
+
+![SFSymbolsRE](graph/SFSymbolsRE.png)
+
+The system name can get from *SF Symbols* Mac App.
