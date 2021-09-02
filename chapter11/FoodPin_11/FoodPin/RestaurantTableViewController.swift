@@ -102,6 +102,17 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            restaurantNames.remove(at: indexPath.row)
+            RestaurantisChecked.remove(at: indexPath.row)
+            restaurantTypes.remove(at: indexPath.row)
+            restaurantLocations.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override var prefersStatusBarHidden: Bool{
         return true
     }
