@@ -156,3 +156,10 @@ This section I did'n download the zip file the tutorial mentions, which is blank
 ![SFSymbolsRE](graph/SFSymbolsRE.png)
 
 The system name can get from *SF Symbols* Mac App.
+
+# Crash Again !!! On iPad...(;´༎ຶД༎ຶ`)
+
+<font color = "red">Remember</font>: everytime we code a **view controller**, think about **popoverview** !
+
+# Exercise
+
