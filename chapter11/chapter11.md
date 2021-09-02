@@ -163,4 +163,17 @@ The system name can get from *SF Symbols* Mac App.
 
 # Exercise
 
-Honestly speaking, I like this exercise, which is a bit challenging
+Honestly speaking, I like this exercise, which is a bit challenging.
+
+Okey, here it comes:
+
+1. Let's take *heart-tick* image back like exercise2 of last chapter, using `.isHidden` this time~
+
+   ```sw
+   self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+               cell.HeartImageView.isHidden = !(self.RestaurantisChecked[indexPath.row])
+   ```
+
+   <font color = "red">Pay attition to these two lines sequence !!!</font>
+
+2. 

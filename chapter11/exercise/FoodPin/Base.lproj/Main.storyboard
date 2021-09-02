@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="59C-ZM-o74">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +33,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="2ya-pP-rU9">
-                                                    <rect key="frame" x="85" y="0.0" width="283" height="65"/>
+                                                    <rect key="frame" x="85" y="0.0" width="246" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdQ-gJ-YKy">
                                                             <rect key="frame" x="0.0" y="0.0" width="47" height="19.5"/>
@@ -55,7 +55,13 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-tick" translatesAutoresizingMaskIntoConstraints="NO" id="2MD-dW-gA2">
+                                                    <rect key="frame" x="346" y="0.0" width="22" height="65"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2MD-dW-gA2" firstAttribute="centerY" secondItem="OOp-uk-aj3" secondAttribute="centerY" id="VhI-2a-K67"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -66,6 +72,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="HeartImageView" destination="2MD-dW-gA2" id="gWT-NR-TF4"/>
                                     <outlet property="locationLabel" destination="Grv-cI-PmY" id="qsG-Ya-yL6"/>
                                     <outlet property="nameLabel" destination="BdQ-gJ-YKy" id="Q5g-Lt-njP"/>
                                     <outlet property="thumbnailImageView" destination="ZKN-IM-Pxf" id="BkP-xr-ITv"/>
@@ -84,4 +91,7 @@
             <point key="canvasLocation" x="65" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart-tick" width="22" height="21"/>
+    </resources>
 </document>

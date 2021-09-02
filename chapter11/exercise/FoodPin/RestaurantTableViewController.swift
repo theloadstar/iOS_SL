@@ -30,7 +30,7 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // current cell
-        let cell = tableView.cellForRow(at: indexPath)
+        let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
         
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
         if let popoverController = optionMenu.popoverPresentationController{
@@ -47,23 +47,11 @@ class RestaurantTableViewController: UITableViewController {
         }
         let callAction = UIAlertAction(title: "Call"+"123-000-\(indexPath.row+1)", style: .default, handler: callActionHandler)
         optionMenu.addAction(callAction)
-        
-        //check-in action
-        /*let CheckInHandler = { (action:UIAlertAction!) -> Void in
-//            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-        }
-        optionMenu.addAction(UIAlertAction(title: "Check In", style: .default, handler: CheckInHandler))
-        //uncheck in
-        optionMenu.addAction(UIAlertAction(title: "UnCheck", style: .default, handler: {
-            (action:UIAlertAction!)->Void in
-//            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .none
-        }))*/
         //two check
         let CheckHandler = {(action:UIAlertAction!) -> Void in
-            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
+//            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
             self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+            cell.HeartImageView.isHidden = !(self.RestaurantisChecked[indexPath.row])
         }
         let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
         let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
@@ -75,45 +63,7 @@ class RestaurantTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return restaurantNames.count
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as! RestaurantTableViewCell
-//        cell.textLabel?.text = restaurantNames[indexPath.row]
-//        cell.imageView?.image = UIImage(named: restaurantNames[indexPath.row])
-        cell.nameLabel.text = restaurantNames[indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: restaurantNames[indexPath.row])
-        cell.locationLabel.text = restaurantLocations[indexPath.row]
-        cell.typeLabel.text = restaurantTypes[indexPath.row]
-        cell.accessoryType = (RestaurantisChecked[indexPath.row] == false) ? .none : .checkmark
-        
-        return cell
-    }
-    
-    // swipe for deletion
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            restaurantNames.remove(at: indexPath.row)
-//            RestaurantisChecked.remove(at: indexPath.row)
-//            restaurantTypes.remove(at: indexPath.row)
-//            restaurantLocations.remove(at: indexPath.row)
-//
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
-    
+    //swipe to left
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){ (action, sourceView, completionHandler) in
             //delete row
@@ -155,6 +105,44 @@ class RestaurantTableViewController: UITableViewController {
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
         return swipeConfiguration
     }
+    //swipe to right
+    
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return restaurantNames.count
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as! RestaurantTableViewCell
+        cell.nameLabel.text = restaurantNames[indexPath.row]
+        cell.thumbnailImageView.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.locationLabel.text = restaurantLocations[indexPath.row]
+        cell.typeLabel.text = restaurantTypes[indexPath.row]
+        cell.HeartImageView.isHidden = !(self.RestaurantisChecked[indexPath.row])
+        
+        return cell
+    }
+    
+    // swipe for deletion
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            restaurantNames.remove(at: indexPath.row)
+//            RestaurantisChecked.remove(at: indexPath.row)
+//            restaurantTypes.remove(at: indexPath.row)
+//            restaurantLocations.remove(at: indexPath.row)
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
     override var prefersStatusBarHidden: Bool{
         return true
