@@ -112,3 +112,24 @@ override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurat
   > The set of actions to perform when swiping on rows of a table.
   >
   > Create a `UISwipeActionsConfiguration` object to associate custom swipe actions with a row of your table view. 
+
+In addition to share text content, we can also share an image like this:
+
+```sw
+let activilityController : UIActivityViewController
+            if let shareImage = UIImage(named: self.restaurantNames[indexPath.row]){
+                activilityController = UIActivityViewController(activityItems: [defaultText, shareImage], applicationActivities: nil)
+            }
+            else {
+                activilityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
+            self.present(activilityController, animated: true, completion: nil)
+```
+
+(最基本的编程常识还是得有的啊，怎么能直接在if-else里定义activityController呢🤦‍♂️)
+
+results:
+
+<img src="graph/shareimage.jpg" alt="shareimage"  />
+
+Note the difference between the share view with the former one.
