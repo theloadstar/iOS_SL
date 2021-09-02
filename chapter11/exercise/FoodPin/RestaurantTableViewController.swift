@@ -30,7 +30,7 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // current cell
-        let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+//        let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
         
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
         if let popoverController = optionMenu.popoverPresentationController{
@@ -48,15 +48,15 @@ class RestaurantTableViewController: UITableViewController {
         let callAction = UIAlertAction(title: "Call"+"123-000-\(indexPath.row+1)", style: .default, handler: callActionHandler)
         optionMenu.addAction(callAction)
         //two check
-        let CheckHandler = {(action:UIAlertAction!) -> Void in
-//            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
-            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
-            cell.HeartImageView.isHidden = !(self.RestaurantisChecked[indexPath.row])
-        }
-        let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
-        let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
-        optionMenu.addAction(CheckAction)
-        
+//        let CheckHandler = {(action:UIAlertAction!) -> Void in
+////            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
+//            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+//            cell.HeartImageView.isHidden = !(self.RestaurantisChecked[indexPath.row])
+//        }
+//        let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
+//        let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
+//        optionMenu.addAction(CheckAction)
+//
         optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(optionMenu, animated: true, completion: nil)
@@ -106,7 +106,18 @@ class RestaurantTableViewController: UITableViewController {
         return swipeConfiguration
     }
     //swipe to right
-    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let CheckInAction = UIContextualAction(style: .normal, title: nil){(action, sourceView, completionHandler) in
+            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+            let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+            cell.HeartImageView.isHidden = !self.RestaurantisChecked[indexPath.row]
+            completionHandler(true)
+        }
+        CheckInAction.backgroundColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1.0)
+        CheckInAction.image = UIImage(systemName: (RestaurantisChecked[indexPath.row] ? "arrow.uturn.left" : "checkmark"))
+        let swipConfig = UISwipeActionsConfiguration(actions: [CheckInAction])
+        return swipConfig
+    }
 
     // MARK: - Table view data source
 

@@ -176,4 +176,25 @@ Okey, here it comes:
 
    <font color = "red">Pay attition to these two lines sequence !!!</font>
 
-2. 
+2. Code `leadingswipe` func
+
+   ```sw
+   override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+           let CheckInAction = UIContextualAction(style: .normal, title: nil){(action, sourceView, completionHandler) in
+               self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+               let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+               cell.HeartImageView.isHidden = !self.RestaurantisChecked[indexPath.row]
+               completionHandler(true)
+           }
+           CheckInAction.backgroundColor = UIColor(red: 38/255, green: 166/255, blue: 91/255, alpha: 1.0)
+           CheckInAction.image = UIImage(systemName: (RestaurantisChecked[indexPath.row] ? "arrow.uturn.left" : "checkmark"))
+           let swipConfig = UISwipeActionsConfiguration(actions: [CheckInAction])
+           return swipConfig
+       }
+   ```
+
+3. result:
+
+   ![exercisere](graph/exercisere.gif)
+
+4. Finally, let's delete the `Check In` alert menu.
