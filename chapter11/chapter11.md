@@ -163,3 +163,4 @@ The system name can get from *SF Symbols* Mac App.
 
 # Exercise
 
+Honestly speaking, I like this exercise, which is a bit challenging
