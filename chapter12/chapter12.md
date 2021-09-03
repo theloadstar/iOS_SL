@@ -99,4 +99,6 @@ So the question why can't assign value to `NameLabel`  `TypeLabel` and `Location
 
 # To Do
 
-- [ ] Exercise
+- [ ] Exercise:
+
+  这个问题，我个人的理解是，cell那个类，cell本身在创建之前已经存在，故所有的var已经有了对应的value；而destination则不然。但是，[stackoverflow](https://stackoverflow.com/questions/32170456/what-does-fatal-error-unexpectedly-found-nil-while-unwrapping-an-optional-valu)上的动图里也用的是reusablecell，也产生的这个错误，所以就不是很明白了
