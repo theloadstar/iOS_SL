@@ -131,18 +131,6 @@ class RestaurantTableViewController: UITableViewController {
         
         return cell
     }
-    
-    // swipe for deletion
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            restaurantNames.remove(at: indexPath.row)
-//            RestaurantisChecked.remove(at: indexPath.row)
-//            restaurantTypes.remove(at: indexPath.row)
-//            restaurantLocations.remove(at: indexPath.row)
-//
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
     //hide status bar
 //    override var prefersStatusBarHidden: Bool{
 //        return true
@@ -194,6 +182,9 @@ class RestaurantTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationController = segue.destination as! RestaurantDetailViewController
                 destinationController.restaurantImageName = restaurantNames[indexPath.row]
+                destinationController.namelabelname = restaurantNames[indexPath.row]
+                destinationController.typename = restaurantTypes[indexPath.row]
+                destinationController.locationname = restaurantLocations[indexPath.row]
             }
         }
     }

@@ -77,3 +77,26 @@ Finally, we can disable the `Large Title` in detail view controller in `viewdidl
 navigationItem.largeTitleDisplayMode = .never
 ```
 
+# Exercise
+
+I wonder why can't I code like `RestaurantTableViewCell`?
+
+```
+// in REstaurantTableViewController
+destinationController.NameLabel.text = restaurantNames[indexPath.row]
+                destinationController.TypeLabel.text = restaurantTypes[indexPath.row]
+                destinationController.LocationLabel.text = restaurantLocations[indexPath.row]
+                
+// in RestaurantTableDeatilView
+@IBOutlet var NameLabel : UILabel!
+@IBOutlet var TypeLabel : UILabel!
+@IBOutlet var LocationLabel : UILabel!
+```
+
+I didn't define names of three new var, and the app carshed when running.
+
+So the question why can't assign value to `NameLabel`  `TypeLabel` and `LocationLabel` directly like vars in `RestaurantTableViewCell` ?
+
+# To Do
+
+- [ ] Exercise
