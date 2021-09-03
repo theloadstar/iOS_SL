@@ -11,20 +11,11 @@ import UIKit
 class RestaurantDetailViewController: UIViewController {
 
     var restaurant = Restaurant()
-    @IBOutlet var restaurantImageView : UIImageView!
-    @IBOutlet var NameLabel : UILabel!
-    @IBOutlet var TypeLabel : UILabel!
-    @IBOutlet var LocationLabel : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        navigationItem.largeTitleDisplayMode = .always
-        restaurantImageView.image = UIImage(named: restaurant.image)
-        NameLabel.text = restaurant.name
-        TypeLabel.text = restaurant.type
-        LocationLabel.text = restaurant.location
     }
     
 
