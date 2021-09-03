@@ -29,53 +29,40 @@ class RestaurantTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     // MARK: - Table view Delegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // current cell
-        let cell = tableView.cellForRow(at: indexPath)
-        
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-        if let popoverController = optionMenu.popoverPresentationController{
-            if let cell = tableView.cellForRow(at: indexPath){
-                popoverController.sourceView = cell
-                popoverController.sourceRect = cell.bounds
-            }
-        }
-        // call action
-        let callActionHandler = { (action:UIAlertAction!) -> Void in
-            let alertMessage = UIAlertController(title: "Servise Unavailable", message: "This Servise is not ready yet", preferredStyle: .alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertMessage, animated: true, completion: nil)
-        }
-        let callAction = UIAlertAction(title: "Call"+"123-000-\(indexPath.row+1)", style: .default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-        
-        //check-in action
-        /*let CheckInHandler = { (action:UIAlertAction!) -> Void in
-//            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-        }
-        optionMenu.addAction(UIAlertAction(title: "Check In", style: .default, handler: CheckInHandler))
-        //uncheck in
-        optionMenu.addAction(UIAlertAction(title: "UnCheck", style: .default, handler: {
-            (action:UIAlertAction!)->Void in
-//            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .none
-        }))*/
-        //two check
-        let CheckHandler = {(action:UIAlertAction!) -> Void in
-            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
-            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
-        }
-        let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
-        let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
-        optionMenu.addAction(CheckAction)
-        
-        optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        present(optionMenu, animated: true, completion: nil)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // current cell
+//        let cell = tableView.cellForRow(at: indexPath)
+//        
+//        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+//        if let popoverController = optionMenu.popoverPresentationController{
+//            if let cell = tableView.cellForRow(at: indexPath){
+//                popoverController.sourceView = cell
+//                popoverController.sourceRect = cell.bounds
+//            }
+//        }
+//        // call action
+//        let callActionHandler = { (action:UIAlertAction!) -> Void in
+//            let alertMessage = UIAlertController(title: "Servise Unavailable", message: "This Servise is not ready yet", preferredStyle: .alert)
+//            alertMessage.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//            self.present(alertMessage, animated: true, completion: nil)
+//        }
+//        let callAction = UIAlertAction(title: "Call"+"123-000-\(indexPath.row+1)", style: .default, handler: callActionHandler)
+//        optionMenu.addAction(callAction)
+//        //two check
+//        let CheckHandler = {(action:UIAlertAction!) -> Void in
+//            cell?.accessoryType = ((self.RestaurantisChecked[indexPath.row]) == false) ? .checkmark : .none
+//            self.RestaurantisChecked[indexPath.row] = !self.RestaurantisChecked[indexPath.row]
+//        }
+//        let CheckTitle = ((self.RestaurantisChecked[indexPath.row]) == false) ? "Check In" : "Check Out"
+//        let CheckAction = UIAlertAction(title: CheckTitle, style: .default, handler: CheckHandler)
+//        optionMenu.addAction(CheckAction)
+//        
+//        optionMenu.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        
+//        present(optionMenu, animated: true, completion: nil)
+//        
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){ (action, sourceView, completionHandler) in
@@ -196,14 +183,20 @@ class RestaurantTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showRestaurantDetail"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let destinationController = segue.destination as! RestaurantDetailViewController
+                destinationController.restaurantImageName = restaurantNames[indexPath.row]
+            }
+        }
     }
-    */
+    
 
 }

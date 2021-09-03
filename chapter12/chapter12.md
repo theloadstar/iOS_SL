@@ -48,3 +48,32 @@ The connection is easy to establish. Select `datacell`, hold `control` and drag 
 * **Present as popover** - Present the content as a popover anchored to an existing view. Popover is commonly found in iPad apps, and you have already implemented popover in earlier chapters.
 
 In my testing, I can't find the difference between 2 and 3 by now, and 4 built failed....
+
+# Create RestaurantDetailViewController
+
+After create this Class, we need to create `restaurantImageName` to pass the image name, and `restaurantImageView` to display the image, which is an outlet.Then, make a connection.Next, add `restaurantImageView.image = UIImage(named: restaurantImageName)` in `viewDidLoad()`
+
+# Pass data Using Segues
+
+> When a segue is triggered, before the visual transition occurs, the storyboard runtime notifies the source view controller (i.e. RestaurantTableViewController) by calling the `prepare(for:sender:)` method:
+>
+> ``` 
+> func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+> 
+> }
+> ```
+>
+> By overriding the method, you can pass any relevant data to the new controller, which is `RestaurantDetailViewController` in our project.
+
+It is very likely that we will have more than one segue between view controllers. Thus, the best way is to give each segue a unique identifier in storyboard.
+
+Then, we got detail view like this:
+
+![detailviewre](graph/detailviewre.gif)
+
+Finally, we can disable the `Large Title` in detail view controller in `viewdidload` func in `RestaurantDetailView.swift`
+
+```sw
+navigationItem.largeTitleDisplayMode = .never
+```
+

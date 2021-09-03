@@ -71,7 +71,7 @@
                                     <outlet property="nameLabel" destination="BdQ-gJ-YKy" id="Q5g-Lt-njP"/>
                                     <outlet property="thumbnailImageView" destination="ZKN-IM-Pxf" id="BkP-xr-ITv"/>
                                     <outlet property="typeLabel" destination="HG0-kX-MeI" id="zvl-Zw-WkX"/>
-                                    <segue destination="lX3-EX-elA" kind="show" id="np4-LS-qVB"/>
+                                    <segue destination="lX3-EX-elA" kind="show" identifier="showRestaurantDetail" id="np4-LS-qVB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="973.91304347826099" y="132.58928571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--Restaurant Detail View Controller-->
         <scene sceneID="OjM-Yz-22v">
             <objects>
-                <viewController id="lX3-EX-elA" sceneMemberID="viewController">
+                <viewController id="lX3-EX-elA" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rHW-Zh-LLl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,6 +108,9 @@
                         <viewLayoutGuide key="safeArea" id="xjG-Cz-FxH"/>
                     </view>
                     <navigationItem key="navigationItem" id="sJd-om-PDK"/>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="kfA-Mv-Z4c" id="w5B-dn-uXs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOl-KJ-sEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
