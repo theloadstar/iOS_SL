@@ -87,3 +87,11 @@ By now, we have refactored our code by defining a new class `Restaurant`
 # Organizing Your Xcode Project Files
 
 Use Xcode's *group* feature to organize our files.Just click a file and right-click -> new group
+
+![organizefiles](graph/organizefiles.png)
+
+# organize our code
+
+use `// MARK: -`
+
+![MARK](graph/MARK.png)

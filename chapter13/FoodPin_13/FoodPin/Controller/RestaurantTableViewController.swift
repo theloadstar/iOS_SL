@@ -40,7 +40,7 @@ class RestaurantTableViewController: UITableViewController {
         Restaurant(name: "Royal Oak", type: "British", location: "London", image: "royaloak", isVisited: false),
         Restaurant(name: "CASK Pub and Kitchen", type: "Thai", location: "London", image: "caskpubkitchen", isVisited: false)
     ]
-    
+    // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true;
