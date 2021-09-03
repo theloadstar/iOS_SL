@@ -16,3 +16,74 @@ Class is easy to understand, and **Objects** represent all the **instance** of o
 
 # Create a brand new Class
 
+We can create a brand class to store the array info in `RestaurantTableViewController`
+
+This time, create a `Swift File` rather than `Cocoa Touch Class`.
+
+```sw
+class Restaurant {
+    var name : String
+    var type : String
+    var location : String
+    var image : String
+    var isVisited : String
+    
+    init(name: String, type: String, location: String, image: String, isVisited: String) {
+        self.name = name
+        self.type = type
+        self.location = location
+        self.image = image
+        self.isVisited = isVisited
+    }
+    
+    convenience init(){
+        self.init(name: "", type: "", location: "", image: "", isVisited: "")
+    }
+}
+```
+
+The first **init** func is called `Designated Initializer`, while the second is called as its name.Then , replace current arrays with `Restaurant` Class arrays.（这可是个大工程，直接CV了🤦‍♂️BTW，refer里的图片名都是小写，自己的示例里都是大写，得替换一下。。。）
+
+Next, adjust the *Red Error* code.
+
+Besides, we need to change `RestaurantDetailViewController` as well.
+
+```sw
+var restaurant = Restaurant()
+    @IBOutlet var restaurantImageView : UIImageView!
+    @IBOutlet var NameLabel : UILabel!
+    @IBOutlet var TypeLabel : UILabel!
+    @IBOutlet var LocationLabel : UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        navigationItem.largeTitleDisplayMode = .always
+        restaurantImageView.image = UIImage(named: restaurant.image)
+        NameLabel.text = restaurant.name
+        TypeLabel.text = restaurant.type
+        LocationLabel.text = restaurant.location
+    }
+```
+
+After this, the **Navigation** part of `RestaurantTableViewController` will be like this:
+
+```sw
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showRestaurantDetail"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let destinationController = segue.destination as! RestaurantDetailViewController
+                destinationController.restaurant = restaurants[indexPath.row]
+            }
+        }
+    }
+```
+
+By now, we have refactored our code by defining a new class `Restaurant`
+
+# Organizing Your Xcode Project Files
+
+Use Xcode's *group* feature to organize our files.Just click a file and right-click -> new group

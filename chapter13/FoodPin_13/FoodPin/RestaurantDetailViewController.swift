@@ -10,10 +10,7 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController {
 
-    var restaurantImageName = ""
-    var namelabelname = ""
-    var typename = ""
-    var locationname = ""
+    var restaurant = Restaurant()
     @IBOutlet var restaurantImageView : UIImageView!
     @IBOutlet var NameLabel : UILabel!
     @IBOutlet var TypeLabel : UILabel!
@@ -24,10 +21,10 @@ class RestaurantDetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         navigationItem.largeTitleDisplayMode = .always
-        restaurantImageView.image = UIImage(named: restaurantImageName)
-        NameLabel.text = namelabelname
-        TypeLabel.text = typename
-        LocationLabel.text = locationname
+        restaurantImageView.image = UIImage(named: restaurant.image)
+        NameLabel.text = restaurant.name
+        TypeLabel.text = restaurant.type
+        LocationLabel.text = restaurant.location
     }
     
 
