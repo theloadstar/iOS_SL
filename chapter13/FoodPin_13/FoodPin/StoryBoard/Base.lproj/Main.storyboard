@@ -108,7 +108,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="SX3-Y5-ncX" userLabel="Header View">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="SX3-Y5-ncX" userLabel="Header View" customClass="RestanrantDetailHeaderView" customModule="FoodPin" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -154,6 +154,12 @@
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wDs-C7-aIu" secondAttribute="trailing" constant="50" id="vp4-5P-Ar2"/>
                                 <constraint firstItem="wDs-C7-aIu" firstAttribute="leading" secondItem="5MK-9M-B8C" secondAttribute="leading" id="xCI-gd-7Yg"/>
                             </constraints>
+                            <connections>
+                                <outlet property="headerImageView" destination="0Gn-Mi-ir6" id="GqD-7B-2Mf"/>
+                                <outlet property="heartImageView" destination="17z-Nk-C8Z" id="3Yw-lB-WLw"/>
+                                <outlet property="nameLabel" destination="wDs-C7-aIu" id="B9U-3N-XfE"/>
+                                <outlet property="typeLabel" destination="5MK-9M-B8C" id="LvE-CK-rSO"/>
+                            </connections>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BkB-kU-Qki">

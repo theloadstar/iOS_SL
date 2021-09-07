@@ -101,4 +101,22 @@ So the question why can't assign value to `NameLabel`  `TypeLabel` and `Location
 
 - [ ] Exercise:
 
-  这个问题，我个人的理解是，cell那个类，cell本身在创建之前已经存在，故所有的var已经有了对应的value；而destination则不然。但是，[stackoverflow](https://stackoverflow.com/questions/32170456/what-does-fatal-error-unexpectedly-found-nil-while-unwrapping-an-optional-valu)上的动图里也用的是reusablecell，也产生的这个错误，所以就不是很明白了
+  这个问题，我个人的理解是，cell那个类，cell本身在创建之前已经存在，故所有的var已经有了对应的value；而destination则不然。但是，[stackoverflow](https://stackoverflow.com/questions/32170456/what-does-fatal-error-unexpectedly-found-nil-while-unwrapping-an-optional-valu)上的动图里也用的是reusablecell，也产生的这个错误，所以就不是很明白了:
+
+  从14章回来，文件结构如下：
+
+  ![filestr](graph/filestr.png)
+
+我们可以看到，exercise里的是一个controller，而之前的`RestaurantTableViewCell`是一个cell，并不是controller，再看下面两行代码：
+
+```sw
+let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as! RestaurantTableViewCell
+
+let destinationController = segue.destination as! RestaurantDetailViewController
+```
+
+还是和上面一样的理解，deque使用reuse的方法，使得cell内部的outlet在调用前均已有值；而line3的destination，这一行在定义时会调用`RestaurantDetailViewController`内的初始化方法`viewDidLoad`，若不在该方法内定义初值，将会crash。
+
+但是又出现了新的问题：我尝试在detailController里把namelabel的text字段初始化为空，此时已有初值；但后续无法通过直接访问text字段更新其值。具体的见chapter12的exercise
+
+BTW，因为每一张都是直接复制的上一章的工程文件夹，所以可能会造成target混乱。例如13章创建了`Restaurant`文件，在12章的工程目录里也出现了，只是没有实体，最终造成错误。解决方法是在12章的工程目录中将其删去即可。

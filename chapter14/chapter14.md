@@ -33,3 +33,11 @@ For the *Name Label*, use the same method to set the mode to `Leading`, and trai
 
 # Header Code
 
+Create class `RestaurantDetailHeaderView` , code outlets and make connections.
+
+---
+
+写到这里的时候突然被左边大纲的文件结构启发，对chapter12的To-Do有了新的想法，具体见chapter12 To-Do部分
+
+---
+
