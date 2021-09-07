@@ -51,3 +51,67 @@ Go to `RestaurantDetailViewController`, define two outlets for `TableView` and `
 ```
 
 Then, in `viewDidload()`
+
+# Problems
+
+## 1 The header image 
+
+The header image covers nearly half of the table cell. ~~(In fact, I don't think it's a problemಠ_ಠ)~~ I misunderstood, overlaps the table cell blow it. To solve this, clip `Clip to Bounds`. 
+
+![problem1](graph/problem1.png)
+
+## 2 restaurant names
+
+For some long names, they can't be fully displayed.There are two ways to fix this problem:
+
+1. select the label and set the number of `lines` form `1` to `2`
+
+2. (recommand) set the `nameLabel` 's number of lines in to 0 in `didset`. In this way, the label's lines will change automatically.
+
+   ```sw
+   @IBOutlet var nameLabel : UILabel!{
+           didSet{
+               nameLabel.numberOfLines = 0
+           }
+       }
+   ```
+
+## 3 Type Label
+
+Suppose to have rounded corners
+
+Similar to the thumbnailImage
+
+```sw
+@IBOutlet var typeLabel : UILabel!{
+        didSet{
+            typeLabel.layer.cornerRadius = 5.0
+            typeLabel.layer.masksToBounds = true
+        }
+    }
+```
+
+A little different: in *View*, we use `clip`, while in layer(not view), we use `masks`. In fact, `cliptobounds` will call `maskstobounds` [ref](https://blog.csdn.net/a1056244734/article/details/51536483)s
+
+## Heart Image
+
+The original color of heart image is black, we can change the color of that in two ways:
+
+1. In assets catalog, select heart-image and change the `Render As` property to `Template image`, and in *StoryBoard*, select the imageView and change the `Tint` to the color you like.
+
+2. code.
+
+   ```sw
+   didSet{
+               headerImageView.image = UIImage(named: "heart-tick")?.withRenderingMode(.alwaysTemplate)
+               headerImageView.tintColor = .white
+           }
+   ```
+
+   What's wrong with the code above? Yes! It should be `heartImageView` instead of `headerImageView`!
+
+## 5 white background
+
+Restaurant name may not be clearly shown in white background.Thus, we plan to add a view to dim the background image.Drag a *View* blow the *Header Image View*, rename it as `Dim View`. Then, config its color to `black`, alpha to `0.2`. Do not foget to set constraints.
+
+![problem5](graph/problem5.png)

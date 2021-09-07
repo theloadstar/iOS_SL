@@ -21,7 +21,7 @@ class RestaurantDetailViewController: UIViewController {
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
         headerView.headerImageView.image = UIImage(named: restaurant.image)
-        headerView.heartImageView.isHidden = (restaurant.isVisited) ? false : true
+        headerView.heartImageView.isHidden = !(restaurant.isVisited)
         // Do any additional setup after loading the view.
     }
     

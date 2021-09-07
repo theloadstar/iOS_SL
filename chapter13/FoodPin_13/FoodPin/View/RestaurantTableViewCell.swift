@@ -15,6 +15,7 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet var thumbnailImageView : UIImageView!{
         didSet{
             thumbnailImageView.layer.cornerRadius = thumbnailImageView.layer.bounds.width/2.7;
+            //裁剪超出父视图的部分，这里可以不用，因为不会超出
             thumbnailImageView.clipsToBounds = true;
         }
     }
