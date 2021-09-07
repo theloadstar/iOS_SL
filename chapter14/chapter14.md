@@ -1,3 +1,5 @@
+<font color = "red">本章工程文件与chapter13为同一个</font>
+
 # Customize your own font
 
 We can drag the fonts to project navigator, and in order manage files easier, use **group*8 feature.
@@ -41,3 +43,11 @@ Create class `RestaurantDetailHeaderView` , code outlets and make connections.
 
 ---
 
+Go to `RestaurantDetailViewController`, define two outlets for `TableView` and `HeaderView`:
+
+```sw
+@IBOutlet var tableView : UITableView!
+@IBOutlet var headerView : RestanrantDetailHeaderView!
+```
+
+Then, in `viewDidload()`

@@ -132,7 +132,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="17z-Nk-C8Z" userLabel="Heart Image View">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-tick" translatesAutoresizingMaskIntoConstraints="NO" id="17z-Nk-C8Z" userLabel="Heart Image View">
                                     <rect key="frame" x="122" y="318.5" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="mYI-po-cuH"/>
@@ -181,6 +181,10 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="sJd-om-PDK"/>
+                    <connections>
+                        <outlet property="headerView" destination="SX3-Y5-ncX" id="iy9-BO-07H"/>
+                        <outlet property="tableView" destination="hTF-GU-4Wx" id="xhA-LX-XLj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOl-KJ-sEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
