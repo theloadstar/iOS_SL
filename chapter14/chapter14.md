@@ -115,3 +115,17 @@ The original color of heart image is black, we can change the color of that in t
 Restaurant name may not be clearly shown in white background.Thus, we plan to add a view to dim the background image.Drag a *View* blow the *Header Image View*, rename it as `Dim View`. Then, config its color to `black`, alpha to `0.2`. Do not foget to set constraints.
 
 ![problem5](graph/problem5.png)
+
+从这里也能看出storyboard里的顺序并不是层次堆叠的顺序，例如这里的dim放在第二个，但alpha为1时Name被遮挡，type没有。
+
+# Prototype Cells
+
+Drag one imageView to the first prototype cell, set width and height 20 and lock them. Drag a Label next to it. This time we use stack view to auto-layout. Set the spacing to `10` and Aligning mode to `Center` . Set four constraints of stack view and make sure check `Constarints to margins`, <font color = "red">[about Constraints to Margins](https://stackoverflow.com/questions/25807545/what-is-constrain-to-margin-in-storyboard-in-xcode-6)</font>,
+
+![constraintstomargin](graph/constraintstomargin.png)
+
+<font color = "red">For each cell/view/controller,</font> we need to create a new class to make collections. Thus, create class `RestaurantDetailIconTextCell` to make collections to objects within `prototype cell 1`. Remember to set the `Identifier` of `prototype cell1` to `RestaurantDetailIconTextCell`, same as class name.
+
+For the designing of second cell, a *Label* is enough. Add four constraints (to margins). Create class and connect. Set `identifier` to `RestaurantDetailTextCell`.
+
+Ok, back to `RestaurantDetailViewController`.

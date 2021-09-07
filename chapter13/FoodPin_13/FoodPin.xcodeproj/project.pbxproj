@@ -24,6 +24,8 @@
 		1600C93926E219E400DC10C4 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1600C92B26E219E400DC10C4 /* Rubik-MediumItalic.ttf */; };
 		1600C93A26E219E400DC10C4 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1600C92C26E219E400DC10C4 /* Rubik-Black.ttf */; };
 		1600C93C26E7133200DC10C4 /* RestanrantDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C93B26E7133200DC10C4 /* RestanrantDetailHeaderView.swift */; };
+		1600C94026E7861200DC10C4 /* RestaurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C93F26E7861200DC10C4 /* RestaurantDetailTextCell.swift */; };
+		1600C94226E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C94126E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift */; };
 		16F693B226DDCAE400027AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693B126DDCAE400027AE7 /* AppDelegate.swift */; };
 		16F693B426DDCAE400027AE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693B326DDCAE400027AE7 /* SceneDelegate.swift */; };
 		16F693B926DDCAE400027AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F693B726DDCAE400027AE7 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		1600C92B26E219E400DC10C4 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-MediumItalic.ttf"; path = "../../../../../chapter14/Rubik/static/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1600C92C26E219E400DC10C4 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Black.ttf"; path = "../../../../../chapter14/Rubik/static/Rubik-Black.ttf"; sourceTree = "<group>"; };
 		1600C93B26E7133200DC10C4 /* RestanrantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestanrantDetailHeaderView.swift; path = FoodPin/View/RestanrantDetailHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		1600C93F26E7861200DC10C4 /* RestaurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTextCell.swift; sourceTree = "<group>"; };
+		1600C94126E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
 		16F693AE26DDCAE400027AE7 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F693B126DDCAE400027AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F693B326DDCAE400027AE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 			children = (
 				1600C93B26E7133200DC10C4 /* RestanrantDetailHeaderView.swift */,
 				16F693C926DDFC3F00027AE7 /* RestaurantTableViewCell.swift */,
+				1600C93F26E7861200DC10C4 /* RestaurantDetailTextCell.swift */,
+				1600C94126E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F693CA26DDFC3F00027AE7 /* RestaurantTableViewCell.swift in Sources */,
+				1600C94226E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift in Sources */,
+				1600C94026E7861200DC10C4 /* RestaurantDetailTextCell.swift in Sources */,
 				16F693B226DDCAE400027AE7 /* AppDelegate.swift in Sources */,
 				1600C91726E1FAF500DC10C4 /* Restaurant.swift in Sources */,
 				1600C93C26E7133200DC10C4 /* RestanrantDetailHeaderView.swift in Sources */,

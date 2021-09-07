@@ -6,6 +6,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Rubik-Light.ttf">
+            <string>Rubik-Light</string>
+        </array>
         <array key="Rubik-Medium.ttf">
             <string>Rubik-Medium</string>
         </array>
@@ -170,21 +173,68 @@
                             </connections>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BkB-kU-Qki">
-                                <rect key="frame" x="0.0" y="378" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailIconTextCell" id="BkB-kU-Qki" customClass="RestaurantDetailIconTextCell" customModule="FoodPin" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="378" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BkB-kU-Qki" id="RnD-6R-DkK">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FxF-RC-VqT">
+                                            <rect key="frame" x="23" y="11" width="368" height="20.5"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NO0-DD-XsO">
+                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="0kH-sa-gSZ"/>
+                                                        <constraint firstAttribute="width" constant="20" id="uhg-sr-Wlw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOl-hK-b1x">
+                                                    <rect key="frame" x="30" y="2" width="338" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FxF-RC-VqT" firstAttribute="top" secondItem="RnD-6R-DkK" secondAttribute="topMargin" id="Icw-De-M6N"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FxF-RC-VqT" secondAttribute="bottom" constant="2" id="KsN-Lk-v83"/>
+                                        <constraint firstItem="FxF-RC-VqT" firstAttribute="leading" secondItem="RnD-6R-DkK" secondAttribute="leadingMargin" constant="3" id="NUc-k5-q2F"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FxF-RC-VqT" secondAttribute="trailing" constant="3" id="bqL-8i-NpQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImageView" destination="NO0-DD-XsO" id="C3Z-Td-hYM"/>
+                                    <outlet property="shortTextLabel" destination="pOl-hK-b1x" id="ghQ-mw-c7t"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3B8-Mk-rd0">
-                                <rect key="frame" x="0.0" y="421.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailTextCell" id="3B8-Mk-rd0" customClass="RestaurantDetailTextCell" customModule="FoodPin" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="422.5" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3B8-Mk-rd0" id="23v-uf-Z6B">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx2-Eg-qBl">
+                                            <rect key="frame" x="23" y="11" width="368" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="Rubik-Light" family="Rubik" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gx2-Eg-qBl" firstAttribute="leading" secondItem="23v-uf-Z6B" secondAttribute="leadingMargin" constant="3" id="2Xz-fc-d9p"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gx2-Eg-qBl" secondAttribute="bottom" constant="4" id="3gf-Lx-MXe"/>
+                                        <constraint firstItem="gx2-Eg-qBl" firstAttribute="top" secondItem="23v-uf-Z6B" secondAttribute="topMargin" id="H4c-qc-fYQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gx2-Eg-qBl" secondAttribute="trailing" constant="3" id="ICb-6b-krJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="gx2-Eg-qBl" id="cvu-wD-2eU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
