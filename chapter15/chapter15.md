@@ -66,3 +66,34 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ![removetitle](graph/removetitle.png)
 
+result:
+
+![customizebackbutton](graph/customizebackbutton.png)
+
+# Hide the bar when swiping
+
+This feature is my favourite!
+
+We can select `Navigation Controller` in story board and check the `On swipe` to achieve.
+
+![hidebar](graph/hidebar.png)
+
+However, this will apply to all the navigation controllers in the app. In order to hide bar in certain controller, we need to code.Remember to uncheck `On Swipe` before go to coding.
+
+```sw
+navigationController?.hidesBarsOnSwipe = true
+```
+
+add this one in `TableViewController` 's `viewDidLoad`, and set `false` in another controller. However, there are two problems:
+
+![twoproblems](graph/twoproblems.png)
+
+This is because `viewDidLoad` only be called once when the view is loaded.
+
+
+
+---
+
+# Chapter12 To-Do
+
+接着这次机会，使用print找出了调用的顺序，也解释了chapter12的To-Do:在`DetailViewController`的`viewDidLoad`方法里print `Detail`, 在TableViewController的`prepare`方法里最后一行print `Detail_Segue`， 最后得出前者的执行顺序更晚。

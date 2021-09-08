@@ -16,6 +16,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet var headerView : RestanrantDetailHeaderView!
     
     override func viewDidLoad() {
+        print(restaurant.name)
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         headerView.nameLabel.text = restaurant.name
@@ -32,7 +33,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.tintColor = .white
         tableView.contentInsetAdjustmentBehavior = .never
-        
+        //show bar
+        navigationController?.hidesBarsOnSwipe = false
+        print("Detail")
     }
     
     // MARK: DataSource

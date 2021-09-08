@@ -99,7 +99,7 @@ So the question why can't assign value to `NameLabel`  `TypeLabel` and `Location
 
 # To Do
 
-- [ ] Exercise:
+- [x] Exercise:
 
   这个问题，我个人的理解是，cell那个类，cell本身在创建之前已经存在，故所有的var已经有了对应的value；而destination则不然。但是，[stackoverflow](https://stackoverflow.com/questions/32170456/what-does-fatal-error-unexpectedly-found-nil-while-unwrapping-an-optional-valu)上的动图里也用的是reusablecell，也产生的这个错误，所以就不是很明白了:
 
@@ -120,3 +120,5 @@ let destinationController = segue.destination as! RestaurantDetailViewController
 但是又出现了新的问题：我尝试在detailController里把namelabel的text字段初始化为空，此时已有初值；但后续无法通过直接访问text字段更新其值。具体的见chapter12的exercise
 
 BTW，因为每一张都是直接复制的上一章的工程文件夹，所以可能会造成target混乱。例如13章创建了`Restaurant`文件，在12章的工程目录里也出现了，只是没有实体，最终造成错误。解决方法是在12章的工程目录中将其删去即可。
+
+chapter15回头：在15章调用顺序的地方回过头来，最后觉得区别还是在于`tableView.dequeueReusableCell`方法上，该方法返回的是一个cell，里面的各种object已经有了value，所以可以使用.text/.image等直接赋值。反之，controller里面的label、image等是没有初值的，故需要使用.text/.image在viewdidload内部初始化来赋值。至于值是如何在不同的Scene之间传递的，涉及到顺序的问题，可见十五章。
