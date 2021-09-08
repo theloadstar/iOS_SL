@@ -197,3 +197,9 @@ tableView.separatorStyle = .none
 # DIY TIME
 
 During this chapter, I find the `LaunchScreen.storyboard`, which is LaunchView I Guess. Let's try.
+
+Failed....add to TO DO...
+
+# To Do
+
+- [ ] LaunchScreen View
