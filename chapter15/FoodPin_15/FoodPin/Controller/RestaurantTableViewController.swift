@@ -42,6 +42,7 @@ class RestaurantTableViewController: UITableViewController {
     ]
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
+        print("1")
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true;
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -54,7 +55,16 @@ class RestaurantTableViewController: UITableViewController {
         }
         //hide bar
         navigationController?.hidesBarsOnSwipe = true
-        print("Table")
+//        print("Table")
+        print("2")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("table appear")
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = true
+        print("table disappear")
     }
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -147,7 +157,7 @@ class RestaurantTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationController = segue.destination as! RestaurantDetailViewController
                 destinationController.restaurant = restaurants[indexPath.row]
-                print("Detail_Segue")
+//                print("Detail_Segue")
             }
         }
     }

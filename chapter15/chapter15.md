@@ -88,12 +88,86 @@ add this one in `TableViewController` 's `viewDidLoad`, and set `false` in anoth
 
 ![twoproblems](graph/twoproblems.png)
 
-This is because `viewDidLoad` only be called once when the view is loaded.
+This is because `viewDidLoad` only be called once when the view is loaded.Here has an image:
 
-
+![viewcycle](graph/viewcycle.jpg)
 
 ---
 
 # Chapter12 To-Do
 
 接着这次机会，使用print找出了调用的顺序，也解释了chapter12的To-Do:在`DetailViewController`的`viewDidLoad`方法里print `Detail`, 在TableViewController的`prepare`方法里最后一行print `Detail_Segue`， 最后得出前者的执行顺序更晚。
+
+* 不同scene之间的restaurant值是如何传递的？
+
+还是调用顺序的问题，直接看代码就明白了：
+
+```sw
+		override func viewDidLoad() {
+        print(restaurant.name)
+        super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
+        headerView.nameLabel.text = restaurant.name
+        headerView.typeLabel.text = restaurant.type
+        headerView.headerImageView.image = UIImage(named: restaurant.image)
+        headerView.heartImageView.isHidden = !(restaurant.isVisited)
+        //connections
+        tableView.delegate = self
+        tableView.dataSource = self
+        //separate
+//        tableView.separatorStyle = .none
+        // navigation bar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .white
+        tableView.contentInsetAdjustmentBehavior = .never
+        //show bar
+        navigationController?.hidesBarsOnSwipe = false
+        print("Detail")
+    }
+```
+
+注意line2和line21的print，line2的输出不为空，输出如下：
+
+![sequence](graph/sequence.png)
+
+换句话说，在执行`viewDidLoad`之前，值已经传进来了。
+
+---
+
+So, problem 1 is easy to explain now: when we are in *DeatilView*, *TableView*'s `viewDidLoad` has been called, after tapping `backbutton`, the status of hidebar is set to `false` again.（复现问题1只需要在bar未被隐藏时点入detail，再返回，之后bar将不再被隐藏）.
+
+As for problem 2, the reason is different. I don't know why.从执行来看，detail的didload确实是在table的detailload后面执行的，照理说不应该被隐藏才对。书上是这么说的
+
+> For Problem #2, the hidden navigation bar is carried over to the detail view. Even if we manage to set the hidesBarsOnSwipe property back to false in the viewDidLoad method, it won't display the navigation bar. <font color = "red">We have to explicitly tell the app to re-display the navigation bar. </font>
+
+<span jump id = "todo1">意思是即便我们在detailview的viewdidload里定义了hidebar，其值也会被table的覆盖ಠ_ಠ🤦‍♂️行吧.</span>
+
+Thus, we use `willAppear` to code. For `TableViewController`:
+
+```sw
+override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = true
+    }
+```
+
+For `RestaurantDetailViewController`:
+
+```sw
+override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+```
+
+Line 5 explicitly tells the app to redisplay bar, and in my test, line4 can be removed.Strange
+
+
+
+# To Do
+
+- [ ] problem 2 and its line5 [jump](#todo1)
