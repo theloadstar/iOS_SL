@@ -27,7 +27,12 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         tableView.dataSource = self
         //separate
 //        tableView.separatorStyle = .none
-        // Do any additional setup after loading the view.
+        // navigation bar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .white
+        tableView.contentInsetAdjustmentBehavior = .never
+        
     }
     
     // MARK: DataSource
