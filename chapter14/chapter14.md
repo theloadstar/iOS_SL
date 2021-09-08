@@ -129,3 +129,71 @@ Drag one imageView to the first prototype cell, set width and height 20 and lock
 For the designing of second cell, a *Label* is enough. Add four constraints (to margins). Create class and connect. Set `identifier` to `RestaurantDetailTextCell`.
 
 Ok, back to `RestaurantDetailViewController`.
+
+# Code for Prototype Cells
+
+Since `UIViewCOntroller` doesn't adopt `DataSource` and `Delegete` like `UITableViewController`, we need to adopt these two in code.
+
+```sw
+class RestaurantDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+```
+
+```sw
+func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailIconTextCell.self), for: indexPath) as! RestaurantDetailIconTextCell
+            cell.iconImageView.image = UIImage(systemName: "phone")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            cell.shortTextLabel.text = restaurant.phone
+            cell.selectionStyle = .default
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailIconTextCell.self), for: indexPath) as! RestaurantDetailIconTextCell
+            cell.iconImageView.image = UIImage(systemName: "map")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            cell.shortTextLabel.text = restaurant.location
+            cell.selectionStyle = .none
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTextCell.self), for: indexPath) as! RestaurantDetailTextCell
+            cell.descriptionLabel.text = restaurant.description
+            return cell
+        default:
+            fatalError("Failed to instantiate the table view cell for detail view controller")
+        }
+    }
+```
+
+These codes are easy to understand.Just one thing to notice:`String(describing: RestaurantDetailIconTextCell.self)`, this one returns the *String* of a class's name.That's why we need to name *Identifier* the same as ClassName, making our coding easier.By dong this, if we wrongly type the class name (say, RestaurantDetailIconTxtCell.self), Xcode will immediately prompt you the error. Otherwise, not. BTW, the default color of SF icons are blue, so we set the *TintColor* to black.
+
+Okay, one last thing left: connect the tableview with storyboard. In chapter8, the tutorial teaches us by `control` and `drag` like this:
+
+![connecttable](graph/connecttable.png)
+
+This time, let's do it by coding.
+
+```sw
+tableView.delegate = self
+tableView.dataSource = self
+```
+
+# Separator
+
+Add this line to `viewDidLoad`
+
+```sw
+tableView.separatorStyle = .none
+```
+
+![separator](graph/separator.jpg)
+
+# DIY TIME
+
+During this chapter, I find the `LaunchScreen.storyboard`, which is LaunchView I Guess. Let's try.
