@@ -47,7 +47,7 @@ First three lines are easy to understand.For the fourth line:
 
 # Back Button
 
-Have you ever wondering what's the two files`AppDelegate.swift` and `SceneDelegate` in `Resource` folder for? As for `AppDelegate`, it's the entry of a application. So, to customize the back button globally, we can insert code in the method `didFinishLaunchingWithOptions`. We can infer the effect from the name.
+Have you ever wondering what's the two files `AppDelegate.swift` and  `SceneDelegate`  in `Resource` folder for? As for `AppDelegate`, it's the entry of a application. So, to customize the back button globally, we can insert code in the method `didFinishLaunchingWithOptions`. We can infer the effect from the name.
 
 > This method will be called when the application loads up and is suitable for adding customization code that affects the entire application
 
@@ -207,6 +207,46 @@ deleteAction.backgroundColor = UIColor(242, 38, 19)
 ```
 
 Pretty Cool !
+
+# Customize Status Bar
+
+Let's make status bar in *Detail View* white. Basiclly, we need to override the `preferredStatusStyle` method in `DetailViewController`.
+
+```sw
+override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+```
+
+However, it doesn't work when testing, why?
+
+> Things get a little bit tricky here. Because the detail view controller is embedded in a navigation controller, iOS will use the default style specified in the navigation controller instead of the one we specify above.
+
+（所以，swift为啥要这么不‘人性化’，不过应该是我了解的还不够多的缘故。。。）
+
+> There is a property called childViewControllerForStatusBarStyle that controls which view controller to use for determining status bar style. <font color = "red">By default, it is set to refer to the navigation controller. </font>Therefore, we have to modify this property of the navigation controller. Again we will use extensions to implement the changes.
+
+Let's extend it! 
+
+```sw
+import UIKit
+
+extension UINavigationController{
+    open override var childForStatusBarStyle: UIViewController?{
+        return topViewController
+    }
+}
+```
+
+We can understand `open` as a more public `public` key word. [ref](https://blog.csdn.net/watertekhqx/article/details/90701418)
+
+Besides, the tutorial also introduces the global way to set the status bar. Like the *Back Button* customization, we can insert code in the method : `didFinishLaunchingWithOptions`.
+
+```sw
+UIApplication.shared.statusBarStyle = .lightContent
+```
+
+ However, the Xcode project is enabled to use "View controller-based status bar appearance". This means you can control the appearance of the status per view controller. So, select `Info.plist` file ,insert a new line named `View controller-based status bar appearence` and set the value to `NO`. BTW, I didn't do this one.
 
 # To Do
 

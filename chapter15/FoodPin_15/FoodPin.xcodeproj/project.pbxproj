@@ -27,6 +27,7 @@
 		1600C94026E7861200DC10C4 /* RestaurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C93F26E7861200DC10C4 /* RestaurantDetailTextCell.swift */; };
 		1600C94226E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C94126E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift */; };
 		1600C94526EAF30700DC10C4 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C94426EAF30700DC10C4 /* UIColor+Ext.swift */; };
+		1600C94726EAFE4F00DC10C4 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600C94626EAFE4F00DC10C4 /* UINavigationController+Ext.swift */; };
 		16F693B226DDCAE400027AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693B126DDCAE400027AE7 /* AppDelegate.swift */; };
 		16F693B426DDCAE400027AE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693B326DDCAE400027AE7 /* SceneDelegate.swift */; };
 		16F693B926DDCAE400027AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F693B726DDCAE400027AE7 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		1600C93F26E7861200DC10C4 /* RestaurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTextCell.swift; sourceTree = "<group>"; };
 		1600C94126E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
 		1600C94426EAF30700DC10C4 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		1600C94626EAFE4F00DC10C4 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		16F693AE26DDCAE400027AE7 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F693B126DDCAE400027AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F693B326DDCAE400027AE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1600C94426EAF30700DC10C4 /* UIColor+Ext.swift */,
+				1600C94626EAFE4F00DC10C4 /* UINavigationController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1600C94726EAFE4F00DC10C4 /* UINavigationController+Ext.swift in Sources */,
 				16F693CA26DDFC3F00027AE7 /* RestaurantTableViewCell.swift in Sources */,
 				1600C94226E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift in Sources */,
 				1600C94026E7861200DC10C4 /* RestaurantDetailTextCell.swift in Sources */,

@@ -16,7 +16,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet var headerView : RestanrantDetailHeaderView!
     // MARK: Life Cycle
     override func viewDidLoad() {
-        print("restaurant.name")
+//        print("restaurant.name")
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         headerView.nameLabel.text = restaurant.name
@@ -43,8 +43,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = false
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-        print("detail disappear")
+        navigationController?.setNavigationBarHidden(false, animated: true)
+//        print("detail disappear")
     }
     
     // MARK: DataSource
@@ -88,5 +88,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 }
