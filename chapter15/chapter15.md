@@ -248,6 +248,19 @@ UIApplication.shared.statusBarStyle = .lightContent
 
  However, the Xcode project is enabled to use "View controller-based status bar appearance". This means you can control the appearance of the status per view controller. So, select `Info.plist` file ,insert a new line named `View controller-based status bar appearence` and set the value to `NO`. BTW, I didn't do this one.
 
+![statusbarglobal](graph/statusbarglobal.png)
+
+# Dynamic Type
+
+> Dynamic Type is not new and has been introduced since iOS 7. With this feature, users are able to customize the text size of an app to fit their own needs. However, there is a catch - only apps that adopt Dynamic Type respond to the text change.
+
+The key to adopt `Dynamic Type` is to use `text style` instead of a fixed one. So, the *TableView* has already adopted *Dynamic Type*, while the *deatilView* not. Now, let's go to the *setting app* in the simulator and turn on the *Larger Text*, then, we will see like this.
+
+![largefoont](graph/largefont.jpg)
+
+The tutorial says that we need to check `Automatically adjust the font` so that the fonts can change in time , no need to rerun the app. However, in my test, even if didn't check `Automatically adjust the font`, the font can also change itself in time. Strange...
+
 # To Do
 
 - [ ] problem 2 and its line5 [jump](#todo1)
+- [ ] is `Automatically adjust the font` useful in the newest version? I didn't check it and the dynamic font still can change.
