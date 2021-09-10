@@ -260,7 +260,20 @@ The key to adopt `Dynamic Type` is to use `text style` instead of a fixed one. S
 
 The tutorial says that we need to check `Automatically adjust the font` so that the fonts can change in time , no need to rerun the app. However, in my test, even if didn't check `Automatically adjust the font`, the font can also change itself in time. Strange...
 
+# exercise
+
+## 1
+
+For exercise1, after change te font of detailview's all labels to *text sytle* (delete the height constraint of *Type Label*), I find that the *name label* and *type label* won't change themselves in time. So, check `Automatically adjust the font`
+
+## 2
+
+
+
 # To Do
 
 - [ ] problem 2 and its line5 [jump](#todo1)
-- [ ] is `Automatically adjust the font` useful in the newest version? I didn't check it and the dynamic font still can change.
+
+- [x] is `Automatically adjust the font` useful in the newest version? I didn't check it and the dynamic font still can change.
+
+  A: useful, IMU, for long text, we can uncheck, for short we must check. See exercise 1.
