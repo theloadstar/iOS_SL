@@ -76,7 +76,9 @@ class RestaurantTableViewController: UITableViewController {
             completionHandler(true)
         }
         
-        deleteAction.backgroundColor = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)
+//        deleteAction.backgroundColor = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)
+        //after extension
+        deleteAction.backgroundColor = UIColor(242, 38, 19)
         deleteAction.image = UIImage(systemName: "trash")
         let shareAction = UIContextualAction(style: .normal, title: "Share"){(action, sourceView, completionhandler) in
             let defaultText = "Just Checking in at " + self.restaurants[indexPath.row].name

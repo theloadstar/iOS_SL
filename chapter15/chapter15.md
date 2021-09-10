@@ -166,7 +166,47 @@ override func viewWillAppear(_ animated: Bool) {
 
 Line 5 explicitly tells the app to redisplay bar, and in my test, line4 can be removed.Strange
 
+# Swift Extension
 
+This feature can let us customize *Class* , *struct*, *enum* and *protocol*, even for the built-in one.[ref](https://www.jianshu.com/p/783df05a9b59).
+
+For example, let's change `UIColor` method from `UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)` to `UIColor(red: 242, green: 38, blue: 19)`.First, let's create a group for extension files.
+
+Then, code like this:
+
+```sw
+import UIKit
+
+extension UIColor{
+    convenience init(red : Int, green : Int, blue : Int){
+        let redvalue = CGFloat(red)/255.0
+        let greenvalue = CGFloat(green)/255.0
+        let bluevalue = CGFloat(blue)/255.0
+        self.init(red : redvalue, green : greenvalue, blue : bluevalue, alpha : 1.0)
+    }
+}
+```
+
+Easy to understand. After this, we can change `UIColor` code. BTW, we can still use the old initializer func. Futhermore, how about this:
+
+```sw
+extension UIColor{
+    convenience init(_ red : Int, _ green : Int, _ blue : Int){
+        let redvalue = CGFloat(red)/255.0
+        let greenvalue = CGFloat(green)/255.0
+        let bluevalue = CGFloat(blue)/255.0
+        self.init(red : redvalue, green : greenvalue, blue : bluevalue, alpha : 1.0)
+    }
+}
+```
+
+Then, we can change `UIColor` like this:
+
+```sw
+deleteAction.backgroundColor = UIColor(242, 38, 19)
+```
+
+Pretty Cool !
 
 # To Do
 
