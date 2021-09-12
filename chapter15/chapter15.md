@@ -268,7 +268,9 @@ For exercise1, after change te font of detailview's all labels to *text sytle* (
 
 ## 2
 
+Not So hard, add `numberoflines = 0`.
 
+To make the `namelabel`, `typelabel` and `location label` look more nice, change the stack's spacing from 3 to 1, and the `Alignment Mode` from `Fill Equally` to `Fill`
 
 # To Do
 
