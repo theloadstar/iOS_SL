@@ -42,7 +42,7 @@ class RestaurantTableViewController: UITableViewController {
     ]
     // MARK: - View Controller Life Cycle
     override func viewDidLoad() {
-        print("1")
+//        print("1")
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true;
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -56,15 +56,15 @@ class RestaurantTableViewController: UITableViewController {
         //hide bar
         navigationController?.hidesBarsOnSwipe = true
 //        print("Table")
-        print("2")
+//        print("2")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("table appear")
+//        print("table appear")
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = true
-        print("table disappear")
+//        print("table disappear")
     }
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
