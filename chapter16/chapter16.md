@@ -65,3 +65,15 @@ Consists of two parts:
 
 By default, the *MapKit* comes with standard annotation object and view, if you want to customize, such as customizing the pin view, we need to create our own annotation object/view.
 
+---
+
+插播：
+
+突然发现自己的代码跑起来后tableview controller的标题不现实红色，代码检查了很多遍都没问题，无奈，只得使用git回滚找出问题所在：在完成chapter15的exercise1时，将所有的custom rubik字体都更换为了系统的text style字体。经测试，将storyboard的任意一个label字体改为**Rubik-Medium**，即代码中指定的自定字体，标题便会重新显示红色。所以，这里的逻辑是自定义字体必须在storyboard使用过，才能在代码中生效，至少navigation是这样的。（这合理吗？。。。
+
+解决方法是使用系统字体，在tableviewcell.swift文件中得到通过代码`print(locationLabel.font!.fontName)`得到系统字体名字`.SFUI-Regular`，但这样的标题没有自定义字体来得醒目。最后在网上查到了[官方](https://developer.apple.com/documentation/uikit/text_display_and_fonts/adding_a_custom_font_to_your_app)的解决办法：在`Info.plist`中添加相应的key即可。
+
+---
+
+
+

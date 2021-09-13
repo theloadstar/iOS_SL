@@ -13,6 +13,7 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet var locationLabel : UILabel!{
         didSet{
             locationLabel.numberOfLines = 0;
+//            print(locationLabel.font!.fontName)
         }
     }
     @IBOutlet var typeLabel : UILabel!
