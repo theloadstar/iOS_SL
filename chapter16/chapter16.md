@@ -56,3 +56,12 @@ To get geographical coordinates, we can code like this:
 let coordinate = placemark.location?.coordinate
 ```
 
+# Map Annotations
+
+Consists of two parts:
+
+1. **an annotation object**: the one stores the data of annotation, such as name of placemark, using **MKAnnotation** protocol.
+2. **an annotation view**: the one stores the image of annotation.
+
+By default, the *MapKit* comes with standard annotation object and view, if you want to customize, such as customizing the pin view, we need to create our own annotation object/view.
+
