@@ -18,3 +18,6 @@ This cell should be bigger, so change the height of this cell to 215.BTW, we can
 
 ![changecontrollersize](graph/changecontrollersize.png)
 
+Then, drag a *Map Kit View* to the cell and make four 0 constraints with *Bargin* unchecked. Change the top one to `>=` and lock the height. As this map view is just displayed in a table cell, let's keep it as simple as possible: uncheck `Scrolling`, `Rotating`, `3D View` in *Attributes inspector* of map view.
+
+Next, create *Swift* files for those two new cells.After this, make connections for them.
