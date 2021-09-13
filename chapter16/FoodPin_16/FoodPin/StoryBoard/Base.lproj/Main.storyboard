@@ -323,7 +323,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aEF-Jh-gob"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NYS-iW-5ca"/>
+                    <navigationItem key="navigationItem" id="NYS-iW-5ca">
+                        <barButtonItem key="backBarButtonItem" title=" " id="1bm-WQ-VYL"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEM-bu-77u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

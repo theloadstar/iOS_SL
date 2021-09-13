@@ -75,5 +75,63 @@ By default, the *MapKit* comes with standard annotation object and view, if you 
 
 ---
 
+The most simple example of **Map Annotations**:
 
+```sw
+let annotation = MKPointAnnotation()
+if let location = placemark.location {
+    annotation.coordinate = location.coordinate
+    mapView.addAnnotation(annotation)
+} 
+```
+
+OK, let's code.The explazation of `mapView` key word is in the following.
+
+```sw
+func configure(location: String){
+        let geoCoder = CLGeocoder()
+        print(location)
+        geoCoder.geocodeAddressString(location, completionHandler: { placemarks, error in
+            if let error = error{
+                print(error.localizedDescription)
+                return
+            }
+            if let placemarks = placemarks{
+                let placemark = placemarks[0]
+                //add annotations
+                let annotation = MKPointAnnotation()
+                if let location = placemark.location{
+                    annotation.coordinate = location.coordinate
+                    self.mapView.addAnnotation(annotation)
+                    //set the zoom level
+                    let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 250, longitudinalMeters: 250)
+                    self.mapView.setRegion(region, animated: true)
+                }
+            }
+        })
+    }
+```
+
+Here, we create a new func, the whole code is not hard to understand, here just explain few of it:
+
+* > In most cases, the placemarks array should contain a single entry. So we just pick the first element from the array and then display the annotation on the map view.
+  >
+
+* `MKAnnotation` is a protocol, while `MKPointAnnotation` is a class.
+
+* **mapView**: the one we declare in this file....🤦‍♂️
+
+* **region**: directly to the graph:
+
+  ![region](graph/region.png)
+
+![region2](graph/region2.png)
+
+​		The animated par aim for zooming .
+
+​		The *region* step is a **MUST**. Here is the comparion:
+
+​	![region3](graph/region3.jpg)
+
+Don't forget to call this func in `RestaurantDetailViewController.swift` `case 4`.
 
