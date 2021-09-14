@@ -10,9 +10,13 @@ Select the button and in the `Identity inspector` click `+` button under the `Us
 
 # Restaurant Review Controller
 
-Drag 
+Drag a new view controller and add a new image view. Set four 0 constraints to the image view.Then, drag a button to the top-right corner. This one is used for closing. Set the title blank and image to `xmark`, which is a SF-symbol. Set the `Point Size` to 30 to make this button larger, and set the color to white.Top/right:0/20
 
+![xmark](graph/xmark.png)
 
+For the rating buttons, this time they have both text and images. Rubik, 50. After C/V, embed them into a stack view. **Leading**, spacing:10. And make the stackview center of the screen.
+
+Next, create a custom class.Define a IBoutlet and make connection.
 
 
 
