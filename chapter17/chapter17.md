@@ -93,7 +93,34 @@ Then, we can access certain button the same way accessing array element.
 
 # Make them animated!
 
-Finally,we come to the most important part of this chapter.
+Finally,we come to the most important part of this chapter. In an animation, we just need to provide the start state and the end state.Let's take **fade-in** animation as an example:
+
+* the **Invisible state** , aka start state, can be done by setting its alpha to `0`
+* the **Visible state**, aka end state,can be done by setting its alpha to `1`
+
+Let's first set the alpha of buttons to 0, in `viewDidLoad`, add these:
+
+```sw
+for button in ratebuttons{
+            button.alpha = 0
+        }
+```
+
+Then for the end state:
+
+```sw
+override func viewWillAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 2.0){
+            for button in self.ratebuttons{
+                button.alpha = 1.0
+            }
+        }
+    }
+```
+
+line2:![UIview.animate](graph/UIview.animate.png)
+
+Here we use the **Trailing Closures** synax.
 
 # To Do
 

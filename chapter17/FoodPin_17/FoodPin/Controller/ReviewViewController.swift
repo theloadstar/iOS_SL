@@ -25,6 +25,18 @@ class ReviewViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blureffect)
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
+        //fade-in animation
+        for button in ratebuttons{
+            button.alpha = 0
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 2.0){
+            for button in self.ratebuttons{
+                button.alpha = 1.0
+            }
+        }
     }
     
 
