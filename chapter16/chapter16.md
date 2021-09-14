@@ -61,7 +61,7 @@ let coordinate = placemark.location?.coordinate
 Consists of two parts:
 
 1. **an annotation object**: the one stores the data of annotation, such as name of placemark, using **MKAnnotation** protocol.
-2. **an annotation view**: the one stores the image of annotation.
+2. **an annotation view**: the one stores the image of annotation.**MKMarkerAnnotation**
 
 By default, the *MapKit* comes with standard annotation object and view, if you want to customize, such as customizing the pin view, we need to create our own annotation object/view.
 
@@ -187,8 +187,64 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 Easy to understand.
 
+# Customize Annotation
 
+To do this, we need to adopt `MKMapViewDelegate` protocol. Every time when the map view needs an annotation, it calls the method :`mapView(_:viewFor:)`. So, in the `MapViewController.swift`, add this one after the class defination, and add`mapView.delegate = self` in the `viewDidLoad` method.
+
+Then, let's add the `mapView` method:
+
+```sw
+func mapView(_ mapView: MKMapView,viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyMarker"
+        if annotation.isKind(of: MKUserLocation.self){
+            return nil
+        }
+        
+        //reuse the annotation if possible
+        var annotationView : MKMarkerAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil{
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        annotationView?.glyphText = "🌚"
+        annotationView?.glyphTintColor = UIColor.orange
+        
+        return annotationView
+    }
+```
+
+* First, why the return type of func definition is different from the code within?![subclass](graph/subclass.png)
+
+  `MKMarkerAnnotationView` is subclass of `MKAnnotationView`
+
+* For line 3: there are two types of annotations , one is *Placemark*, the other is *Current location*. For the latter, the map will display a blue dot, so we don't change its annotation.![iskindof](graph/iskindof.png)
+
+  ![userlocation](graph/userlocation.png)
+
+  ​	return `nil` will just leave the blue dot as what it's like.
+
+* line 8 is easy to understand. `as?` stands for downcasting to `MKMaekerAnnotationView` **if yes**.
+
+* If there is no reuseable annotation, we will create a new one (line 10-12).
+
+  ![newannotation](graph/newannotation.png)
+
+  The `reuseIdentifier` par aims for reusing this annotation.
+
+Result🤣
+
+​	![customizeannotation](graph/customizeannotation.png)
+
+# Customize Map
+
+> * **showTraffic** - shows any high traffic on your map view
+> * **showScale** - shows a scale on the top-left corner of your map view.
+> * **showCompass** - displays a compass control on the top-right corner of your map view. Please note that the compass will only appear when the map is rotated a little bit away from pure north.
+
+(I don't know how to control the map to scale or rotate...
 
 # To Do
 
 - [ ] MapView's back button title.
+- [ ] [MKDirections](https://developer.apple.com/documentation/mapkit/mkdirections): extral

@@ -9,14 +9,19 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var mapView : MKMapView!
     var restaurant = Restaurant()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //map customization
+        mapView.showsTraffic = true
+        mapView.showsScale = true
+        mapView.showsCompass = true
+        
+        mapView.delegate = self
         // Do any additional setup after loading the view.
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(restaurant.location, completionHandler: {placemarks, error in
@@ -32,10 +37,30 @@ class MapViewController: UIViewController {
                     annotation.coordinate = location.coordinate
                     //display
                     self.mapView.showAnnotations([annotation], animated: true)
-//                    self.mapView.selectAnnotation(annotation, animated: true)
+                    self.mapView.selectAnnotation(annotation, animated: true)
                 }
             }
         })
+    }
+    
+    func mapView(_ mapView: MKMapView,viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyMarker"
+        //judge whether the location is from the user
+        if annotation.isKind(of: MKUserLocation.self){
+            return nil
+        }
+        
+        //reuse the annotation if possible
+        var annotationView : MKMarkerAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
+        if annotationView == nil{
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        annotationView?.glyphText = "🌚"
+        annotationView?.glyphTintColor = UIColor.orange
+        
+        return annotationView
     }
     
 
