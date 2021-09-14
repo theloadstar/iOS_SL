@@ -68,7 +68,24 @@ If I set the Transition mode to *Partical Curl*, when I click the `close` button
 
 To solve it, we can set the `IBAction` 's `animated` to `false`, or just use other mode. We use `Cover Vertical` for the moment.
 
+# Add a BlurEffect
 
+Just add these lines in the `ReviewViewController`'s `viewDidLoad`:
+
+```sw
+let blureffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blureffect)
+        blurEffectView.frame = view.bounds
+        backgroundImageView.addSubview(blurEffectView)
+```
+
+line3:
+
+![frame](graph/frame.png)
+
+# Outlet Collections
+
+The only difference between **Outlet Collections** and **OutLet** is that this one allows to reference multiple UI objects with a single outlet variable.Let's go to the code. The defination is like this:``
 
 # To Do
 
