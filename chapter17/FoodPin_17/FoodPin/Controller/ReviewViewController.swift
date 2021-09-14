@@ -17,7 +17,7 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundImageView.image = UIImage(named: restaurant.name)
+        backgroundImageView.image = UIImage(named: restaurant.image)
         // Do any additional setup after loading the view.
     }
     

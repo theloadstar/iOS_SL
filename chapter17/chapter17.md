@@ -18,13 +18,30 @@ For the rating buttons, this time they have both text and images. Rubik, 50. Aft
 
 Next, create a custom class.Define a IBoutlet and make connection.
 
+# Create a Segue
 
+`control` + `drag` from `rate it` button to the review controller, select `prsentmodally`
 
+![prsentmodally](graph/prsentmodally.png)
 
+Remember to set the `Identifier` of this segue to `showReview`, and add
 
+```sw
+else if segue.identifier == "showReview"{
+            let destinationController = segue.destination as! ReviewViewController
+            destinationController.restaurant = self.restaurant
+        }
+```
 
+to the `prepare` func.
 
+BTW, set the background image `content mode` to `Aspect Fill`.
 
+From iOS 13, the `Present Modally` displays a scene like a card, to make it full screen, selet the segue and set `Presentation` to `Full Screen`.![fullscreen](graph/fullscreen.png)
+
+![presentmodally](graph/presentmodally.jpg)
+
+Try some other Transtions 🌚, `Partial Curl` is prefered~![transtion](graph/transtion.png)
 
 
 

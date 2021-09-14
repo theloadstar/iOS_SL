@@ -101,6 +101,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             let destinationController = segue.destination as! MapViewController
             destinationController.restaurant = self.restaurant
         }
+        else if segue.identifier == "showReview"{
+            let destinationController = segue.destination as! ReviewViewController
+            destinationController.restaurant = self.restaurant
+        }
     }
     
     
