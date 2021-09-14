@@ -43,9 +43,34 @@ From iOS 13, the `Present Modally` displays a scene like a card, to make it full
 
 Try some other Transtions 🌚, `Partial Curl` is prefered~![transtion](graph/transtion.png)
 
+# Create a Exit
+
+After we change the display mode from "card" to "Full Screen", we can't just exit the scene by scrolling down.Thus, we must create a Exit, which is the "Xmark" button on the top-right corner.This called `unwind segue`, which can be used to navigate back through a <font color = "red">modal or push segue.</font>
+
+To use `unwind segue`, we must declare a method in the **destination view controller**, i.e. `RestaurantDetailViewController`. Add the following:
+
+```sw
+@IBAction func close(segue : UIStoryboardSegue){
+        dismiss(animated: true, completion: nil)
+    }
+```
+
+> Before you can begin adding unwind segues in Interface Builder, you must define at least one unwind action in the destination controller. This action method tells Xcode that it can be unwound.
+>
+
+Then, in the `ReviewController`, `control`+`drag` from *Close* button to *Exit icon* of the scene dock, select `closeWithSegue:`. (Familiar, right? Similar step in chapter6~)
+
+---
+
+If I set the Transition mode to *Partical Curl*, when I click the `close` button, it will get stuck.
+
+<img src="graph/getstuck.png" alt="getstuck" style="zoom:50%;" />
+
+To solve it, we can set the `IBAction` 's `animated` to `false`, or just use other mode. We use `Cover Vertical` for the moment.
 
 
 
+# To Do
 
-
+- [ ] Get stuck, mode `Partical Curl`. Use the chapter17's ref to judge the bug source, code or official.
 

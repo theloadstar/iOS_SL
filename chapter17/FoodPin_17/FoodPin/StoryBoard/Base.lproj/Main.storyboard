@@ -187,7 +187,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <segue destination="plM-bl-Py9" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Uaw-GG-Vwb"/>
+                                        <segue destination="plM-bl-Py9" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Uaw-GG-Vwb"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -387,6 +387,9 @@
                                 <state key="normal" image="xmark" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
+                                <connections>
+                                    <segue destination="d77-FF-mid" kind="unwind" unwindAction="closeWithSegue:" id="HJO-Qg-7gC"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOK-K2-qv9">
                                 <rect key="frame" x="93" y="207.5" width="228" height="481"/>
@@ -437,6 +440,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBs-fc-yGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="d77-FF-mid" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2536" y="875"/>
         </scene>

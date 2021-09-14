@@ -11,7 +11,10 @@ import UIKit
 class RestaurantDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var restaurant = Restaurant()
-    
+    // unwind segue
+    @IBAction func close(segue : UIStoryboardSegue){
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var tableView : UITableView!
     @IBOutlet var headerView : RestanrantDetailHeaderView!
     // MARK: Life Cycle
