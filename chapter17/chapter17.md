@@ -85,7 +85,15 @@ line3:
 
 # Outlet Collections
 
-The only difference between **Outlet Collections** and **OutLet** is that this one allows to reference multiple UI objects with a single outlet variable.Let's go to the code. The defination is like this:``
+The only difference between **Outlet Collections** and **OutLet** is that this one allows to reference multiple UI objects with a single outlet variable.Let's go to the code. The defination is like this:`@IBOutlet var ratebuttons : [UIButton]!`, not hard to understand.Then we can make multiple connections from this one.
+
+![multipleconnections](graph/multipleconnections.png)
+
+Then, we can access certain button the same way accessing array element.
+
+# Make them animated!
+
+Finally,we come to the most important part of this chapter.
 
 # To Do
 

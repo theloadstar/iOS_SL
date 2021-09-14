@@ -11,6 +11,7 @@ import UIKit
 class ReviewViewController: UIViewController {
     
     @IBOutlet var backgroundImageView : UIImageView!
+    @IBOutlet var ratebuttons : [UIButton]!
     
     var restaurant = Restaurant()
 
