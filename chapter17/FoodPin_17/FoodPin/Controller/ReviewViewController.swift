@@ -25,9 +25,12 @@ class ReviewViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blureffect)
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
+        //move beyond the trailing
+        let moveRightTransform = CGAffineTransform(translationX: 600, y: 0)
         //fade-in animation
         for button in ratebuttons{
             button.alpha = 0
+            button.transform = moveRightTransform
         }
     }
     
@@ -38,8 +41,9 @@ class ReviewViewController: UIViewController {
 //            }
 //        }
         for i in 0...self.ratebuttons.count-1 {
-            UIView.animate(withDuration: 0.4, delay: 0.1+Double(i)*0.1, options: [], animations: {
+            UIView.animate(withDuration: 0.4, delay: 0.1+Double(i)*0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: [], animations: {
                 self.ratebuttons[i].alpha = 1.0
+                self.ratebuttons[i].transform = .identity
             }, completion: nil)
         }
     }

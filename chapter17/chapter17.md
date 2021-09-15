@@ -122,7 +122,7 @@ line2:![UIview.animate](graph/UIview.animate.png)
 
 Here we use the **Trailing Closures** synax.
 
-Have you ever wondering why we didn't add these in the method `viewDidLoad`? Because this method will only be called once, and the animation probably starts too early and finishes even before the view appears.
+Have you ever wondering why we didn't add these in the method `viewDidLoad`? Because this method will only be called once, and<font color = "red"> the animation probably starts too early and finishes even before the view appears.</font>
 
 ## Add delay
 
@@ -155,9 +155,68 @@ result:
 
 iOS provodes a structure called `CGAffineTransform` to move, scale or rotate a view.For example, `CGAffineTransform.init(translationX:600, y: 0)` means to moves a view 600 points to the right of the screen.Correspondingly, -x:left, +y:above.
 
+So, add two line in `viewDidLoad`:
 
+```sw
+override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        backgroundImageView.image = UIImage(named: restaurant.image)
+        // Do any additional setup after loading the view.
+        //blur effect
+        let blureffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blureffect)
+        blurEffectView.frame = view.bounds
+        backgroundImageView.addSubview(blurEffectView)
+        //move beyond the trailing
+        let moveRightTransform = CGAffineTransform(translationX: 600, y: 0)
+        //fade-in animation
+        for button in ratebuttons{
+            button.alpha = 0
+            button.transform = moveRightTransform
+        }
+    }
+```
 
+And add this line to `viewWillAppear`:
 
+```sw
+self.ratebuttons[i].transform = .identity
+```
+
+> There is a built-in transform called identity transform that can be used to clear any pre-defined transform.
+
+![rightin](graph/rightin.gif)
+
+# Spring Animation
+
+Just update the `viewWillAppear` like this:
+
+```sw
+override func viewWillAppear(_ animated: Bool) {
+//        UIView.animate(withDuration: 2.0){
+//            for button in self.ratebuttons{
+//                button.alpha = 1.0
+//            }
+//        }
+        for i in 0...self.ratebuttons.count-1 {
+            UIView.animate(withDuration: 0.4, delay: 0.1+Double(i)*0.05, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: [], animations: {
+                self.ratebuttons[i].alpha = 1.0
+                self.ratebuttons[i].transform = .identity
+            }, completion: nil)
+        }
+    }
+```
+
+We add two parameters: For the `usingSpringWithDamping`,  the value is between 0 and 1, standing for the oscillation(振幅) of the spring. The bigger value, the more smooth.For the `initialSpringVelocity`, defines the initial speed of the animation. If set to `x`, the speed will be `distance*x`.
+
+![spring](graph/spring.gif)
+
+<font color = "red">I like this effect</font>
+
+# Combine two transforms
+
+We can concatenate(把……联合；串联) two transforms by `transform1.concatenating(transform2)`.
 
 
 
