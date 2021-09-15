@@ -27,10 +27,12 @@ class ReviewViewController: UIViewController {
         backgroundImageView.addSubview(blurEffectView)
         //move beyond the trailing
         let moveRightTransform = CGAffineTransform(translationX: 600, y: 0)
+        let scaleUpTransform = CGAffineTransform(scaleX: 5.0, y: 5.0)
+        let moveScaleTransform = scaleUpTransform.concatenating(moveRightTransform)
         //fade-in animation
         for button in ratebuttons{
             button.alpha = 0
-            button.transform = moveRightTransform
+            button.transform = moveScaleTransform
         }
     }
     
@@ -47,6 +49,19 @@ class ReviewViewController: UIViewController {
             }, completion: nil)
         }
     }
+    
+    //DIY
+//    override func viewWillDisappear(_ animated: Bool) {
+//        //move beyond the trailing
+//        let moveRightTransform = CGAffineTransform(translationX: 600, y: 0)
+//        let scaleUpTransform = CGAffineTransform(scaleX: 5.0, y: 5.0)
+//        let moveScaleTransform = scaleUpTransform.concatenating(moveRightTransform)
+//        //fade-in animation
+//        for button in ratebuttons{
+//            button.alpha = 0
+//            button.transform = moveScaleTransform
+//        }
+//    }
     
 
     /*

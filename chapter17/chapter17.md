@@ -218,6 +218,22 @@ We add two parameters: For the `usingSpringWithDamping`,  the value is between 0
 
 We can concatenate(把……联合；串联) two transforms by `transform1.concatenating(transform2)`.
 
+```sw
+//move beyond the trailing
+        let moveRightTransform = CGAffineTransform(translationX: 600, y: 0)
+        let scaleUpTransform = CGAffineTransform(scaleX: 5.0, y: 5.0)
+        let moveScaleTransform = scaleUpTransform.concatenating(moveRightTransform)
+        //fade-in animation
+        for button in ratebuttons{
+            button.alpha = 0
+            button.transform = moveScaleTransform
+        }
+```
+
+Leave the `viewWillAppear` as it is, then we will see a cool result:
+
+![concatenate](graph/concatenate.gif)
+
 
 
 
@@ -237,4 +253,5 @@ We can concatenate(把……联合；串联) two transforms by `transform1.conca
 # To Do
 
 - [ ] Get stuck, mode `Partical Curl`. Use the chapter17's ref to judge the bug source, code or official.
+- [ ] Add disappears animation?
 

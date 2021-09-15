@@ -13,6 +13,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     var restaurant = Restaurant()
     // unwind segue
     @IBAction func close(segue : UIStoryboardSegue){
+//        sleep(1)
         dismiss(animated: true, completion: nil)
     }
     @IBOutlet var tableView : UITableView!
