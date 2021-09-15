@@ -11,33 +11,10 @@ import UIKit
 class RestaurantDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var restaurant = Restaurant()
-    // unwind segue
-    @IBAction func close(segue : UIStoryboardSegue){
-//        sleep(1)
-        dismiss(animated: true, completion: nil)
-    }
+   
     @IBOutlet var tableView : UITableView!
     @IBOutlet var headerView : RestanrantDetailHeaderView!
-    //rate action
-    @IBAction func rateRestaurant(segue: UIStoryboardSegue){
-        if let rating = segue.identifier{
-//            self.restaurant.rating = rating
-//            self.headerView.ratingImageView.image = UIImage(named: rating)
-            dismiss(animated: true, completion: {
-                self.restaurant.rating = rating
-                self.headerView.ratingImageView.image = UIImage(named: rating)
-                // start state
-                let scaletransform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-                self.headerView.ratingImageView.transform = scaletransform
-                self.headerView.ratingImageView.alpha = 0
-                //end state
-                UIView.animate(withDuration: 0.4, delay: 0, options: [], animations: {
-                    self.headerView.ratingImageView.transform = .identity
-                    self.headerView.ratingImageView.alpha = 1.0
-                }, completion: nil)
-            })
-        }
-    }
+    
     // MARK: Life Cycle
     override func viewDidLoad() {
 //        print("restaurant.name")
@@ -130,6 +107,31 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             destinationController.restaurant = self.restaurant
         }
     }
+     // unwind segue
+        @IBAction func close(segue : UIStoryboardSegue){
+    //        sleep(1)
+            dismiss(animated: true, completion: nil)
+        }
+    //rate action
+        @IBAction func rateRestaurant(segue: UIStoryboardSegue){
+            if let rating = segue.identifier{
+    //            self.restaurant.rating = rating
+    //            self.headerView.ratingImageView.image = UIImage(named: rating)
+                dismiss(animated: true, completion: {
+                    self.restaurant.rating = rating
+                    self.headerView.ratingImageView.image = UIImage(named: rating)
+                    // start state
+                    let scaletransform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                    self.headerView.ratingImageView.transform = scaletransform
+                    self.headerView.ratingImageView.alpha = 0
+                    //end state
+                    UIView.animate(withDuration: 0.4, delay: 0, options: [], animations: {
+                        self.headerView.ratingImageView.transform = .identity
+                        self.headerView.ratingImageView.alpha = 1.0
+                    }, completion: nil)
+                })
+            }
+        }
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
