@@ -122,6 +122,59 @@ line2:![UIview.animate](graph/UIview.animate.png)
 
 Here we use the **Trailing Closures** synax.
 
+Have you ever wondering why we didn't add these in the method `viewDidLoad`? Because this method will only be called once, and the animation probably starts too early and finishes even before the view appears.
+
+## Add delay
+
+Change the code of `viewWillAppear` to these:
+
+```sw
+override func viewWillAppear(_ animated: Bool) {
+//        UIView.animate(withDuration: 2.0){
+//            for button in self.ratebuttons{
+//                button.alpha = 1.0
+//            }
+//        }
+        for i in 0...self.ratebuttons.count-1 {
+            UIView.animate(withDuration: 0.4, delay: 0.4+Double(i)*0.1, options: [], animations: {
+                self.ratebuttons[i].alpha = 1.0
+            }, completion: nil)
+        }
+    }
+```
+
+The difference is that we add **delay** of the animation. **Optional** explaization :
+
+![optionexp](graph/optionexp.png)
+
+result:
+
+![delayres](graph/delayres.gif)
+
+# Slide-in Animation
+
+iOS provodes a structure called `CGAffineTransform` to move, scale or rotate a view.For example, `CGAffineTransform.init(translationX:600, y: 0)` means to moves a view 600 points to the right of the screen.Correspondingly, -x:left, +y:above.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # To Do
 
 - [ ] Get stuck, mode `Partical Curl`. Use the chapter17's ref to judge the bug source, code or official.

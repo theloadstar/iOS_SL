@@ -32,10 +32,15 @@ class ReviewViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 2.0){
-            for button in self.ratebuttons{
-                button.alpha = 1.0
-            }
+//        UIView.animate(withDuration: 2.0){
+//            for button in self.ratebuttons{
+//                button.alpha = 1.0
+//            }
+//        }
+        for i in 0...self.ratebuttons.count-1 {
+            UIView.animate(withDuration: 0.4, delay: 0.1+Double(i)*0.1, options: [], animations: {
+                self.ratebuttons[i].alpha = 1.0
+            }, completion: nil)
         }
     }
     
