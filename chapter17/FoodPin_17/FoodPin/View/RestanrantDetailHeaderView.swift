@@ -29,5 +29,6 @@ class RestanrantDetailHeaderView: UIView {
         }
         
     }
+    @IBOutlet var ratingImageView : UIImageView!
     
 }

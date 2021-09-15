@@ -267,6 +267,8 @@ Then, make connections to this action. Remember set the identifier of each revie
 
 其实写这个插播最重要的是上图：假设每一个outlet都定义在与storyboard相同的结构中（这是规范其实），那么，写代码的时候，以self为本类，调用某个outlet时，子层里的可以直接使用`.`来访问，而不需要写上子层的名字。例如，在`RestaurantDetailViewController`里，调用headerview可以直接`self.headerview`而不用`self.tableview.header`；`MapViewController`里，访问mapview可以直接`self.mapview`。但子层的子层就需要使用两个dot synax
 
+调整为规范结构时候接得接触`ratingImage`与`detailviewcontroller`的连接，否则程序会崩
+
 ---
 
 
