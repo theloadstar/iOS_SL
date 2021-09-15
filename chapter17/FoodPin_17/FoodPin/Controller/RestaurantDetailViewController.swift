@@ -18,6 +18,15 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     }
     @IBOutlet var tableView : UITableView!
     @IBOutlet var headerView : RestanrantDetailHeaderView!
+    @IBOutlet var ratingImageView : UIImageView!
+    //rate action
+    @IBAction func rateRestaurant(segue: UIStoryboardSegue){
+        if let rating = segue.identifier{
+            self.restaurant.rating = rating
+            self.ratingImageView.image = UIImage(named: rating)
+            dismiss(animated: true, completion: nil)
+        }
+    }
     // MARK: Life Cycle
     override func viewDidLoad() {
 //        print("restaurant.name")

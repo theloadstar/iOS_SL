@@ -234,6 +234,55 @@ Leave the `viewWillAppear` as it is, then we will see a cool result:
 
 ![concatenate](graph/concatenate.gif)
 
+# Pass data from Review To Detail
+
+First, let's add a new property for the Restaurant Class.Update the `init` method. We set a default value to the parameter, when being called, if this one's value not specify, its value will be set to the default value.
+
+Back to the storyboard, drag a image view blow the dim view, and set 4 constraints : right and buttom :10, height 50, width 52. When done, we find that the buttom's constraint is relative to the Name label's top, change that to the type's buttom and set the value to 0.Then, define a outlet and make a connection.
+
+Next, the action. Add these lines to the `RestaurantDetailViewController.swift`
+
+```sw
+//rate action
+    @IBAction func rateRestaurant(segue: UIStoryboardSegue){
+        if let rating = segue.identifier{
+            self.restaurant.rating = rating
+            self.ratingImageView.image = UIImage(named: rating)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+```
+
+Then, make connections to this action. Remember set the identifier of each review button.
+
+---
+
+写这一部分的时候，发现一个问题，还挺有意思的，总结一下。
+
+在storyboard里，每一个object都需要view来容纳。~~这里的reviewimage在storyboard中定义在headerview里，而对应的outlet却定义在了restaurantDetailViewController里，故更新的时候更新不到。解决方案是将outlet定义在Headerview里。~~破案了。。。。没生效是因为自己没定义identifier，亏我还在上文强调**Remember**🤦‍♂️。为了规范，我们还是定义在HeaderView里。
+
+![layer](graph/layer.png)
+
+
+
+其实写这个插播最重要的是上图：假设每一个outlet都定义在与storyboard相同的结构中（这是规范其实），那么，写代码的时候，以self为本类，调用某个outlet时，子层里的可以直接使用`.`来访问，而不需要写上子层的名字。例如，在`RestaurantDetailViewController`里，调用headerview可以直接`self.headerview`而不用`self.tableview.header`；`MapViewController`里，访问mapview可以直接`self.mapview`。但子层的子层就需要使用两个dot synax
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
