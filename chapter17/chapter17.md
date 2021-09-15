@@ -300,38 +300,19 @@ Just add these lines, easy to understand.
 
 ## 1
 
+Not Hard. <font color = "red">Note</font>: to move the object up beyond the screen, the y value should be `<0` instead of `>0`.
 
+![Kapture 2021-09-15 at 23.11.09](graph/exercise1.gif)
 
+## 2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Done during learning.
 
 # To Do
 
-- [ ] Get stuck, mode `Partical Curl`. Use the chapter17's ref to judge the bug source, code or official.
+- [x] Get stuck, mode `Partical Curl`. Use the chapter17's ref to judge the bug source, code or official.
+
+  The *AppCoda*'s official also gets stuck...
+
 - [ ] Add disappears animation?
 

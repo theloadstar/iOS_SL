@@ -197,7 +197,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <segue destination="plM-bl-Py9" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Uaw-GG-Vwb"/>
+                                        <segue destination="plM-bl-Py9" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Uaw-GG-Vwb"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -462,6 +462,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="pjp-Gj-gww" id="0vb-8W-2Ey"/>
+                        <outlet property="closebutton" destination="vDq-ko-1Av" id="Rm5-xq-znm"/>
                         <outletCollection property="ratebuttons" destination="sC7-xI-n0J" collectionClass="NSMutableArray" id="ies-sQ-YXF"/>
                         <outletCollection property="ratebuttons" destination="lQR-rG-isK" collectionClass="NSMutableArray" id="BdN-1L-eTo"/>
                         <outletCollection property="ratebuttons" destination="VDT-29-CeJ" collectionClass="NSMutableArray" id="qXW-m7-NIP"/>
