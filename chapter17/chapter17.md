@@ -56,7 +56,6 @@ To use `unwind segue`, we must declare a method in the **destination view contro
 ```
 
 > Before you can begin adding unwind segues in Interface Builder, you must define at least one unwind action in the destination controller. This action method tells Xcode that it can be unwound.
->
 
 Then, in the `ReviewController`, `control`+`drag` from *Close* button to *Exit icon* of the scene dock, select `closeWithSegue:`. (Familiar, right? Similar step in chapter6~)
 
@@ -270,6 +269,32 @@ Then, make connections to this action. Remember set the identifier of each revie
 调整为规范结构时候接得接触`ratingImage`与`detailviewcontroller`的连接，否则程序会崩
 
 ---
+
+# Add animation to the ratingimage in DetailView
+
+Just add these lines, easy to understand.
+
+```sw
+@IBAction func rateRestaurant(segue: UIStoryboardSegue){
+        if let rating = segue.identifier{
+//            self.restaurant.rating = rating
+//            self.headerView.ratingImageView.image = UIImage(named: rating)
+            dismiss(animated: true, completion: {
+                self.restaurant.rating = rating
+                self.headerView.ratingImageView.image = UIImage(named: rating)
+                // start state
+                let scaletransform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                self.headerView.ratingImageView.transform = scaletransform
+                self.headerView.ratingImageView.alpha = 0
+                //end state
+                UIView.animate(withDuration: 0.4, delay: 0, options: [], animations: {
+                    self.headerView.ratingImageView.transform = .identity
+                    self.headerView.ratingImageView.alpha = 1.0
+                }, completion: nil)
+            })
+        }
+    }
+```
 
 
 
