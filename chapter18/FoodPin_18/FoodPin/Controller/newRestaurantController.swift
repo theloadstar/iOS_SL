@@ -78,6 +78,42 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate {
         }
         return true
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0{
+            let photoSourceRequestController = UIAlertController(title: "Choose your photo source", message: "", preferredStyle: .actionSheet)
+            
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(action) in
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .camera
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {(action) in
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.sourceType = .photoLibrary
+                    imagePicker.allowsEditing = false
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            
+            photoSourceRequestController.addAction(cameraAction)
+            photoSourceRequestController.addAction(photoLibraryAction)
+            // for iPad
+            if let popoverController = photoSourceRequestController.popoverPresentationController{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
+            
+            present(photoSourceRequestController, animated: true, completion: nil)
+        }
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

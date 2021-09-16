@@ -179,6 +179,68 @@ Easy to understand(yeah, but have you remember them...🤦‍♂️)
 
 ![bartintcolor](graph/bartintcolor.jpg)
 
+# Display the photo library
+
+This time we will use `UIAlertController` to let users choose which photo source to use.
+
+```sw
+override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0{
+            let photoSourceRequestController = UIAlertController(title: "Choose your photo source", message: "", preferredStyle: .actionSheet)
+            
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(action) in
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.allowsEditing = false
+                    imagePicker.sourceType = .camera
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {(action) in
+                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.sourceType = .photoLibrary
+                    imagePicker.allowsEditing = false
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
+            })
+            
+            photoSourceRequestController.addAction(cameraAction)
+            photoSourceRequestController.addAction(photoLibraryAction)
+            // for iPad
+            if let popoverController = photoSourceRequestController.popoverPresentationController{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
+            
+            present(photoSourceRequestController, animated: true, completion: nil)
+        }
+    }
+```
+
+If we test, the app will crash.(Mine doesn't, and there is no item in privacy in setting, strange.)
+
+```sw
+[access] This app has crashed because it attempted to access privacy-sensitive data without a usage description.  The app's Info.plist must contain an NSPhotoLibraryUsageDescription key with a string value explaining to the user how the app uses this data.
+
+[access] This app has crashed because it attempted to access privacy-sensitive data without a usage description.  The app's Info.plist must contain an NSCameraUsageDescription key with a string value explaining to the user how the app uses this data.
+```
+
+> In iOS 10 or later, for privacy reasons, you have to explicitly describe the reason why your app accesses the user's photo library or camera. If you fail to do so, you will end up with the above error.
+
+In `info.plist`, Right-click, add row, privacy-> Photo Library Usage Description. Set the value to `You need to grant the app access to your photo library so you can pick your favorite restaurant photo.`. Repeat, choose Camera Usage Description, set the value to `You need to grant the app access to your camera in order to take photos.`
+
+We can directly drag photos from finder to the simulator to store the photos within.
+
+![displayphotolibrary](graph/displayphotolibrary.jpg)
+
+# Adopt Picker Delegate
+
+
+
 
 
 # To Do
