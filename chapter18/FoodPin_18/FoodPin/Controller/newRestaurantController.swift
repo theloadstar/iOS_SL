@@ -8,7 +8,7 @@
 
 import UIKit
 
-class newRestaurantController: UITableViewController, UITextFieldDelegate {
+class newRestaurantController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,8 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate {
         return 0
     }
     */
+    @IBOutlet var photoImageView : UIImageView!
+    
     @IBOutlet var nameTextField: RoundedTextField!{
         didSet{
             nameTextField.tag = 1
@@ -86,6 +88,7 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(action) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera){
                     let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
                     imagePicker.allowsEditing = false
                     imagePicker.sourceType = .camera
                     self.present(imagePicker, animated: true, completion: nil)
@@ -95,6 +98,7 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate {
             let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {(action) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
                     let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
                     imagePicker.sourceType = .photoLibrary
                     imagePicker.allowsEditing = false
                     self.present(imagePicker, animated: true, completion: nil)
@@ -113,6 +117,15 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate {
             
             present(photoSourceRequestController, animated: true, completion: nil)
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            photoImageView.image = selectImage
+            photoImageView.contentMode = .scaleAspectFill
+            photoImageView.clipsToBounds = true
+        }
+        dismiss(animated: true, completion: nil)
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

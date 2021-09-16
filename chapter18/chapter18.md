@@ -239,9 +239,26 @@ We can directly drag photos from finder to the simulator to store the photos wit
 
 # Adopt Picker Delegate
 
+To show the image pick by user in photo library, we need to adopt two protocols:
 
+`UIImagePickerControllerDelegate, UINavigationControllerDelegate`
 
+Then, create an outlet for the photoimage and make a connection.When a user chooses  photos, the func `imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])`will be called, and we can get the photos from the parameter `info`.
 
+```sw
+func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            photoImageView.image = selectImage
+            photoImageView.contentMode = .scaleAspectFill
+            photoImageView.clipsToBounds = true
+        }
+        dismiss(animated: true, completion: nil)
+    }
+```
+
+UIImagePickerController.InfoKey.originalImage: the key of original image.
+
+Don't forget to add `imagePicker.delegate = self` right after its defination.
 
 # To Do
 
