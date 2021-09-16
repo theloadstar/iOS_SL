@@ -94,6 +94,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Food Pin" id="q1i-9c-eUf">
                         <barButtonItem key="backBarButtonItem" title=" " id="LJu-7a-fls"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="MlQ-k9-9wr">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="7Dw-Lz-MAz" kind="presentation" identifier="addRestaurant" modalPresentationStyle="fullScreen" id="Gfq-LS-F8z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SnT-Gr-7KR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -552,13 +558,21 @@
                             <outlet property="delegate" destination="0xD-OB-oEG" id="7Eo-qx-sxZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Restaurant" id="EoY-5T-cec"/>
+                    <navigationItem key="navigationItem" title="New Restaurant" id="EoY-5T-cec">
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="Wfa-c8-yEg">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="lus-OG-nlX" kind="unwind" unwindAction="unwindtohomeWithSegue:" id="FRE-VC-psz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQT-Qv-F9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lus-OG-nlX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3453.6231884057975" y="-623.4375"/>
+            <point key="canvasLocation" x="2881" y="-597"/>
         </scene>
-        <!--Map View Controller-->
+        <!-- -->
         <scene sceneID="iVN-WW-gZi">
             <objects>
                 <viewController id="Mdb-7u-Jmk" customClass="MapViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
@@ -579,8 +593,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aEF-Jh-gob"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NYS-iW-5ca">
-                        <barButtonItem key="backBarButtonItem" title=" " id="1bm-WQ-VYL"/>
+                    <navigationItem key="navigationItem" title=" " id="NYS-iW-5ca">
+                        <barButtonItem key="backBarButtonItem" title="  " id="1bm-WQ-VYL"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="f4k-jG-2QS" id="GBH-ry-yza"/>
@@ -612,10 +626,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOK-K2-qv9">
-                                <rect key="frame" x="93" y="207.5" width="228" height="481"/>
+                                <rect key="frame" x="55" y="-13" width="304" height="922"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC7-xI-n0J">
-                                        <rect key="frame" x="0.0" y="0.0" width="189" height="82"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="164"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Love" image="love"/>
                                         <connections>
@@ -623,7 +637,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQR-rG-isK">
-                                        <rect key="frame" x="0.0" y="92" width="181" height="83"/>
+                                        <rect key="frame" x="0.0" y="174" width="261" height="166"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Cool" image="cool"/>
                                         <connections>
@@ -631,7 +645,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDT-29-CeJ">
-                                        <rect key="frame" x="0.0" y="185" width="228" height="86"/>
+                                        <rect key="frame" x="0.0" y="350" width="304" height="172"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Happy" image="happy"/>
                                         <connections>
@@ -639,7 +653,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWN-sz-Qsa">
-                                        <rect key="frame" x="0.0" y="281" width="167" height="87"/>
+                                        <rect key="frame" x="0.0" y="532" width="245" height="174"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Sad" image="sad"/>
                                         <connections>
@@ -647,7 +661,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kK-rz-WwQ">
-                                        <rect key="frame" x="0.0" y="378" width="219" height="103"/>
+                                        <rect key="frame" x="0.0" y="716" width="287" height="206"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Angry" image="angry"/>
                                         <connections>
@@ -719,7 +733,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmG-UD-uy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2543.4782608695655" y="-623.4375"/>
+            <point key="canvasLocation" x="1838" y="-597"/>
         </scene>
     </scenes>
     <resources>
@@ -729,6 +743,7 @@
         <image name="heart-tick" width="22" height="21"/>
         <image name="love" width="78" height="82"/>
         <image name="photo" catalog="system" width="64" height="46"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="sad" width="78" height="87"/>
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>

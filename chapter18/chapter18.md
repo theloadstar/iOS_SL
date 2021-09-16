@@ -24,7 +24,28 @@ For the last one, height:125. Drag a label and name it `DESCRIPTION`.This time d
 
 ---
 
-Finally, embed this table view to navigation bar.(Why?)Select the tableview, go to the menu->editor->Embed IN->NavigationBar.Set the title name `New Restaurant`
+Finally, embed this table view to navigation bar.(Why?Oh, I know: To let the top of the screen show title)Select the tableview, go to the menu->editor->Embed IN->NavigationBar.Set the title name `New Restaurant`
 
 # Link Up
+
+We need to show this controller when user tapping `+` button. <font color = "red">Drag a **Bar Button** to the navigation bar of the Food Pin controller.</font>Set the title blank, and the image `plus`. Tint: black.
+
+![barbutton](graph/barbutton.png)
+
+> A bar button (UIBarButtonItem) is very similar to a standard button (UIButton). However, a bar button is specifically designed for navigation bars and toolbars.
+>
+
+Hold `control` and drag from the button to the `newrestaurant`'s navigation bar.Select `present modally` and the segue's identifier `addRestaurant`.
+
+We also need to add a exit for users in newrestaurantviewcontroller.Add a new bar button   to the navigation bar top-left, set the image `Xmark`, title blank, tint black.Add code to `RestaurantTableViewController`, and make connection.
+
+```sw
+@IBAction func unwindtohome(segue: UIStoryboardSegue){
+        dismiss(animated: true, completion: nil)
+    }
+```
+
+Have a test:
+
+![unwindtohome](graph/unwindtohome.gif)
 
