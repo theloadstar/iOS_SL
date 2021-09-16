@@ -87,13 +87,86 @@ let padding  = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 
 3. layoutSubviews:This one  is called every time when the text field is laid out.
 
-
+4. [.masksToBounds](https://blog.csdn.net/hhcncx/article/details/51278026)
 
 Remember to set the class of text to `RoundedTextField`, except for the description one.
 
 ![roundedtext](graph/roundedtext.jpg)
 
+# Move to the next text field
 
+When we type sth in the text and hit the `return` key, the cursor doesn't go to the next field.
+
+Okey, time to create a new controller for the new restaurant review.Set it to the subview of `UITableViewController`, and create an Outlet for each of the textview and textfield.
+
+Adopt the protocol : `UITextFieldDelegate`.
+
+> UITextFieldDelegate is the protocol we need to adopt in order to process the event. The protocol provides developers a set of optional methods to manage the editing of a text field. 
+
+```sw
+@IBOutlet var nameTextField: RoundedTextField!{
+        didSet{
+            nameTextField.tag = 1
+            nameTextField.becomeFirstResponder()
+            nameTextField.delegate = self
+        }
+    }
+    @IBOutlet var typeTextField: RoundedTextField!{
+        didSet{
+            typeTextField.tag = 2
+            typeTextField.delegate = self
+        }
+    }
+    @IBOutlet var addressTextField: RoundedTextField!{
+        didSet{
+            addressTextField.tag = 3
+            addressTextField.delegate = self
+        }
+    }
+    @IBOutlet var phoneTextField: RoundedTextField!{
+        didSet{
+            phoneTextField.tag = 4
+            phoneTextField.delegate = self
+        }
+    }
+    @IBOutlet var descriptionTextView: UITextView!{
+        didSet{
+            descriptionTextView.tag = 5
+            descriptionTextView.layer.cornerRadius = 0.5
+            descriptionTextView.layer.masksToBounds = true
+        }
+    }
+```
+
+<span jump id = "question1">Question</span>: why description doesn't add delegate?
+
+Ok, let's use the `.tag` to move the cursor.When user tapping `return` button, the func `textFieldShouldReturn` will be invoked.So, let's code this method.
+
+```sw
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = view.viewWithTag(textField.tag + 1){
+            textField.resignFirstResponder()
+            nextTextField.becomeFirstResponder()
+        }
+        
+        return true
+    }
+```
+
+1. `viewWithTag(_:)`:Returns the view whose tag matches the specified value.
+2. `resignFirstResponder()`:Notifies this object that it has been asked to relinquish(放弃) its status as first responder in its window.
+
+Finally, make connections with text view/fields!
+
+![movetothenext](graph/movetothenext.gif)
+
+
+
+
+
+# To Do
+
+- [ ] [Question1](#question1)
 
 
 
