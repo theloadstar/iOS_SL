@@ -260,6 +260,61 @@ UIImagePickerController.InfoKey.originalImage: the key of original image.
 
 Don't forget to add `imagePicker.delegate = self` right after its defination.
 
+> The delegate receives notifications when the user picks an image or movie, or exits the picker interface. The delegate also decides when to dismiss the picker interface, so you must provide a delegate to use a picker.
+>
+> From Apple
+
+# Define auto layout constraints
+
+The image shown in the photo image view looks not good.
+
+![badlook](graph/badlook.png)
+
+Thus, we need to define more constraints.This time, let's use `NSLayoutConstraint` to define instead of using storyboard.
+
+We define four constraints whose values are 0 to top/leading/trailing/buttom.
+
+```sw
+let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .leading, relatedBy: .equal, toItem: photoImageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+        leadingConstraint.isActive = true
+        
+        let trailingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .trailing, relatedBy: .equal, toItem: photoImageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+        trailingConstraint.isActive = true
+        
+        let topConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .top, relatedBy: .equal, toItem: photoImageView.superview, attribute: .top, multiplier: 1, constant: 0)
+        topConstraint.isActive = true
+        
+        let bottomConstraint = NSLayoutConstraint(item: photoImageView as Any, attribute: .bottom, relatedBy: .equal, toItem: photoImageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+        bottomConstraint.isActive = true
+```
+
+[Any type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_any-type)
+
+> The `Any` type can contain values from all other types. `Any` can be used as the concrete type for an instance of any of the following types:
+>
+> - A class, structure, or enumeration
+> - A metatype, such as `Int.self`
+> - A tuple with any types of components
+> - A closure or function type
+
+![AsAny](graph/AsAny.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # To Do
 
 - [ ] [Question1](#question1)
