@@ -49,3 +49,67 @@ Have a test:
 
 ![unwindtohome](graph/unwindtohome.gif)
 
+# Rounded Corner Text Field
+
+> The default text field doesn't come with rounded corners and text indentation. It's our responsibility to build a custom text field with these features. To do that, we will create a custom version of `UITextField`.
+
+Create a new file of `view` folder, name it `RoundedTextField`, subclass of `UITextField`.
+
+```sw
+let padding  = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 5.0
+        self.layer.masksToBounds = true
+    }
+```
+
+1. UIEdgeInsets:
+
+   ![UIEdgeInsets](graph/UIEdgeInsets.png)
+
+2. textRect:Returns the drawing rectangle for the text field’s text.
+
+   So does `placeholderRect` and `editingRect`
+
+3. layoutSubviews:This one  is called every time when the text field is laid out.
+
+
+
+Remember to set the class of text to `RoundedTextField`, except for the description one.
+
+![roundedtext](graph/roundedtext.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
