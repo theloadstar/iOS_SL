@@ -18,6 +18,12 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.shadowImage = UIImage()
+        if let customFont = UIFont(name: "Rubik-Medium", size: 35.0){
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(231, 76, 60), NSAttributedString.Key.font : customFont ]
+        }
     }
 
     // MARK: - Table view data source

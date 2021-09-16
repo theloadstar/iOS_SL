@@ -52,7 +52,7 @@ class RestaurantTableViewController: UITableViewController {
         //font
 //        print("Largebefore")
         if let customFont = UIFont(name: "Rubik-Medium", size: 40.0){
-            print("Large1")
+//            print("Large1")
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0), NSAttributedString.Key.font: customFont]
 //            print("Large")
         }

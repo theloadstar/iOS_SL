@@ -560,7 +560,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Restaurant" id="EoY-5T-cec">
                         <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="Wfa-c8-yEg">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="lus-OG-nlX" kind="unwind" unwindAction="unwindtohomeWithSegue:" id="FRE-VC-psz"/>
                             </connections>

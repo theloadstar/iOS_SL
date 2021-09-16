@@ -160,7 +160,24 @@ Finally, make connections with text view/fields!
 
 ![movetothenext](graph/movetothenext.gif)
 
+# Customize the navigation bar
 
+To make the UI consistent, let's customize the newrestaurantController's navigation bar.
+
+```sw
+navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.shadowImage = UIImage()
+        if let customFont = UIFont(name: "Rubik-Medium", size: 35.0){
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(231, 76, 60), NSAttributedString.Key.font : customFont ]
+        }
+```
+
+Easy to understand(yeah, but have you remember them...🤦‍♂️)
+
+<font color = "red">Note:</font>`navigationController?.navigationBar.tintColor = .white` does not work unless we set this button's color to `default` in `storyboard`.
+
+![bartintcolor](graph/bartintcolor.jpg)
 
 
 
