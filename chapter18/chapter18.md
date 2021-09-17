@@ -299,9 +299,41 @@ let leadingConstraint = NSLayoutConstraint(item: photoImageView as Any, attribut
 
 ![AsAny](graph/AsAny.png)
 
+## 2
+
+I Like this exercise, which is challenging!
+
+```sw
+@IBAction func StoreAction(sender: AnyObject){
+        let alertMessageController = UIAlertController(title: "Oops", message: "We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)", preferredStyle: .alert)
+        alertMessageController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        if nameTextField.text=="" || typeTextField.text=="" ||
+        addressTextField.text=="" || phoneTextField.text=="" ||
+        descriptionTextView.text==""{
+            present(alertMessageController, animated: true, completion: nil)
+        }
+        else{
+            print("Name: "+nameTextField.text!)
+            print("Type: "+typeTextField.text!)
+            print("Location: "+addressTextField.text!)
+            print("Phone: "+phoneTextField.text!)
+            print("Description: "+descriptionTextView.text!)
+            performSegue(withIdentifier: "unwindtohome", sender: self)
+        }
+    }
+```
 
 
 
+1. If you don't know which type of parameter to code, use `Any` or `AnyObject` like line 1
+
+2. <font color = "red">Remember to set the identifier of back segue,</font> otherwise line 15 will crash.
+
+3. <font color = "red">Note:</font> we can replace line 15 with `dismiss(animated: true, completion: nil)`. Yeah, we said that we must define at least one unwind action in the **destination** controller. IMU, if we want to connect a button with the **Exit** on the top of the controller, we must  define a unwind one in the destination. Otherwise, we can define inside the action code like here.
+
+   After testing, above is wrong. If you want to code `dismiss` method directly in the source view, this view must have navigation controller.
+
+   Let's have a test again.
 
 
 

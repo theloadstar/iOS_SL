@@ -18,7 +18,7 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .black
 //        navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.shadowImage = UIImage()
         if let customFont = UIFont(name: "Rubik-Medium", size: 35.0){
@@ -195,5 +195,24 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func StoreAction(sender: AnyObject){
+        let alertMessageController = UIAlertController(title: "Oops", message: "We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)", preferredStyle: .alert)
+        alertMessageController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        if nameTextField.text=="" || typeTextField.text=="" ||
+        addressTextField.text=="" || phoneTextField.text=="" ||
+        descriptionTextView.text==""{
+            present(alertMessageController, animated: true, completion: nil)
+        }
+        else{
+            print("Name: "+nameTextField.text!)
+            print("Type: "+typeTextField.text!)
+            print("Location: "+addressTextField.text!)
+            print("Phone: "+phoneTextField.text!)
+            print("Description: "+descriptionTextView.text!)
+//            performSegue(withIdentifier: "unwindtohome", sender: self)
+            dismiss(animated: true, completion: nil)
+        }
+    }
 
 }
