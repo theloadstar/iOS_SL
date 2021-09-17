@@ -95,5 +95,13 @@ We can check `core data` to apply it when creating project. For an exsiting one,
 
 # Create Data Model
 
-Right-click `Food Pin` and add new file. Scroll down to select `Data Model`.
+Right-click `Food Pin` and add new file. Scroll down to select `Data Model`.Then, click the file and create a entity `Restaurant`. Add eight attributes to it. Note: we can't name a attribute 'description' because this one is reserved. So, we use `summary` instead.
+
+Considering that when create a new restaurant, we don't know the name of the image. So, we set the type of image to `Binary Data`.
+
+Uncheck the `name` and `type` attributes to make these two mandatory(强制的).
+
+# Create Managed Objects
+
+
 
