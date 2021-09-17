@@ -103,5 +103,70 @@ Uncheck the `name` and `type` attributes to make these two mandatory(强制的).
 
 # Create Managed Objects
 
+> Here, the managed objects are very similar to outlet variables. You can modify the entity's content by updating the managed object.
 
+Select the `Restaurant` entity and set the class name to `RestaurantMO`, the `Codegen`to `Class Definition`.Then, Xcode will generate the class for us when building the project.
+
+> You will not find the generated class in the project navigator. It's stored somewhere else in the project folder. But you're now ready to use it in your code.
+
+Now, let's go to the code.
+
+We no longer need to initialize the restaurants array, declare like this:`var restaurants:[RestaurantMO] = []`. Once we did this, there will be a lot of errors. Fix one by one.
+
+```sw
+//cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        if let restaurantImage = restaurants[indexPath.row].image{
+            cell.thumbnailImageView.image = UIImage(data: restaurantImage as Data)
+        }
+```
+
+```sw
+//if let shareImage = UIImage(named: self.restaurants[indexPath.row].image)
+if let restaurantimage = self.restaurants[indexPath.row].image ,let shareImage = UIImage(data: restaurantimage as Data)
+```
+
+(We can infer form the code above that `,`  not equal tp `&&`, but used for sequence.)
+
+```sw
+//let defaultText = "Just Checking in at " + self.restaurants[indexPath.row].name
+let defaultText = "Just Checking in at " + self.restaurants[indexPath.row].name!
+```
+
+Move to `RestaurantdetailViewController`:
+
+```sw
+//var restaurant = Restaurant()
+var restaurant : RestaurantMO!
+```
+
+```sw
+if let restaurantImage = restaurant.image{
+            headerView.headerImageView.image = UIImage(data: restaurantImage)
+        }
+```
+
+```sw
+if let restaurantLocation = restaurant.location{
+                cell.configure(location: restaurantLocation)
+            }
+            cell.configure(location: restaurant.location)
+```
+
+For the `MapViewController`
+
+```sw
+geoCoder.geocodeAddressString(restaurant.location ?? "", completionHandler: 
+```
+
+* ??:
+
+  > known as nil coalescing operator. What this does is that it checks if the location property has a value. If not, it will use the default value we set after ??.
+
+Change the rest of `restaurant` type to `RestaurantMO`
+
+改好以后一直说Use of undeclared type，经过一通操作后居然就好了，各种`shift+command+k`
+
+
+
+ 
 
