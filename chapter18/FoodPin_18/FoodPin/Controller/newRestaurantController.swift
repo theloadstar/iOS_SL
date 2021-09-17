@@ -24,6 +24,8 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
         if let customFont = UIFont(name: "Rubik-Medium", size: 35.0){
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(231, 76, 60), NSAttributedString.Key.font : customFont ]
         }
+        //exercise 1
+        tableView.separatorStyle = .none
     }
 
     // MARK: - Table view data source
