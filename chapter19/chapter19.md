@@ -166,7 +166,63 @@ Change the rest of `restaurant` type to `RestaurantMO`
 
 改好以后一直说Use of undeclared type，经过一通操作后居然就好了，各种`shift+command+k`
 
+# Customize Empty Table
 
+Unzip the file provided by the toturial, make sure to check `Preserve Vector Data`. Interface builder has a feature that allows us to embed an extra view in the existing view controller. Drag a *View object* to the <font color = "red">scene dock</font>, and put it right next to the exit.![extraview](graph/extraview.png)
+
+Select the view, width/height: 414, 600. Drag an image view, set image to `empty` and width 320, height 356.For the constraints, top 100, left/right 28, and lock *Aspect Ratio*.
+
+This view is an extra view for *TableViewController*, so we need to access it from code.Create an *Outlet* `emptyRestaurantView` for it and make a connection.
+
+We need to hide this view when there are some exisiting records, and unhide when there are none. First, we code in the `viewDidLoad` method.
+
+```sw
+tableView.backgroundView = emptyRestaurantView
+        tableView.backgroundView?.isHidden = true
+```
+
+BTW, I found that the var used in this method can be defined after it :)
+
+Then, in the method `numberOfSection`
+
+```sw
+override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        if restaurants.count>0{
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        }
+        else{
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
+        return 1
+    }
+```
+
+This method will be called when table is configured.
+
+---
+
+<span jump id = "question1">question1:</span>can this be coded in `viewDidLoad`? I think this one only need to be called once.
+
+At present, (there is no record of restaurant, yes).
+
+---
+
+
+
+
+
+
+
+
+
+
+
+# To Do
+
+- [ ] [question1](#question1)
 
  
 

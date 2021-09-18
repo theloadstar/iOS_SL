@@ -32,6 +32,17 @@ class RestaurantTableViewController: UITableViewController {
         navigationController?.hidesBarsOnSwipe = true
 //        print("Table")
 //        print("2")
+        //empty background
+        tableView.backgroundView = emptyRestaurantView
+        tableView.backgroundView?.isHidden = true
+//        if restaurants.count>0{
+//            tableView.backgroundView?.isHidden = true
+//            tableView.separatorStyle = .singleLine
+//        }
+//        else{
+//            tableView.backgroundView?.isHidden = false
+//            tableView.separatorStyle = .none
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,9 +109,19 @@ class RestaurantTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
+    @IBOutlet var emptyRestaurantView : UIView!
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if restaurants.count>0{
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        }
+        else{
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
         return 1
     }
 
