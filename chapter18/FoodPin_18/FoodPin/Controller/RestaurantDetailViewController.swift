@@ -10,7 +10,7 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var restaurant : RestaurantMO!
+    var restaurant = Restaurant()
    
     @IBOutlet var tableView : UITableView!
     @IBOutlet var headerView : RestanrantDetailHeaderView!
@@ -22,9 +22,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         navigationItem.largeTitleDisplayMode = .never
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
-        if let restaurantImage = restaurant.image{
-            headerView.headerImageView.image = UIImage(data: restaurantImage)
-        }
+        headerView.headerImageView.image = UIImage(named: restaurant.image)
         headerView.heartImageView.isHidden = !(restaurant.isVisited)
         //connections
         tableView.delegate = self
@@ -85,10 +83,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
-            if let restaurantLocation = restaurant.location{
-                cell.configure(location: restaurantLocation)
-            }
-//            cell.configure(location: restaurant.location)
+            cell.configure(location: restaurant.location)
             cell.selectionStyle = .none
             return cell
         default:

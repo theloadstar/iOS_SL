@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class newRestaurantController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -41,9 +40,6 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
         return 0
     }
     */
-    
-    var restaurant : RestaurantMO!
-    
     @IBOutlet var photoImageView : UIImageView!
     
     @IBOutlet var nameTextField: RoundedTextField!{
@@ -215,20 +211,6 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
             print("Phone: "+phoneTextField.text!)
             print("Description: "+descriptionTextView.text!)
 //            performSegue(withIdentifier: "unwindtohome", sender: self)
-            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
-                restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
-                restaurant.name = nameTextField.text
-                restaurant.type = typeTextField.text
-                restaurant.location = addressTextField.text
-                restaurant.phone = phoneTextField.text
-                restaurant.summary = descriptionTextView.text
-                restaurant.isVisited = false
-                if let restaurantImage = photoImageView.image{
-                    restaurant.image = restaurantImage.pngData()
-                }
-                print("Saving Data To Context......")
-                appDelegate.saveContext()
-            }
             dismiss(animated: true, completion: nil)
         }
     }
