@@ -44,6 +44,23 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
 //            tableView.backgroundView?.isHidden = false
 //            tableView.separatorStyle = .none
 //        }
+        //fetch data using NSFetchedResultsController
+        let fetchRequest : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        }
+        fetchResultController.delegate = self
+        do{
+            try fetchResultController.performFetch()
+            if let fetchedObjects = fetchResultController.fetchedObjects{
+                restaurants = fetchedObjects
+            }
+        }catch{
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,17 +70,16 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         navigationController?.hidesBarsOnSwipe = true
 //        print("table disappear")
 //        fetch the data simple API
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
-            let request : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
-            let context = appDelegate.persistentContainer.viewContext
-            do{
-                restaurants = try context.fetch(request)
-            }
-            catch{
-                print(error)
-            }
-        }
-        //NSFetchedResultsController
+//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+//            let request : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
+//            let context = appDelegate.persistentContainer.viewContext
+//            do{
+//                restaurants = try context.fetch(request)
+//            }
+//            catch{
+//                print(error)
+//            }
+//        }
         
     }
     // MARK: - Table view Delegate
@@ -125,6 +141,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     // MARK: - Table view data source
     
     @IBOutlet var emptyRestaurantView : UIView!
+    
+    var fetchResultController: NSFetchedResultsController<RestaurantMO>!
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

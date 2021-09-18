@@ -315,9 +315,52 @@ I still have some wondering about `delegate`, after go back to chapter14 and cha
 
 ---
 
+Then, define a var `var fetchResultController: NSFetchedResultsController<RestaurantMO>!`.Next, add these codes :
 
+```sw
+//fetch data using NSFetchedResultsController
+        let fetchRequest : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        }
+        fetchResultController.delegate = self
+        do{
+            try fetchResultController.performFetch()
+            if let fetchedObjects = fetchResultController.fetchedObjects{
+                restaurants = fetchedObjects
+            }
+        }catch{
+            print(error)
+        }
+```
 
+For line 7, there are four parameters:
 
+> 1. A fetch request. This must contain <font color = "red">at least one sort descriptor to order the results.</font>
+> 2. A managed object context. The controller uses this context to execute the fetch request.
+> 3. Optionally, a key path on result objects that returns the section name. The controller uses the key path to split the results into sections (passing `nil`indicates that the controller should generate a single section).
+> 4. Optionally, the name of the cache file the controller should use (passing `nil` prevents caching). Using a cache can avoid the overhead of computing the section and index information.
+
+For line 9, here is the official explication from Apple:
+
+> If you set a delegate for a fetched results controller, the controller registers to receive change notifications from its managed object context. Any change in the context that affects the result set or section information is processed and the results are updated accordingly. 
+>
+> 机翻，结合原文能看懂：如果您为获取的结果控制器设置委托，则控制器会注册以从其托管对象上下文接收更改通知。 会处理影响结果集或部分信息的上下文中的任何更改，并相应地更新结果。
+
+This means set which to the `delegate`, this one is the monitoring content.Thus, here set the value to `self`.
+
+> “After creating the fetch request, we initialize fetchResultController and specify its delegate for monitoring data changes.”
+>
+> 摘录来自: Simon Ng. “Beginning iOS 13 Programming with Swift。” Apple Books. 
+
+![fetchcontrollerdelegate](graph/fetchcontrollerdelegate.png)
+
+line 11: After creating an instance, you invoke [`performFetch()`](apple-reference-documentation://hsH4vLs89y) to actually execute the fetch.The rest are easy to understand.
+
+After this, the tableview still can't display the change, we need to config more for the MO changes.
 
 # To Do
 
