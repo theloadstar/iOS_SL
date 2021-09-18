@@ -297,12 +297,37 @@ cell.descriptionLabel.text = restaurant.summary
 
 ![showingthelatest](graph/showingthelatest.jpg)
 
+~~I found that even if I add more restaurants to the app, this app can load all the restaurants as long as rerun the app, different from what the tutorial said.~~ The tutorial explains why we don't use this API:
+
+> You may wonder why we don't just use the simple method - the primary reason is for performance. Every time a user adds a new record or removes a record from the database, we load all restaurant records from the database and re-display them in the table view. This is not an efficient way to manage the data.
+>
+
+Okey, fine, let's go ahead and use another API called `NSFetchedResultsController`.This API can achieve goals like this:
+
+* When adding a new record, add a new row in the table view.
+* When delete a record, just remove the corresponding row.
+
+To use this API, we need to adopt the `NSFetchedResultsControllerDelegate` protocol in the `RestaurantTableViewController`.
+
+---
+
+I still have some wondering about `delegate`, after go back to chapter14 and chapter8, IMU, when we need to connect the storyboard with code, we need to assign `.delegate`. Thus, the `.delegate` 's assignment in `MapView` is unnecessary, because it's an oulet which has been connected with storyboard. Comment this line, mapview works well:)
+
+---
+
+
+
 
 
 # To Do
 
 - [ ] [question1](#question1)
+
 - [ ] [question2](#question2)
+
+- [ ] I found that when going to the `MapViewController` in simulator, there will be lots of *Compiler error* info in the console, even for the *Appcoda* official solution. (Take chapter18's as an example)
+
+  ![compilererror](graph/compilererror.png)
 
  
 

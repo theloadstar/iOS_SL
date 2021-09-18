@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
     
     var restaurants: [RestaurantMO] = []
     // MARK: - View Controller Life Cycle
@@ -52,7 +52,7 @@ class RestaurantTableViewController: UITableViewController {
         
         navigationController?.hidesBarsOnSwipe = true
 //        print("table disappear")
-        //fetch the latest one
+//        fetch the data simple API
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let request : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
             let context = appDelegate.persistentContainer.viewContext
@@ -63,6 +63,8 @@ class RestaurantTableViewController: UITableViewController {
                 print(error)
             }
         }
+        //NSFetchedResultsController
+        
     }
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

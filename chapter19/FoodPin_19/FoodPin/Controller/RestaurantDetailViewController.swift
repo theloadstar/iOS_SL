@@ -27,6 +27,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         }
         headerView.heartImageView.isHidden = !(restaurant.isVisited)
         //connections
+        //To tell the storyboard that which controller is the delegate for the datasource (tutorial chapter14
+        //we can do this by control+drag as well. See tutorial 8-14
         tableView.delegate = self
         tableView.dataSource = self
         //separate
