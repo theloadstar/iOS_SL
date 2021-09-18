@@ -210,6 +210,27 @@ At present, (there is no record of restaurant, yes).
 
 ---
 
+# Use Managed Object
+
+To use MO, we just need to do two steps:
+
+1. Create a `RestaurantMO` with `view context` and set correspending properties.
+
+   ```sw
+   restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
+   restaurant.name = "Upstate"
+   restaurant.type = "Cafe"
+   restaurant.location = "New York”
+   ```
+
+2. call `saveContext()` to save the database
+
+   ```sw
+   appdelegate.saveContext()
+   ```
+
+Okey, let's go to `newRestaurant` to code. Import `CoreData` and define a `RestaurantMO` var.
+
 
 
 

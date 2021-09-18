@@ -14,12 +14,13 @@ class ReviewViewController: UIViewController {
     @IBOutlet var ratebuttons : [UIButton]!
     @IBOutlet var closebutton : UIButton!
     
-    var restaurant = Restaurant()
+    var restaurant : RestaurantMO!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        backgroundImageView.image = UIImage(named: restaurant.image)
+        if let restaurantimage = restaurant.image{
+            backgroundImageView.image = UIImage(data: restaurantimage)
+        }
         // Do any additional setup after loading the view.
         //blur effect
         let blureffect = UIBlurEffect(style: .dark)
@@ -59,12 +60,12 @@ class ReviewViewController: UIViewController {
             self.closebutton.transform = .identity
         }, completion: nil)
     }
-//    
+//
 //    // unwind test
 //    @IBAction func closetest(sender: AnyObject){
 //        dismiss(animated: true, completion: nil)
 //    }
-//    
+//
     //DIY
 //    override func viewWillDisappear(_ animated: Bool) {
 //        //move beyond the trailing
