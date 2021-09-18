@@ -229,21 +229,80 @@ To use MO, we just need to do two steps:
    appdelegate.saveContext()
    ```
 
-Okey, let's go to `newRestaurant` to code. Import `CoreData` and define a `RestaurantMO` var.
+Okey, let's go to `newRestaurant` to code. Import `CoreData` and define a `RestaurantMO` var.Put code below right before the `dismiss` line.
 
+```sw
+if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
+                restaurant.name = nameTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.location = addressTextField.text
+                restaurant.phone = phoneTextField.text
+                restaurant.summary = descriptionTextView.text
+                restaurant.isVisited = false
+                if let restaurantImage = photoImageView.image{
+                    restaurant.image = restaurantImage.pngData()
+                }
+                print("Saving Data To Context......")
+                appDelegate.saveContext()
+            }
+```
 
+* UIApplication.shared.delegate as? AppDelegate
 
+> The persistentContainer variable is declared in AppDelegate.swift. To access the variable, we have to first get a reference to AppDelegate. In iOS SDK, you can use UIApplication.shared.delegate as? AppDelegate to get the AppDelegate object.
 
+* pngData()
 
+  Returns a data object containing the specified image in PNG format
 
+  <span jump id = "question2">question2: try `jpegData`.</span>
 
+![save_res](graph/save_res.png)
 
+As we can see, we now just store the data, can't show anything on the display.
+
+# Fetch Data
+
+First, import coredata in `RestaurantTableViewController`, only this can we use `NSFetchRequest`.
+
+```sw
+//fetch the latest one
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let request : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
+            let context = appDelegate.persistentContainer.viewContext
+            do{
+                restaurants = try context.fetch(request)
+            }
+            catch{
+                print(error)
+            }
+        }
+```
+
+In line 3, we define a `NSFetchRequest` type, then, in line 6, input this one to the func `.fetch` to get the latest one.
+
+> The generated RestaurantMO class has a built-in fetchRequest() method. When called, it returns you an NSFetchRequest object that specifies the search criteria and which entity to search (here, it is the Restaurant entity).
+>
+> With the fetch request, we can then call the fetch method of viewContext to retrieve data from a persistent store (here, it's the database).
+
+![fetchmethod](graph/fetchmethod.png)
+
+Run the app, we found that the `summary` attribute displays wrong, change one line in `RestaurantDetailViewController` 's `case 2` 
+
+```sw
+//cell.descriptionLabel.text = restaurant.description
+cell.descriptionLabel.text = restaurant.summary
+```
+
+![showingthelatest](graph/showingthelatest.jpg)
 
 
 
 # To Do
 
 - [ ] [question1](#question1)
+- [ ] [question2](#question2)
 
  
 

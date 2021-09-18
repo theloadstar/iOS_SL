@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RestaurantTableViewController: UITableViewController {
     
@@ -51,6 +52,17 @@ class RestaurantTableViewController: UITableViewController {
         
         navigationController?.hidesBarsOnSwipe = true
 //        print("table disappear")
+        //fetch the latest one
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let request : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
+            let context = appDelegate.persistentContainer.viewContext
+            do{
+                restaurants = try context.fetch(request)
+            }
+            catch{
+                print(error)
+            }
+        }
     }
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
