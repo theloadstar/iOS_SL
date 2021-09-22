@@ -43,7 +43,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         tableView.contentInsetAdjustmentBehavior = .never
         //show bar
         navigationController?.hidesBarsOnSwipe = false
-        print("Detail")
+//        print("Detail")
     }
     
     override func viewWillAppear(_ animated: Bool) {

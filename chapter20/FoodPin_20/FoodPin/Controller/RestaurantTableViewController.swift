@@ -36,14 +36,6 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         //empty background
         tableView.backgroundView = emptyRestaurantView
         tableView.backgroundView?.isHidden = true
-//        if restaurants.count>0{
-//            tableView.backgroundView?.isHidden = true
-//            tableView.separatorStyle = .singleLine
-//        }
-//        else{
-//            tableView.backgroundView?.isHidden = false
-//            tableView.separatorStyle = .none
-//        }
         //fetch data using NSFetchedResultsController
         let fetchRequest : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -61,6 +53,9 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         }catch{
             print(error)
         }
+        //search bar
+        searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,21 +63,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = true
-//        print("table disappear")
-//        fetch the data simple API
-//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
-//            let request : NSFetchRequest<RestaurantMO> = RestaurantMO.fetchRequest()
-//            let context = appDelegate.persistentContainer.viewContext
-//            do{
-//                restaurants = try context.fetch(request)
-//            }
-//            catch{
-//                print(error)
-//            }
-//        }
-        
     }
-    
+    // MARK: - Core Data
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -215,7 +197,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     }
     
     // MARK: - Navigation
-
+    var searchController: UISearchController!
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -231,6 +213,20 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     @IBAction func unwindtohome(segue: UIStoryboardSegue){
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Search Controller
+    var searchResults : [RestaurantMO] = []
+    
+    func filterContent(for searchText: String){
+        searchResults = restaurants.filter({
+            (restaurant) -> Bool in
+            if let name = restaurant.name{
+                let isMatch = name.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
     }
 
 }
