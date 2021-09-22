@@ -362,6 +362,58 @@ line 11: After creating an instance, you invoke [`performFetch()`](apple-referen
 
 After this, the tableview still can't display the change, we need to config more for the MO changes.
 
+> When there is any content change, the following methods of the NSFetchedResultsControllerDelegate protocol will be called:
+>
+> * controllerWillChangeContent(\_:)
+> * controller(_:didChange:at:for:newIndexPath:)
+> * controllerDidChangeContent(\_:)
+
+```sw
+		func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type{
+        case .insert:
+            if let newIndexPath = newIndexPath{
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath{
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath{
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        if let fetchedObject = controller.fetchedObjects{
+            restaurants = fetchedObject as! [RestaurantMO]
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+```
+
+1. The first method will be called to tell the table view that we are going to update the table view.
+
+2. In the second method, we execute the update within.The code is easy to understand.
+
+   * Parameters:
+
+     ![update_parameters](graph/update_parameters.png)
+
+   * Since method `viewDidLoad` will be called only once,  we need to sync(同步) `restaurants` within `controller(_:didChange:at:for:newIndexPath:)`.
+
+3. The last method aims for telling the table view that we've finished the update.
+
+Now, the app can update the table view instantaneoutly.(即时)
+
 # To Do
 
 - [ ] [question1](#question1)
