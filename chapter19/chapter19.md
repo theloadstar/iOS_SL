@@ -250,7 +250,7 @@ if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
 
 * UIApplication.shared.delegate as? AppDelegate
 
-> The persistentContainer variable is declared in AppDelegate.swift. To access the variable, we have to first get a reference to AppDelegate. In iOS SDK, you can use UIApplication.shared.delegate as? AppDelegate to get the AppDelegate object.
+> The persistentContainer variable is declared in AppDelegate.swift. To access the variable, we have to first get a reference to AppDelegate. In iOS SDK, you can use `UIApplication.shared.delegate as? AppDelegate` to get the AppDelegate object.
 
 * pngData()
 
@@ -412,11 +412,45 @@ After this, the tableview still can't display the change, we need to config more
 
 3. The last method aims for telling the table view that we've finished the update.
 
+4. `switch` in swift does not need to code `break`
+
+   ![switch](graph/switch.png)
+
 Now, the app can update the table view instantaneoutly.(即时)
+
+# Delete data
+
+Now, if we execute swipe-to-delete action in the simulator, the tableview can delete certain row. However, if we restart the app, we will find that the data is still there. That means the data are not deleted yet. Thus, we need to delete data in core data.Code the deleaction like following:
+
+```sw
+override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){ (action, sourceView, completionHandler) in
+            if let appdelegate = (UIApplication.shared.delegate as? AppDelegate){
+                let context = appdelegate.persistentContainer.viewContext
+                let restaurantToDelegate = self.fetchResultController.object(at: indexPath)
+                context.delete(restaurantToDelegate)
+                appdelegate.saveContext()
+            }
+            //dismiss the action button
+            completionHandler(true)
+        }
+```
+
+Pay attention to the difference between `fetchedobject` and `object`:
+
+![objectsdifference](graph/objectsdifference.png)
+
+---
+
+I found that if I delete the app in the simulator, all the data were gone. The the data are associates with app.
+
+---
+
+
 
 # To Do
 
-- [ ] [question1](#question1)
+- [x] [question1](#question1):No, if we code these in `viewDidLoad`, the emptyview won't show when all restaurants were deleted. Besides, if we code before `fetchcontroller` in `viewDidLoad`, the tableview will load the emptyview and then load the restaurant cell.
 
 - [ ] [question2](#question2)
 
