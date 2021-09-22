@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate{
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating{
     
     var restaurants: [RestaurantMO] = []
     // MARK: - View Controller Life Cycle
@@ -56,6 +56,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         //search bar
         searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,23 +177,28 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurants.count
+        if searchController.isActive{
+            return searchResults.count
+        }
+        else {
+            return restaurants.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as! RestaurantTableViewCell
+        let restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
         
         //Configure the cell
-        cell.nameLabel.text = restaurants[indexPath.row].name
-        //cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
-        if let restaurantImage = restaurants[indexPath.row].image{
+        cell.nameLabel.text = restaurant.name
+        if let restaurantImage = restaurant.image{
             cell.thumbnailImageView.image = UIImage(data: restaurantImage as Data)
         }
-        cell.locationLabel.text = restaurants[indexPath.row].location
-        cell.typeLabel.text = restaurants[indexPath.row].type
-        cell.HeartImageView.isHidden = !(restaurants[indexPath.row].isVisited)
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
+        cell.HeartImageView.isHidden = !(restaurant.isVisited)
         
         return cell
     }
@@ -205,7 +212,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         if segue.identifier == "showRestaurantDetail"{
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationController = segue.destination as! RestaurantDetailViewController
-                destinationController.restaurant = restaurants[indexPath.row]
+                destinationController.restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
 //                print("Detail_Segue")
             }
         }
@@ -227,6 +234,20 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
             }
             return false
         })
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchtext = searchController.searchBar.text{
+            filterContent(for: searchtext)
+        }
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive{
+            return false
+        }
+        return true
     }
 
 }

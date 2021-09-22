@@ -61,6 +61,80 @@ var searchResults : [RestaurantMO] = []
 
    这里的where关键字可以理解为与英语里的定语从句一个意思，还挺好理解的。[ref](https://www.jianshu.com/p/478654266178)
 
-   # Update search results
+# Update search results
 
-   
+Now, we've design the search logic. Then, we need to update the search results and display them.
+
+To do this, we must adopt `UISearchResultsUpdating` protocol first, then insert method `updateSearchResults(for:)`
+
+>  The protocol defines a method called `updateSearchResults(for:)`. When a user selects the search bar or key in a search keyword, the method will be called.
+
+```sw
+func updateSearchResults(for searchController: UISearchController) {
+        if let searchtext = searchController.searchBar.text{
+            filterContent(for: searchtext)
+        }
+        tableView.reloadData()
+    }
+```
+
+Don't hurry to wonder why we can `reload` directly now, we are not done yet.The `restaurantTableViewController` should tell when to show all the restaurants and when to show search results.There is a property called `isActive` in search controller. And will be set to `true` when user tapping search bar.So, let's update the number now:
+
+```sw
+override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        if searchController.isActive{
+            return searchResults.count
+        }
+        else {
+            return restaurants.count
+        }
+    }
+```
+
+<font color = "red">Note:</font> Swift must have `{}` in `if-else` statement.
+
+Then, update which one to display:
+
+```sw
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "datacell", for: indexPath) as! RestaurantTableViewCell
+        let restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
+        
+        //Configure the cell
+        cell.nameLabel.text = restaurant.name
+        if let restaurantImage = restaurant.image{
+            cell.thumbnailImageView.image = UIImage(data: restaurantImage as Data)
+        }
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
+        cell.HeartImageView.isHidden = !(restaurant.isVisited)
+        
+        return cell
+    }
+```
+
+When search results appear, we want to see the detailview when tapping one of them, so we need to change the `prepare` method as well.
+
+```sw
+destinationController.restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
+```
+
+Then, add these in `viewDidLoad` method:
+
+```sw
+searchController.searchResultsUpdater = self
+searchController.obscuresBackgroundDuringPresentation = false
+```
+
+> The first line of code tells the search controller which object is responsible for updating the search result. It can be any object in your application or simply the current one.
+>
+> The obscuresBackgroundDuringPresentation property controls whether the underlying content is dimmed during a search. Because we are presenting the search results in the same view, the property should be set to false.
+
+![obscured](graph/obscured.jpg)
+
+Finally, we found that when displaying search results, we can edit the results cells, not appropriate.
+
+
+
