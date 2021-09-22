@@ -288,7 +288,7 @@ In line 3, we define a `NSFetchRequest` type, then, in line 6, input this one to
 
 ![fetchmethod](graph/fetchmethod.png)
 
-Run the app, we found that the `summary` attribute displays wrong, change one line in `RestaurantDetailViewController` 's `case 2` 
+<span jump id = "exercise">Run the app</span>, we found that the `summary` attribute displays wrong, change one line in `RestaurantDetailViewController` 's `case 2` 
 
 ```sw
 //cell.descriptionLabel.text = restaurant.description
@@ -445,6 +445,28 @@ Pay attention to the difference between `fetchedobject` and `object`:
 I found that if I delete the app in the simulator, all the data were gone. The the data are associates with app.
 
 ---
+
+# Exericse
+
+Has been done when learning. [Here](#exercise)
+
+# Update a Managed Object
+
+Just insert these right before `start state` in `restaurantDetailViewController`'s `rateRestaurant` func to update rating info.
+
+```sw
+if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                        appDelegate.saveContext()
+                    }
+```
+
+Now, if we rate a restaurnat, step back to table view and tap the same restaurant, the rating info won't show(can't believe I didn't find this before!). Adjust in `viewDidLoad` method.
+
+```sw
+if let rating = restaurant.rating{
+            headerView.ratingImageView.image = UIImage(named: rating)
+        }
+```
 
 
 

@@ -22,6 +22,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         navigationItem.largeTitleDisplayMode = .never
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
+        if let rating = restaurant.rating{
+            headerView.ratingImageView.image = UIImage(named: rating)
+        }
         if let restaurantImage = restaurant.image{
             headerView.headerImageView.image = UIImage(data: restaurantImage)
         }
@@ -125,9 +128,14 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             if let rating = segue.identifier{
     //            self.restaurant.rating = rating
     //            self.headerView.ratingImageView.image = UIImage(named: rating)
+                //the dismiss method is used to go back the source segue
                 dismiss(animated: true, completion: {
                     self.restaurant.rating = rating
                     self.headerView.ratingImageView.image = UIImage(named: rating)
+                    //save to core data
+                    if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                        appDelegate.saveContext()
+                    }
                     // start state
                     let scaletransform = CGAffineTransform(scaleX: 0.1, y: 0.1)
                     self.headerView.ratingImageView.transform = scaletransform
