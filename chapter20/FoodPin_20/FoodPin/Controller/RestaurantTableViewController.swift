@@ -55,7 +55,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         }
         //search bar
         searchController = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = searchController
+//        self.navigationItem.searchController = searchController
+        tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
     }

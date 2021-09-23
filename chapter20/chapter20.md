@@ -136,5 +136,9 @@ searchController.obscuresBackgroundDuringPresentation = false
 
 Finally, we found that when displaying search results, we can edit the results cells, not appropriate.
 
+# Change the search bar's place to Header View
 
+Just change the code in `viewDidLoad` from `self.navigationItem.searchController = searchController` to `tableView.tableHeaderView = searchController.searchBar`
+
+![headerview](graph/headerview.jpg)
 
