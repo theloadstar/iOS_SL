@@ -167,3 +167,14 @@ If we want to let line4 works, the `searchBarStyle` can not be set to `.minial`.
 
 ![customize](graph/customize.gif)
 
+# Exercise
+
+Easy
+
+```sw
+if let name = restaurant.name, let location = restaurant.location{
+                let isMatch = (name.localizedCaseInsensitiveContains(searchText))||(location.localizedCaseInsensitiveContains(searchText))
+                return isMatch
+            }
+```
+
