@@ -6,6 +6,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Bold.ttf">
+            <string>Rubik-Bold</string>
+        </array>
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Page View Controller-->
         <scene sceneID="Pc2-uj-ykl">
@@ -24,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cw4-fg-mSN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="624"/>
                                 <connections>
                                     <segue destination="oiZ-oR-lVv" kind="embed" id="I0a-53-hAh"/>
                                 </connections>
@@ -92,10 +100,47 @@
             <objects>
                 <viewController id="1GV-6e-Ngz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QiC-2T-A5N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="634"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="M2E-K6-eFP">
+                                <rect key="frame" x="44" y="94" width="326" height="328.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qip-TP-m4n">
+                                        <rect key="frame" x="0.0" y="0.0" width="326" height="229"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Qip-TP-m4n" secondAttribute="height" multiplier="326:229" id="KcA-dp-wKX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-DK-C8P">
+                                        <rect key="frame" x="118.5" y="279" width="89.5" height="49.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33s-1e-UAV">
+                                                <rect key="frame" x="9" y="0.0" width="71" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Bold" family="Rubik" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subheading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knW-qv-ta1">
+                                                <rect key="frame" x="0.0" y="30.5" width="89.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="M2E-K6-eFP" firstAttribute="leading" secondItem="QiC-2T-A5N" secondAttribute="leadingMargin" constant="24" id="EIE-Ie-KXM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M2E-K6-eFP" secondAttribute="trailing" constant="24" id="cTF-ao-xvb"/>
+                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="M2E-K6-eFP" secondAttribute="bottom" constant="10" id="oHq-NS-Fhh"/>
+                            <constraint firstItem="M2E-K6-eFP" firstAttribute="top" secondItem="QiC-2T-A5N" secondAttribute="topMargin" constant="50" id="p97-Tc-OvC"/>
+                        </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="634"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTY-OD-zR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
