@@ -142,3 +142,28 @@ Just change the code in `viewDidLoad` from `self.navigationItem.searchController
 
 ![headerview](graph/headerview.jpg)
 
+# Customize the search bar
+
+There are some properties for customization.
+
+* **placeholder** - you can use the placeholder property to set the default text when there is no other text in the text field.
+* **prompt** - the prompt property allows you to display a single line of text at the top of the search bar.
+* **barTintColor** - set the background color of the search bar.
+* **tintColor** - set the tint color of the key elements in the search bar. For example, you can use the property to change the color of the Cancel button in the search bar.
+* **searchBarStyle** - specify the search bar's style. By default, it is set to .prominent. When this style is set, the search bar has a translucent background, and the search field is opaque. Alternatively, you can change it to .minimal to remove the background and make the search field translucent.
+
+We can customize these in  `viewDidLoad`, check this out:
+
+```sw
+searchController.searchBar.placeholder = "Search Restaurants"
+//        searchController.searchBar.prompt = "Type in the restaurant you want to search"
+//        searchController.searchBar.isTranslucent = false
+//        searchController.searchBar.barTintColor = .blue
+        searchController.searchBar.tintColor = UIColor(231,76,60)
+        searchController.searchBar.searchBarStyle = .prominent
+```
+
+If we want to let line4 works, the `searchBarStyle` can not be set to `.minial`.
+
+![customize](graph/customize.gif)
+

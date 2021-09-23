@@ -59,6 +59,13 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        //customize the search bar
+        searchController.searchBar.placeholder = "Search Restaurants"
+//        searchController.searchBar.prompt = "Type in the restaurant you want to search"
+//        searchController.searchBar.isTranslucent = false
+//        searchController.searchBar.barTintColor = .blue
+        searchController.searchBar.tintColor = UIColor(231,76,60)
+        searchController.searchBar.searchBarStyle = .prominent
     }
     
     override func viewWillAppear(_ animated: Bool) {
