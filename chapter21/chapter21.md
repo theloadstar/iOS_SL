@@ -30,11 +30,43 @@ Next, go to the buttons and page indicator. Drag a button: w/h:140/50. Title:Nex
 
 # Design Page Content View
 
-Add the materials to `Assets`, check `preserve vector data` .Remember this *Page Content View* instead of *Page View*. Set the simulator's height to `624` to let it look like the same as *container view*.Drag an Image View, 333x229.Drag a label, set to `Rubik bold`, centre **Alignment**, name it `heading`, dark gray.Drag another one, name it `Subheading`, rubik, regular, 16, cetre **Alignment**, light gray.
+Add the materials to `Assets`, check `preserve vector data` .Remember this is *Page Content View* instead of *Page View*. Set the simulator's height to `624` to let it look like the same as *container view*.Drag an Image View, 333x229.Drag a label, set to `Rubik bold`, centre **Alignment**, name it `heading`, dark gray.Drag another one, name it `Subheading`, rubik, regular, 16, cetre **Alignment**, light gray.
 
 Embed two labels and set spacing to 10, Alignment Centre. Embed this one with Image View, Alignment Centre and spacing 50.For this stack view: top/left/button/right:50/24/10/24.Lock the Aspect Ratio of imageview, and the bottom one `Greater than or equal`.
 
+# Create content class
 
+After designing the UI, we need to create the class to pair with the view controllers.Let's start with the *Page Content View Controller*, refered as *WalkthroughContentViewController*. Create a new controller file as subclass of *UIViewController*, name it *WalkthroughContentViewController*.
+
+```sw
+		override func viewDidLoad() {
+        super.viewDidLoad()
+        headingLabel.text = heading
+        subheadingLabel.text = subHeading
+        contentImageView.image = UIImage(named: imageFile)
+        // Do any additional setup after loading the view.
+    }
+		@IBOutlet var headingLabel : UILabel!{
+        didSet{
+            headingLabel.numberOfLines = 0
+        }
+    }
+    @IBOutlet var subheadingLabel : UILabel!{
+        didSet{
+            subheadingLabel.numberOfLines = 0
+        }
+    }
+    @IBOutlet var contentImageView: UIImageView!
+    
+    var index = 0
+    var heading = ""
+    var subHeading = ""
+    var imageFile = ""
+```
+
+> The index variable is used to store the current page index. For instance, the first walkthrough screen will have the index value of 0. The view controller is designed to display an image, heading, and subheading. So we create three variables for data passing.
+
+Then, let's make connections.First, set the onboarding storyboard as *WalkthroughContentViewController*, and set its storyboard ID as the same.Next, `control` and `drag`.
 
 
 

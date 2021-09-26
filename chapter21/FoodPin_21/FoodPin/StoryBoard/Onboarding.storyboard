@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cw4-fg-mSN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="624"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623.5"/>
                                 <connections>
                                     <segue destination="oiZ-oR-lVv" kind="embed" id="I0a-53-hAh"/>
                                 </connections>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="122"/>
         </scene>
-        <!--View Controller-->
+        <!--Walkthrough Content View Controller-->
         <scene sceneID="Fbk-7J-dFQ">
             <objects>
-                <viewController id="1GV-6e-Ngz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughContentViewController" id="1GV-6e-Ngz" customClass="WalkthroughContentViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QiC-2T-A5N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="634"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,8 +139,14 @@
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="M2E-K6-eFP" secondAttribute="bottom" constant="10" id="oHq-NS-Fhh"/>
                             <constraint firstItem="M2E-K6-eFP" firstAttribute="top" secondItem="QiC-2T-A5N" secondAttribute="topMargin" constant="50" id="p97-Tc-OvC"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="7iu-ch-kJx"/>
                     </view>
                     <size key="freeformSize" width="414" height="634"/>
+                    <connections>
+                        <outlet property="contentImageView" destination="Qip-TP-m4n" id="PP8-4b-0jI"/>
+                        <outlet property="headingLabel" destination="33s-1e-UAV" id="cwG-F5-1dW"/>
+                        <outlet property="subheadingLabel" destination="knW-qv-ta1" id="VSn-b4-cvP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTY-OD-zR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
