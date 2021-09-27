@@ -8,7 +8,11 @@
 
 import UIKit
 
-class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerDataSource{
+protocol WalkthroughPageViewControllerDelegate: class {
+    func didUpdatePageIndex(currentIndex: Int)
+}
+
+class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
     
     var pageHeadings = ["CREATE YOUR OWN FOOD GUIDE", "SHOW YOU THE LOCATION", "DISCOVER GREAT RESTAURANTS"]
     var pageImages = ["onboarding-1", "onboarding-2", "onboarding-3"]
@@ -18,6 +22,8 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
 
     var currentIndex = 0
     
+    weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +32,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         if let startingViewController = contentViewController(at: 0){
             setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
         }
+        delegate = self
     }
     // MARK: - DataSource
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -61,6 +68,15 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         currentIndex+=1
         if let nextViewController = contentViewController(at: currentIndex){
             setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed{
+            if let contentViewController = pageViewController.viewControllers?.first as? WalkthroughContentViewController{
+                currentIndex = contentViewController.index
+                walkthroughDelegate?.didUpdatePageIndex(currentIndex: currentIndex)
+            }
         }
     }
     /*

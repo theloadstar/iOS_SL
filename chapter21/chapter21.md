@@ -264,9 +264,56 @@ Easy to understand.
 
 <span jump id = "answer1"><font color = "red">Connections:</font></span> The understanding about chapter18 is wrong, the main reason lays in the connection method: <font color = "red">we must make `control` + `drag` form **Button** instead of viewcontroller!!!</font> 
 
-When running, I find that only tapping action can update UI.
+# Update UI by Gesture
 
+When running, I find that only tapping action can update UI.This is because we define `updateUI()` func by `currentIndex`, which is defined by our own.And we call this func only in button action relative func.Thus, we need to let page view notify the walkthrough view to updateUI. How can we do that? Use `delegate`.
 
+> In iOS programming, one common approach to performing this kind of notification is by using a delegate. The general idea is that the Walkthrough Page View Controller defines a delegate protocol with a required method.
+
+This means that if B wants to be informed by A, then A needs to define a delegate protocol and B adopts that protocol.In other words, A defines protocol, and B is delegate.
+
+Now, time to define our own protocol.Right after `import UIKit`, insert these:
+
+```sw
+protocol WalkthroughPageViewControllerDelegate: class {
+    func didUpdatePageIndex(currentIndex: Int)
+}
+```
+
+And define a variable to hold the protocol in class body.`weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate?`.
+
+> In most case, we use the `weak` keyword for delegate to prevent memory leak.
+
+For more information about `weak`, check [here](http://www.cocoachina.com/cms/wap.php?action=article&id=25500). For official, check [here](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html).
+
+Okey, when should we call the delegate method?There is a method called `pageViewController(_ pageViewController, didFinishAnimating finished, previousViewControllers:, transitionCompleted completed)` in `UIPageViewControllerDelegate` protocol.Every time a gesture-based transition completes, this method will be called.So we can update UI in this method.
+
+Therefore, adopt ths `UIPageViewControllerDelegate` protocol and insert this method like this:
+
+```sw
+func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed{
+            if let contentViewController = pageViewController.viewControllers?.first as? WalkthroughContentViewController{
+                currentIndex = contentViewController.index
+                walkthroughDelegate?.didUpdatePageIndex(currentIndex: currentIndex)
+            }
+        }
+    }
+```
+
+* line 3: `viewControllers`: since the pageViewController contains many content view, thus we need to use `.viewControllers.first` to get the current view. 
+
+Then, insert `delegate = self` in `viewDidLoad` method.
+
+Next, go to `WalkthroughViewController` and adopt the `WalkthroughPageViewControllerDelegate` protocol.And insert code like this:
+
+```sw
+func didUpdatePageIndex(currentIndex: Int) {
+        updateUI()
+    }
+```
+
+And add `walkthroughPageViewController.walkthroughDelegate = self` in the `prepare` method.
 
 
 
@@ -277,6 +324,8 @@ When running, I find that only tapping action can update UI.
 - [ ] [question1](#question1)
 
   [answer1](#answer1)
+
+- [ ] `weak` reference
 
 
 

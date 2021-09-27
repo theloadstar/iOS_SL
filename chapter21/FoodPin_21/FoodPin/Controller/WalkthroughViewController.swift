@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalkthroughViewController: UIViewController {
+class WalkthroughViewController: UIViewController, WalkthroughPageViewControllerDelegate{
     
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var nextButton: UIButton!{
@@ -61,7 +61,9 @@ class WalkthroughViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    func didUpdatePageIndex(currentIndex: Int) {
+        updateUI()
+    }
     
     // MARK: - Navigation
 
@@ -72,6 +74,7 @@ class WalkthroughViewController: UIViewController {
         let destination = segue.destination
         if let pageViewController = destination as? WalkthroughPageViewController{
             walkthroughPageViewController = pageViewController
+            walkthroughPageViewController.walkthroughDelegate = self
         }
     }
     
