@@ -315,6 +315,30 @@ func didUpdatePageIndex(currentIndex: Int) {
 
 And add `walkthroughPageViewController.walkthroughDelegate = self` in the `prepare` method.
 
+# UserDefaults
+
+> The iOS SDK comes with the UserDefaults class for managing application and user-related settings...The UserDefaults class provides a programmatic interface for interacting with the defaults system. The defaults system is created automatically and available for all code across your app.
+>
+> To use UserDefaults, all you need is to get the shared defaults object:`UserDefaults.standard`.
+>
+> Depending on the type of objects to retrieve, you can use one of the following methods to retrieve the setting:
+>
+> * array(forKey:)
+> * bool(forKey:)
+> * data(forKey:)
+> * dictionary(forKey:)
+> * float(forKey:)
+> * integer(forKey:)
+> * object(forKey:)
+> * stringArray(forKey:)
+> * string(forKey:)
+> * double(forKey:)
+> * url(forKey:)
+
+To save a setting, we can simply use `UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")`.
+
+So, we can just insert `UserDefaults.standard.set(true, forKey: "hasVisitedWalkThrough")` in some `case 2` code and `skipButtonTapped`, and update `viewDidAppear` method in `RestaurantTableView` with a judge.
+
 
 
 
