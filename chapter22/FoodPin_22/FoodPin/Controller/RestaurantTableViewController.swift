@@ -233,6 +233,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
                 let destinationController = segue.destination as! RestaurantDetailViewController
                 destinationController.restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
 //                print("Detail_Segue")
+                destinationController.hidesBottomBarWhenPushed = true
             }
         }
     }

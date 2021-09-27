@@ -43,6 +43,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         tableView.contentInsetAdjustmentBehavior = .never
         //show bar
         navigationController?.hidesBarsOnSwipe = false
+        //self.hidesBottomBarWhenPushed = true
 //        print("Detail")
     }
     
@@ -52,6 +53,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.hidesBottomBarWhenPushed = true
 //        print("detail disappear")
     }
     
