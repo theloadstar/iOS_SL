@@ -339,6 +339,12 @@ To save a setting, we can simply use `UserDefaults.standard.set(true, forKey: "h
 
 So, we can just insert `UserDefaults.standard.set(true, forKey: "hasVisitedWalkThrough")` in some `case 2` code and `skipButtonTapped`, and update `viewDidAppear` method in `RestaurantTableView` with a judge.
 
+# DIY Time
+
+Okey, as we all konw, if we do nothing now, the walkthrough view will never show up again. So why not add a button do show walkthrough button? It's easy. Remember to set the button's tint color instead of default, otherwise it will hide after go back to restaurant table view from detail view.
+
+![DIY](graph/DIY.gif) 
+
 
 
 

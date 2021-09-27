@@ -268,5 +268,13 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         }
         return true
     }
+    
+    //MARK: - Walkthrough
+    @IBAction func tutorialButtonTapped(sender: UINavigationItem){
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(identifier: "WalkthroughViewController", creator: nil) as? WalkthroughViewController{
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
 
 }
