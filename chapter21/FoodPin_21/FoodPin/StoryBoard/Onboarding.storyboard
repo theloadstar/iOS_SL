@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="162" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Walkthrough View Controller-->
         <scene sceneID="QHf-ub-urq">
             <objects>
-                <viewController id="Tvo-tc-668" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughViewController" id="Tvo-tc-668" customClass="WalkthroughViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7iS-kx-p02">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,6 +90,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2tP-0F-rAx"/>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="IhX-uU-9nl" id="4W7-S0-288"/>
+                        <outlet property="pageControl" destination="6G5-l2-g5J" id="yNj-rn-fbY"/>
+                        <outlet property="skipButton" destination="Mh5-xo-nt3" id="OfL-lU-uVB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9W1-Gz-1mD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

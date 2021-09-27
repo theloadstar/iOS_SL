@@ -146,9 +146,22 @@ override func viewDidLoad() {
 
 Finally, go to the storyboard, set the page view controller and set its class to `WalkthroughPageViewController`,  and storyboard ID to `WalkthroughPageViewController`.
 
-# WalkthroughViewController
+# Walkthrough View Controller
 
+Finally, let create class for `WalkthroughViewController`.Declare these:
 
+```sw
+@IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var nextButton: UIButton!{
+        didSet{
+            nextButton.layer.cornerRadius = 25.0
+            nextButton.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet var skipButton: UIButton!
+```
+
+Then, go to the storyboard, set the master view controller as the class `WalkthroughViewController` and the storyboard ID `WalkthroughViewController`. Make connections.
 
 
 
