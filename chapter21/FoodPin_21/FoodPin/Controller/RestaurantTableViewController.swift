@@ -74,6 +74,14 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         
         navigationController?.hidesBarsOnSwipe = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(identifier: "WalkthroughViewController") as? WalkthroughViewController{
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - Core Data
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

@@ -163,6 +163,23 @@ Finally, let create class for `WalkthroughViewController`.Declare these:
 
 Then, go to the storyboard, set the master view controller as the class `WalkthroughViewController` and the storyboard ID `WalkthroughViewController`. Make connections.
 
+# Let's display!
+
+Okey, we are almost there! Because we want to bring up the walkthrough view controller when a user first launches the app, we instantiate(例举，举例说明) it in the `RestaurantTableViewController` 
+
+```sw
+override func viewDidAppear(_ animated: Bool) {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(identifier: "WalkthroughViewController") as? WalkthroughViewController{
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
+```
+
+ We can run the app now.
+
+![firstrunning](graph/firstrunning.gif)
+
 
 
 
