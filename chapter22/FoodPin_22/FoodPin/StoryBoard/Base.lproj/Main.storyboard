@@ -666,10 +666,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOK-K2-qv9">
-                                <rect key="frame" x="55" y="-13" width="304" height="922"/>
+                                <rect key="frame" x="93" y="207.5" width="228" height="481"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC7-xI-n0J">
-                                        <rect key="frame" x="0.0" y="0.0" width="265" height="164"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="189" height="82"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Love" image="love"/>
                                         <connections>
@@ -677,7 +677,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQR-rG-isK">
-                                        <rect key="frame" x="0.0" y="174" width="261" height="166"/>
+                                        <rect key="frame" x="0.0" y="92" width="181" height="83"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Cool" image="cool"/>
                                         <connections>
@@ -685,7 +685,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDT-29-CeJ">
-                                        <rect key="frame" x="0.0" y="350" width="304" height="172"/>
+                                        <rect key="frame" x="0.0" y="185" width="228" height="86"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Happy" image="happy"/>
                                         <connections>
@@ -693,7 +693,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWN-sz-Qsa">
-                                        <rect key="frame" x="0.0" y="532" width="245" height="174"/>
+                                        <rect key="frame" x="0.0" y="281" width="167" height="87"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Sad" image="sad"/>
                                         <connections>
@@ -701,7 +701,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kK-rz-WwQ">
-                                        <rect key="frame" x="0.0" y="716" width="287" height="206"/>
+                                        <rect key="frame" x="0.0" y="378" width="219" height="103"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Angry" image="angry"/>
                                         <connections>
@@ -739,11 +739,11 @@
             </objects>
             <point key="canvasLocation" x="2536" y="875"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favourite-->
         <scene sceneID="nFD-Zq-mHX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AVe-p9-Wer" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="2yN-xN-ib3"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="favorite" id="2yN-xN-ib3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Trb-C7-s6z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -757,6 +757,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUm-Fo-4R8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="973.91304347826099" y="132.58928571428572"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="snQ-y9-XCP">
+            <objects>
+                <tableViewController id="DyT-Tc-Wz5" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LHa-1S-cys">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8pl-wY-B2F">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8pl-wY-B2F" id="Ygp-Zh-78X">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DyT-Tc-Wz5" id="DVH-tk-Rdk"/>
+                            <outlet property="delegate" destination="DyT-Tc-Wz5" id="S8I-hN-qL8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="sIq-un-x80"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9wo-qS-hll" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014" y="1514"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="2ML-nN-spQ">
+            <objects>
+                <navigationController id="gF8-eV-1UX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" image="about" id="Jb4-xU-rSl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mfk-pW-nff">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DyT-Tc-Wz5" kind="relationship" relationship="rootViewController" id="pRE-XM-Wcm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAV-al-mUh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="1514"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="qHS-hm-PG9">
+            <objects>
+                <tableViewController id="fze-sw-zpW" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z7g-Gm-qOD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3qa-Aq-jHG">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3qa-Aq-jHG" id="Fx4-XS-qks">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fze-sw-zpW" id="Sh4-mE-bmK"/>
+                            <outlet property="delegate" destination="fze-sw-zpW" id="W3c-Gj-Y55"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="H62-HT-6dG"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1W-2I-QTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="832"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="EZD-cD-PCd">
+            <objects>
+                <navigationController title="Discover" id="qFC-yk-qro" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" id="gDq-QR-khJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wgX-8V-dXh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fze-sw-zpW" kind="relationship" relationship="rootViewController" id="rVb-1m-gt3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwa-Ig-sRV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="832"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3eb-ql-WVa">
@@ -787,6 +879,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="AVe-p9-Wer" kind="relationship" relationship="viewControllers" id="caf-MV-Qbi"/>
+                        <segue destination="qFC-yk-qro" kind="relationship" relationship="viewControllers" id="MMh-jY-kvH"/>
+                        <segue destination="gF8-eV-1UX" kind="relationship" relationship="viewControllers" id="Kdg-HV-Xgq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgq-po-nZv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -795,10 +889,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about" width="23" height="21"/>
         <image name="angry" width="78" height="103"/>
         <image name="arrow.down.doc" catalog="system" width="56" height="64"/>
         <image name="cool" width="78" height="83"/>
+        <image name="discover" width="35" height="20"/>
         <image name="empty" width="310" height="372"/>
+        <image name="favorite" width="22" height="22"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart-tick" width="22" height="21"/>
         <image name="love" width="78" height="82"/>

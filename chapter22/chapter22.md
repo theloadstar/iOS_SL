@@ -20,9 +20,35 @@ Take `RestaurantDetailViewController` as an example, there are two ways to hide 
 
    ---
 
+# Add new Tabs
 
+Drag a `Navigation Controller` to the storyboard and change its title to `Discover`.Then `control` + `drag` form <font color = "red">tab bar</font> to <font color = "red">the new controller</font>, set the item to `Recents`. Repeat, set to `More`.
 
+# Customize the tab bar
 
+* **tintColor**:
+
+  ```sw
+  UITabBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 75.0/255.0, blue: 27.0/255.0, alpha: 1.0)
+  ```
+
+* **barTintColor**:
+
+  ```sw
+  UITabBar.appearance().barTintColor = UIColor.black
+  ```
+
+* **backgroundImage**:
+
+  ```sw
+  UITabBar.appearance().backgroundImage = UIImage(named: "tabbar-background")
+  ```
+
+All can be code in `AppDelegate.swift`'s `didFinishLaunchingWithOptions` method.
+
+Also, we can customize the tab bar item image.Select the item, set the `System Item` to `Custom` and choose corrsponding image.
+
+![imagecustomization](graph/imagecustomization.png)
 
 
 
@@ -36,4 +62,6 @@ Take `RestaurantDetailViewController` as an example, there are two ways to hide 
 
 # To Do
 
-- [ ] [Question1](#question1)
+- [x] [Question1](#question1)
+
+  Answer: 网上查了一下，大概意思就是这个tab bar的显示雨隐藏需要在push之前，也就是`viewDidLOad`之前调用才有效，故需要override init或者在前一个view的prepare里调用。
