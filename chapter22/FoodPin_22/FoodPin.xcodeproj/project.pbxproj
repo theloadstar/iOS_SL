@@ -47,6 +47,8 @@
 		16F88C8B27000FC700D9D1D1 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C8A27000FC700D9D1D1 /* WalkthroughContentViewController.swift */; };
 		16F88C8F27001DC700D9D1D1 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */; };
 		16F88C9127015CA000D9D1D1 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C9027015CA000D9D1D1 /* WalkthroughViewController.swift */; };
+		16F88C9A27020B2700D9D1D1 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F88C9827020B2700D9D1D1 /* About.storyboard */; };
+		16F88C9D27020B5700D9D1D1 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F88C9B27020B5700D9D1D1 /* Discover.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		16F88C8A27000FC700D9D1D1 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		16F88C9027015CA000D9D1D1 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		16F88C9927020B2700D9D1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/StoryBoard/Base.lproj/About.storyboard; sourceTree = "<group>"; };
+		16F88C9C27020B5700D9D1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/StoryBoard/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 		1600C91B26E208A500DC10C4 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				16F88C9B27020B5700D9D1D1 /* Discover.storyboard */,
+				16F88C9827020B2700D9D1D1 /* About.storyboard */,
 				16F693B726DDCAE400027AE7 /* Main.storyboard */,
 				16F693BC26DDCAE500027AE7 /* LaunchScreen.storyboard */,
 				1653EBBB26FC259300904CBB /* Onboarding.storyboard */,
@@ -293,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1600C93A26E219E400DC10C4 /* Rubik-Black.ttf in Resources */,
+				16F88C9A27020B2700D9D1D1 /* About.storyboard in Resources */,
 				16F693BE26DDCAE500027AE7 /* LaunchScreen.storyboard in Resources */,
 				1600C93526E219E400DC10C4 /* Rubik-Light.ttf in Resources */,
 				1600C93626E219E400DC10C4 /* Rubik-SemiBoldItalic.ttf in Resources */,
@@ -308,6 +315,7 @@
 				1600C92E26E219E400DC10C4 /* Rubik-Bold.ttf in Resources */,
 				1600C93326E219E400DC10C4 /* Rubik-ExtraBoldItalic.ttf in Resources */,
 				1653EBBC26FC259300904CBB /* Onboarding.storyboard in Resources */,
+				16F88C9D27020B5700D9D1D1 /* Discover.storyboard in Resources */,
 				1600C93126E219E400DC10C4 /* Rubik-SemiBold.ttf in Resources */,
 				1600C93726E219E400DC10C4 /* Rubik-Medium.ttf in Resources */,
 			);
@@ -361,6 +369,22 @@
 				16F693BD26DDCAE500027AE7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		16F88C9827020B2700D9D1D1 /* About.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16F88C9927020B2700D9D1D1 /* Base */,
+			);
+			name = About.storyboard;
+			sourceTree = "<group>";
+		};
+		16F88C9B27020B5700D9D1D1 /* Discover.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16F88C9C27020B5700D9D1D1 /* Base */,
+			);
+			name = Discover.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

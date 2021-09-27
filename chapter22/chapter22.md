@@ -50,9 +50,15 @@ Also, we can customize the tab bar item image.Select the item, set the `System I
 
 ![imagecustomization](graph/imagecustomization.png)
 
+# StoryBoard Reference
 
+> Since Xcode 7, Apple provided a feature called storyboard references to make storyboards more manageable. You can easily move certain UI components from one storyboard over to another.
 
+Select the two controller and in Xcode menu : Editor->Refactor to Storyboard.
 
+![refactor](graph/refactor.png)
+
+![result](graph/result.png)
 
 
 
