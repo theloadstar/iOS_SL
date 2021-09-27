@@ -180,7 +180,103 @@ override func viewDidAppear(_ animated: Bool) {
 
 ![firstrunning](graph/firstrunning.gif)
 
+# Button action
 
+As we can see, the buttons do not work yet.For skip button, the walkthroughview should dismiss after being tapped.Insert following code in the `walkthroughviewcontroller`:
+
+```sw
+@IBAction func skipButtonTapped(sender: UIButton){
+        dismiss(animated: true, completion: nil)
+    }
+```
+
+<span jump id = "question1"><font color = "red">Question1</font>:</span> Can we just define `dismiss` method in the button that not belongs to a **Navigation Bar**? We test this in chapter18.md
+
+---
+
+Okey, Next Button:
+
+As we konw, when tapping this button, the app will automatically show the next walkthrough screen. So, let's define a new func first in the `PageViewController`:
+
+```sw
+func forwardPage(){
+        currentIndex+=1
+        if let nextViewController = contentViewController(at: currentIndex){
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+```
+
+This func will set current view to the next directly.But how can we get current index? We need to define a new var in `walkthroughviewcontroller`.
+
+```sw
+var walkthroughPageViewController: WalkthroughPageViewController!
+```
+
+Then, in the `prepare` method, we can get the reference:
+
+```sw
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        let destination = segue.destination
+        if let pageViewController = destination as? WalkthroughPageViewController{
+            walkthroughPageViewController = pageViewController
+        }
+    }
+```
+
+We are now ready to perform nextbutton's action in `WalkThroughViewController` now.
+
+```sw
+@IBAction func nextButtonTapped(sender: UIButton){
+        if let index = walkthroughPageViewController?.currentIndex{
+            switch  index {
+            case 0...1 :
+                walkthroughPageViewController.forwardPage()
+            case 2:
+                dismiss(animated: true, completion: nil)
+            default:
+                break
+            }
+            updateUI()
+        }
+    }
+    
+    func updateUI(){
+        if let index = walkthroughPageViewController?.currentIndex{
+            switch index{
+            case 0...1:
+                nextButton.setTitle("NEXT", for: .normal)
+                skipButton.isHidden = false
+            case 2:
+                nextButton.setTitle("GET STARTED!", for: .normal)
+                skipButton.isHidden = true
+            default:
+                break
+            }
+            pageControl.currentPage = index
+        }
+    }
+```
+
+Easy to understand.
+
+<span jump id = "answer1"><font color = "red">Connections:</font></span> The understanding about chapter18 is wrong, the main reason lays in the connection method: <font color = "red">we must make `control` + `drag` form **Button** instead of viewcontroller!!!</font> 
+
+When running, I find that only tapping action can update UI.
+
+
+
+
+
+
+
+# To Do
+
+- [ ] [question1](#question1)
+
+  [answer1](#answer1)
 
 
 

@@ -74,6 +74,9 @@
                                 <rect key="frame" x="190" y="319" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="close2WithSender:" destination="uU5-aH-fOJ" eventType="touchUpInside" id="RPa-08-vei"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
