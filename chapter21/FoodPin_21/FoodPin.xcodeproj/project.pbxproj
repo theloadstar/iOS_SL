@@ -45,6 +45,7 @@
 		16F693C826DDCEF900027AE7 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693C726DDCEF900027AE7 /* RestaurantTableViewController.swift */; };
 		16F693CA26DDFC3F00027AE7 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693C926DDFC3F00027AE7 /* RestaurantTableViewCell.swift */; };
 		16F88C8B27000FC700D9D1D1 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C8A27000FC700D9D1D1 /* WalkthroughContentViewController.swift */; };
+		16F88C8F27001DC700D9D1D1 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		16F693C726DDCEF900027AE7 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		16F693C926DDFC3F00027AE7 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		16F88C8A27000FC700D9D1D1 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				1642FD1E26F088B4002DEAD7 /* ReviewViewController.swift */,
 				1642FD2226F31F77002DEAD7 /* newRestaurantController.swift */,
 				16F88C8A27000FC700D9D1D1 /* WalkthroughContentViewController.swift */,
+				16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			files = (
 				1600C94726EAFE4F00DC10C4 /* UINavigationController+Ext.swift in Sources */,
 				16F693CA26DDFC3F00027AE7 /* RestaurantTableViewCell.swift in Sources */,
+				16F88C8F27001DC700D9D1D1 /* WalkthroughPageViewController.swift in Sources */,
 				1642FD1F26F088B4002DEAD7 /* ReviewViewController.swift in Sources */,
 				1600C94226E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift in Sources */,
 				1600C94026E7861200DC10C4 /* RestaurantDetailTextCell.swift in Sources */,

@@ -68,6 +68,86 @@ After designing the UI, we need to create the class to pair with the view contro
 
 Then, let's make connections.First, set the onboarding storyboard as *WalkthroughContentViewController*, and set its storyboard ID as the same.Next, `control` and `drag`.
 
+# Implemente the Page View Controller
+
+Next step, we need to create each of the content and add it to the page view controller.There are two ways to do so: we can provide the content view one at a time, just display a certain view controller in *UIPageViewController*, by calling `setViewControllers(_:direction:animated:completion:)`.Since our app supports gesture-based navigation, we need to use the second method: on-demand approach.
+
+In this method, we need adopt `UIPageViewControllerDataSource` protocol and call two methods:`pageViewController(_:viewControllerBefore:)` and `pageViewController(_:viewControllerAfter:)`.For example, if current controller's index is `1`, the formmer method should return controller 0 and the latter 2.
+
+Ok, let's create a new class for `page view controller`, name it as `WalkthroughPageViewController`, subclass of `UIPageViewController`.Remember to adopt `UIPageViewControllerDataSource` protocol.(There will be an error after adopting, add two methods above to solve.)Then, declare these:
+
+```sw
+var pageHeadings = ["CREATE YOUR OWN FOOD GUIDE", "SHOW YOU THE LOCATION", "DISCOVER GREAT RESTAURANTS"]
+var pageImages = ["onboarding-1", "onboarding-2", "onboarding-3"]
+var pageSubHeadings = ["Pin your favorite restaurants and create your own food guide","Search and locate your favourite restaurant on Maps","Find restaurants shared by your friends and other foodies"]
+var currentIndex = 0
+```
+
+Before we go two the two before-after method, let's declare our own func first:
+
+```sw
+func contentViewController(at index: Int) -> WalkthroughContentViewController?{
+        if index<0 || index>=pageHeadings.count {
+            return nil
+        }
+        // Create a new view controller and pass suitable data.
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let pageContentViewController = storyboard.instantiateViewController(identifier: "WalkthroughContentViewController") as? WalkthroughContentViewController{
+            pageContentViewController.imageFile = pageImages[index]
+            pageContentViewController.heading = pageHeadings[index]
+            pageContentViewController.subHeading = pageSubHeadings[index]
+            pageContentViewController.index = index
+            return pageContentViewController
+        }
+        
+        return nil
+    }
+```
+
+1. line 6: `bundle`:
+
+   > The bundle containing the storyboard file and its related resources. If you specify `nil`, this method looks in the main bundle of the current application.
+
+2. line 7: `instantiateViewController`:
+
+   > Creates the specified view controller from the storyboard and initializes it using your custom initialization code.
+
+This method is designed to receive an index and return corresponding walkthroughcontentviewcontroller. Easy to understand.Then, here it comes:
+
+```sw
+func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        var index = (viewController as! WalkthroughContentViewController).index
+        index -= 1
+        return contentViewController(at: index)
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        var index = (viewController as! WalkthroughContentViewController).index
+        index+=1
+        return contentViewController(at: index)
+    }
+```
+
+And in `viewDidLoad` method:
+
+```sw
+override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        dataSource = self
+        if let startingViewController = contentViewController(at: 0){
+            setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+```
+
+* line 7, `setViewControllers()`: Sets the view controllers to be displayed.
+
+Finally, go to the storyboard, set the page view controller and set its class to `WalkthroughPageViewController`,  and storyboard ID to `WalkthroughPageViewController`.
+
+# WalkthroughViewController
+
 
 
 
