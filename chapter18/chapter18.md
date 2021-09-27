@@ -331,11 +331,13 @@ I Like this exercise, which is challenging!
 
 3. <font color = "red">Note:</font> we can replace line 15 with `dismiss(animated: true, completion: nil)`. Yeah, we said that we must define at least one unwind action in the **destination** controller. IMU, if we want to connect a button with the **Exit** on the top of the controller, we must  define a unwind one in the destination. Otherwise, we can define inside the action code like here.
 
-   After testing, above is wrong. If you want to code `dismiss` method directly in the source view, this view must have navigation controller.
+   ~~After testing, above is wrong. If you want to code `dismiss` method directly in the source view, this view must have navigation controller.~~
 
-   Let's have a test again.
+   ~~Let's have a test again.~~
 
-   IMU, only navigation's items can code `dismiss` directly.
+   ~~IMU, only navigation's items can code `dismiss` directly.~~
+
+   See chapter21's to-do 1.
 
 
 
