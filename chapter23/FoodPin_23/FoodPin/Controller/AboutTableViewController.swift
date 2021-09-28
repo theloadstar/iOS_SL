@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SafariServices
 
 class AboutTableViewController: UITableViewController {
     
     var sectionTitles = ["FeedBack", "Folllow us"]
     
-    var sectionContent = [[(image:"store", text:"Rate us on App Store", link: "https://www.apple.com/ios/appstore"), (image:"chat", text:"Tell us your feedback", link: "www.appcoda.com/contact")],[(image:"twitter", text:"Twitter", link:"https://twitter.com/appcodamobile"), (image:"facebook", text:"Facebook", link:"https://facebook.com/appcodamobile"), (image:"instagram", text:"Instagram", link:"https://www.instagram.com/appcodadotcom")]]
+    var sectionContent = [[(image:"store", text:"Rate us on App Store", link: "https://www.apple.com/ios/appstore"), (image:"chat", text:"Tell us your feedback", link: "https://www.appcoda.com/contact")],[(image:"twitter", text:"Twitter", link:"https://www.baidu.com"), (image:"facebook", text:"Facebook", link:"https://facebook.com/appcodamobile"), (image:"instagram", text:"Instagram", link:"https://www.instagram.com/appcodadotcom")]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,16 @@ class AboutTableViewController: UITableViewController {
                     UIApplication.shared.open(url)
                 }
             }
+            //feedback
+            else if indexPath.row == 1{
+                performSegue(withIdentifier: "showWebView", sender: self)
+            }
+        // follow, here my vpn overdues, so replace with other website
+        case 1:
+            if let url = URL(string: link){
+                let safariController = SFSafariViewController(url: url)
+                present(safariController, animated: true, completion: nil)
+            }
         default:
             break
         }
@@ -108,14 +119,19 @@ class AboutTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showWebView"{
+            if let destinationController = segue.destination as? WebViewController, let indexPath = tableView.indexPathForSelectedRow{
+                    destinationController.targetURL = sectionContent[indexPath.section][indexPath.row].link
+            }
+        }
     }
-    */
+    
 
 }

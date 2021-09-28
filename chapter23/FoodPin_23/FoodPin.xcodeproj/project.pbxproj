@@ -50,6 +50,7 @@
 		16F88C9A27020B2700D9D1D1 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F88C9827020B2700D9D1D1 /* About.storyboard */; };
 		16F88C9D27020B5700D9D1D1 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F88C9B27020B5700D9D1D1 /* Discover.storyboard */; };
 		16F88C9F2702B52E00D9D1D1 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C9E2702B52D00D9D1D1 /* AboutTableViewController.swift */; };
+		16F88CA12702F0B400D9D1D1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88CA02702F0B400D9D1D1 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		16F88C9927020B2700D9D1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/StoryBoard/Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		16F88C9C27020B5700D9D1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/StoryBoard/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
 		16F88C9E2702B52D00D9D1D1 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		16F88CA02702F0B400D9D1D1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */,
 				16F88C9027015CA000D9D1D1 /* WalkthroughViewController.swift */,
 				16F88C9E2702B52D00D9D1D1 /* AboutTableViewController.swift */,
+				16F88CA02702F0B400D9D1D1 /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				1642FD2326F31F77002DEAD7 /* newRestaurantController.swift in Sources */,
 				1600C94E26EEE57E00DC10C4 /* RestaurantDetailMapCell.swift in Sources */,
 				1600C91326E1B54300DC10C4 /* RestaurantDetailViewController.swift in Sources */,
+				16F88CA12702F0B400D9D1D1 /* WebViewController.swift in Sources */,
 				16F88C8B27000FC700D9D1D1 /* WalkthroughContentViewController.swift in Sources */,
 				1642FD2126F2E89E002DEAD7 /* RoundedTextField.swift in Sources */,
 				16F88C9127015CA000D9D1D1 /* WalkthroughViewController.swift in Sources */,
