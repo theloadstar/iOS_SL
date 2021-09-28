@@ -69,3 +69,29 @@ override func viewDidLoad() {
 The last line is used for hidding the blank cells.
 
 ![AboutCell](graph/AboutCell.jpg)
+
+# Open in Mobile Safari
+
+We want to switch to *Safari* App when tapping "Rate us on App Store".Insert these code:
+
+```sw
+override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let link = sectionContent[indexPath.section][indexPath.row].link
+        switch indexPath.section{
+        case 0:
+            if indexPath.row == 0{
+                if let url = URL(string: link){
+                    UIApplication.shared.open(url)
+                }
+            }
+        default:
+            break
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+```
+
+We can simply use `UIApplication.shared.open(url)` to open an url in *Safari*.
+
+![safari](graph/safari.gif)
+

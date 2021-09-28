@@ -17,11 +17,6 @@ class AboutTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         //for iPad readable
         tableView.cellLayoutMarginsFollowReadableWidth = true
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -62,6 +57,21 @@ class AboutTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let link = sectionContent[indexPath.section][indexPath.row].link
+        switch indexPath.section{
+        case 0:
+            //rate us on app store
+            if indexPath.row == 0{
+                if let url = URL(string: link){
+                    UIApplication.shared.open(url)
+                }
+            }
+        default:
+            break
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
