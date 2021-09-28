@@ -18,7 +18,6 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true;
         navigationController?.navigationBar.prefersLargeTitles = true
-        //chapter15
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         //font

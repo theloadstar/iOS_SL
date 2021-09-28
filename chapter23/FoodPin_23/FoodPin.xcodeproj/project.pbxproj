@@ -49,6 +49,7 @@
 		16F88C9127015CA000D9D1D1 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C9027015CA000D9D1D1 /* WalkthroughViewController.swift */; };
 		16F88C9A27020B2700D9D1D1 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F88C9827020B2700D9D1D1 /* About.storyboard */; };
 		16F88C9D27020B5700D9D1D1 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F88C9B27020B5700D9D1D1 /* Discover.storyboard */; };
+		16F88C9F2702B52E00D9D1D1 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F88C9E2702B52D00D9D1D1 /* AboutTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		16F88C9027015CA000D9D1D1 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		16F88C9927020B2700D9D1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/StoryBoard/Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		16F88C9C27020B5700D9D1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FoodPin/StoryBoard/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
+		16F88C9E2702B52D00D9D1D1 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				16F88C8A27000FC700D9D1D1 /* WalkthroughContentViewController.swift */,
 				16F88C8E27001DC700D9D1D1 /* WalkthroughPageViewController.swift */,
 				16F88C9027015CA000D9D1D1 /* WalkthroughViewController.swift */,
+				16F88C9E2702B52D00D9D1D1 /* AboutTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				1600C94726EAFE4F00DC10C4 /* UINavigationController+Ext.swift in Sources */,
 				16F693CA26DDFC3F00027AE7 /* RestaurantTableViewCell.swift in Sources */,
 				16F88C8F27001DC700D9D1D1 /* WalkthroughPageViewController.swift in Sources */,
+				16F88C9F2702B52E00D9D1D1 /* AboutTableViewController.swift in Sources */,
 				1642FD1F26F088B4002DEAD7 /* ReviewViewController.swift in Sources */,
 				1600C94226E7927A00DC10C4 /* RestaurantDetailIconTextCell.swift in Sources */,
 				1600C94026E7861200DC10C4 /* RestaurantDetailTextCell.swift in Sources */,
