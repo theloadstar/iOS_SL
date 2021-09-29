@@ -46,7 +46,17 @@ Then, we note that the `Main.storyboard` is now split into two files.One is base
 
 ![storyboard](graph/storyboard.png)
 
+# Run The App
 
+![editscheme](graph/editscheme.png)
+
+![runresult](graph/runresult.png)
+
+Besides, Xcode allows us to preview the UI in the preview assistant.
+
+![preview](graph/preview.png)
+
+~~For some reasons, for `About.storyboard` and `Discover.storyboard`, we need to enable localization manually.~~ My Xcode generates localization relative files automatically.
 
 
 
