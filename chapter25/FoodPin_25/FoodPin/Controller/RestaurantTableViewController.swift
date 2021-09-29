@@ -59,7 +59,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         //customize the search bar
-        searchController.searchBar.placeholder = "Search Restaurants"
+        searchController.searchBar.placeholder = NSLocalizedString("Search Restaurants",comment: "Search Restaurants")
 //        searchController.searchBar.prompt = "Type in the restaurant you want to search"
 //        searchController.searchBar.isTranslucent = false
 //        searchController.searchBar.barTintColor = .blue
@@ -117,7 +117,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     // MARK: - Table view Delegate
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){ (action, sourceView, completionHandler) in
+        let deleteAction = UIContextualAction(style: .destructive, title: NSLocalizedString("Delete",comment: "Delete")){ (action, sourceView, completionHandler) in
             if let appdelegate = (UIApplication.shared.delegate as? AppDelegate){
                 let context = appdelegate.persistentContainer.viewContext
                 let restaurantToDelegate = self.fetchResultController.object(at: indexPath)
@@ -132,8 +132,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         //after extension
         deleteAction.backgroundColor = UIColor(242, 38, 19)
         deleteAction.image = UIImage(systemName: "trash")
-        let shareAction = UIContextualAction(style: .normal, title: "Share"){(action, sourceView, completionhandler) in
-            let defaultText = "Just Checking in at " + self.restaurants[indexPath.row].name!
+        let shareAction = UIContextualAction(style: .normal, title: NSLocalizedString("Share",comment: "Share")){(action, sourceView, completionhandler) in
+            let defaultText = NSLocalizedString("Just Checking in at ",comment: "Just Checking in at ") + self.restaurants[indexPath.row].name!
             let activilityController : UIActivityViewController
             if let restaurantimage = self.restaurants[indexPath.row].image ,let shareImage = UIImage(data: restaurantimage as Data){
                 activilityController = UIActivityViewController(activityItems: [defaultText, shareImage], applicationActivities: nil)

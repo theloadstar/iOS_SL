@@ -89,9 +89,9 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            let photoSourceRequestController = UIAlertController(title: "Choose your photo source", message: "", preferredStyle: .actionSheet)
+            let photoSourceRequestController = UIAlertController(title: NSLocalizedString("Choose your photo source", comment: "Choose your photo source"), message: "", preferredStyle: .actionSheet)
             
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(action) in
+            let cameraAction = UIAlertAction(title: NSLocalizedString("Camera", comment: "Camera"), style: .default, handler: {(action) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera){
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
@@ -101,7 +101,7 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
                 }
             })
             
-            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {(action) in
+            let photoLibraryAction = UIAlertAction(title: NSLocalizedString("Photo Library", comment: "Photo Library"), style: .default, handler: {(action) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
@@ -201,7 +201,7 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
     */
     
     @IBAction func StoreAction(sender: AnyObject){
-        let alertMessageController = UIAlertController(title: "Oops", message: "We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)", preferredStyle: .alert)
+        let alertMessageController = UIAlertController(title: "Oops", message: NSLocalizedString("We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)", comment: "We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)"), preferredStyle: .alert)
         alertMessageController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         if nameTextField.text=="" || typeTextField.text=="" ||
         addressTextField.text=="" || phoneTextField.text=="" ||
@@ -209,11 +209,6 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
             present(alertMessageController, animated: true, completion: nil)
         }
         else{
-            print("Name: "+nameTextField.text!)
-            print("Type: "+typeTextField.text!)
-            print("Location: "+addressTextField.text!)
-            print("Phone: "+phoneTextField.text!)
-            print("Description: "+descriptionTextView.text!)
 //            performSegue(withIdentifier: "unwindtohome", sender: self)
             if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
                 restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
@@ -226,7 +221,6 @@ class newRestaurantController: UITableViewController, UITextFieldDelegate, UIIma
                 if let restaurantImage = photoImageView.image{
                     restaurant.image = restaurantImage.pngData()
                 }
-                print("Saving Data To Context......")
                 appDelegate.saveContext()
             }
             dismiss(animated: true, completion: nil)

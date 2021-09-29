@@ -16,3 +16,13 @@ var sectionTitles = [NSLocalizedString("FeedBack", comment: "FeedBack"), NSLocal
 # Exercise 1
 
 Okay, adjust all the user-facing text (mmp....)
+
+
+
+
+
+
+
+# To do
+
+- [ ] The delete/share action do not have title

@@ -48,7 +48,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("detail appear")
+//        print("detail appear")
         super.viewWillAppear(animated)
         
         navigationController?.hidesBarsOnSwipe = false
@@ -88,7 +88,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailSeparatorCell.self), for: indexPath) as! RestaurantDetailSeparatorCell
-            cell.titleLabel.text = "How To Get There"
+            cell.titleLabel.text = NSLocalizedString("How To Get There", comment: "How To Get There")
             cell.selectionStyle = .none
             return cell
         case 4:
