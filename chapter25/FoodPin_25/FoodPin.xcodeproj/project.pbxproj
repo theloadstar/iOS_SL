@@ -84,6 +84,10 @@
 		1642FD2226F31F77002DEAD7 /* newRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newRestaurantController.swift; sourceTree = "<group>"; };
 		1642FD4926F486C0002DEAD7 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
 		1653EBBB26FC259300904CBB /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		16BF1F5B27043B9D00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "FoodPin/StoryBoard/zh-Hans.lproj/Discover.strings"; sourceTree = "<group>"; };
+		16BF1F5C27043B9D00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "FoodPin/StoryBoard/zh-Hans.lproj/About.strings"; sourceTree = "<group>"; };
+		16BF1F5D27043B9D00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		16BF1F5E27043B9E00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		16F693AE26DDCAE400027AE7 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F693B126DDCAE400027AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F693B326DDCAE400027AE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 16F693A526DDCAE400027AE7;
 			productRefGroup = 16F693AF26DDCAE400027AE7 /* Products */;
@@ -367,6 +372,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				16F693B826DDCAE400027AE7 /* Base */,
+				16BF1F5D27043B9D00834BF2 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				16F693BD26DDCAE500027AE7 /* Base */,
+				16BF1F5E27043B9E00834BF2 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -383,6 +390,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				16F88C9927020B2700D9D1D1 /* Base */,
+				16BF1F5C27043B9D00834BF2 /* zh-Hans */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				16F88C9C27020B5700D9D1D1 /* Base */,
+				16BF1F5B27043B9D00834BF2 /* zh-Hans */,
 			);
 			name = Discover.storyboard;
 			sourceTree = "<group>";
@@ -402,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -462,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
