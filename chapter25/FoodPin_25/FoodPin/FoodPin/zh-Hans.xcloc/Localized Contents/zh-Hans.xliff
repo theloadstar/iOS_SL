@@ -11,10 +11,12 @@
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
         <source>You need to grant the app access to your camera in order to take photos.</source>
+        <target>您需要授权使用您的相机才能拍照</target>
         <note>Privacy - Camera Usage Description</note>
       </trans-unit>
       <trans-unit id="NSPhotoLibraryUsageDescription" xml:space="preserve">
         <source>You need to grant the app access to your photo library so you can pick your favorite restaurant photo.</source>
+        <target>您需要授权访问照片图库以选择照片</target>
         <note>Privacy - Photo Library Usage Description</note>
       </trans-unit>
     </body>
@@ -26,98 +28,122 @@
     <body>
       <trans-unit id="CREATE YOUR OWN FOOD GUIDE" xml:space="preserve">
         <source>CREATE YOUR OWN FOOD GUIDE</source>
+        <target>创建属于你自己的食物指南</target>
         <note>CREATE YOUR OWN FOOD GUIDE</note>
       </trans-unit>
       <trans-unit id="Camera" xml:space="preserve">
         <source>Camera</source>
+        <target>相机</target>
         <note>Camera</note>
       </trans-unit>
       <trans-unit id="Choose your photo source" xml:space="preserve">
         <source>Choose your photo source</source>
+        <target>选择你的图片来源</target>
         <note>Choose your photo source</note>
       </trans-unit>
       <trans-unit id="DISCOVER GREAT RESTAURANTS" xml:space="preserve">
         <source>DISCOVER GREAT RESTAURANTS</source>
+        <target>发现优质餐厅</target>
         <note>DISCOVER GREAT RESTAURANTS</note>
       </trans-unit>
       <trans-unit id="Delete" xml:space="preserve">
         <source>Delete</source>
+        <target>删除</target>
         <note>Delete</note>
       </trans-unit>
       <trans-unit id="Facebook" xml:space="preserve">
         <source>Facebook</source>
+        <target>脸书</target>
         <note>Facebook</note>
       </trans-unit>
       <trans-unit id="FeedBack" xml:space="preserve">
         <source>FeedBack</source>
+        <target>反馈</target>
         <note>FeedBack</note>
       </trans-unit>
       <trans-unit id="Find restaurants shared by your friends and other foodies" xml:space="preserve">
         <source>Find restaurants shared by your friends and other foodies</source>
+        <target>寻找他人分享的餐厅</target>
         <note>Find restaurants shared by your friends and other foodies</note>
       </trans-unit>
       <trans-unit id="Folllow us" xml:space="preserve">
         <source>Folllow us</source>
+        <target>关注我们</target>
         <note>Follow us</note>
       </trans-unit>
       <trans-unit id="GET STARTED!" xml:space="preserve">
         <source>GET STARTED!</source>
+        <target>开始！</target>
         <note>Get Started!</note>
       </trans-unit>
       <trans-unit id="How To Get There" xml:space="preserve">
         <source>How To Get There</source>
+        <target>如何到达</target>
         <note>How To Get There</note>
       </trans-unit>
       <trans-unit id="Instagram" xml:space="preserve">
         <source>Instagram</source>
+        <target>Ins</target>
         <note>Instagram</note>
       </trans-unit>
       <trans-unit id="Just Checking in at " xml:space="preserve">
         <source>Just Checking in at </source>
+        <target>打卡于 </target>
         <note>Just Checking in at</note>
       </trans-unit>
       <trans-unit id="NEXT" xml:space="preserve">
         <source>NEXT</source>
+        <target>下一步</target>
         <note>Next Strp</note>
       </trans-unit>
       <trans-unit id="Photo Library" xml:space="preserve">
         <source>Photo Library</source>
+        <target>照片图库</target>
         <note>Photo Library</note>
       </trans-unit>
       <trans-unit id="Pin your favorite restaurants and create your own food guide" xml:space="preserve">
         <source>Pin your favorite restaurants and create your own food guide</source>
+        <target>标记你最爱的餐厅并创建自己的食物指南</target>
         <note>Pin your favorite restaurants and create your own food guide</note>
       </trans-unit>
       <trans-unit id="Rate us on App Store" xml:space="preserve">
         <source>Rate us on App Store</source>
+        <target>在App Store为我们打分</target>
         <note>Rate us on App Store</note>
       </trans-unit>
       <trans-unit id="SHOW YOU THE LOCATION" xml:space="preserve">
         <source>SHOW YOU THE LOCATION</source>
+        <target>显示位置</target>
         <note>SHOW YOU THE LOCATION</note>
       </trans-unit>
       <trans-unit id="Search Restaurants" xml:space="preserve">
         <source>Search Restaurants</source>
+        <target>搜索餐厅</target>
         <note>Search Restaurants</note>
       </trans-unit>
       <trans-unit id="Search and locate your favourite restaurant on Maps" xml:space="preserve">
         <source>Search and locate your favourite restaurant on Maps</source>
+        <target>在地图上搜索并定位你最爱的餐厅</target>
         <note>Search and locate your favourite restaurant on Maps</note>
       </trans-unit>
       <trans-unit id="Share" xml:space="preserve">
         <source>Share</source>
+        <target>分享</target>
         <note>Share</note>
       </trans-unit>
       <trans-unit id="Tell us your feedback" xml:space="preserve">
         <source>Tell us your feedback</source>
+        <target>告知我们你的反馈</target>
         <note>Tell us your feedback</note>
       </trans-unit>
       <trans-unit id="Twitter" xml:space="preserve">
         <source>Twitter</source>
+        <target>推特</target>
         <note>Twitter</note>
       </trans-unit>
       <trans-unit id="We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)" xml:space="preserve">
         <source>We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)</source>
+        <target>请确保所有的单元均已填入内容</target>
         <note>We can't proceed because some of the fields are blank. Please note that all the fields are not blank:)</note>
       </trans-unit>
     </body>

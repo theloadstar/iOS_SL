@@ -37,6 +37,8 @@
 		1642FD2326F31F77002DEAD7 /* newRestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642FD2226F31F77002DEAD7 /* newRestaurantController.swift */; };
 		1642FD4A26F486C0002DEAD7 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1642FD4826F486C0002DEAD7 /* FoodPin.xcdatamodeld */; };
 		1653EBBC26FC259300904CBB /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1653EBBB26FC259300904CBB /* Onboarding.storyboard */; };
+		16BF1F6127044B0900834BF2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16BF1F5F27044B0900834BF2 /* InfoPlist.strings */; };
+		16BF1F6427044B0900834BF2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16BF1F6227044B0900834BF2 /* Localizable.strings */; };
 		16F693B226DDCAE400027AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693B126DDCAE400027AE7 /* AppDelegate.swift */; };
 		16F693B426DDCAE400027AE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F693B326DDCAE400027AE7 /* SceneDelegate.swift */; };
 		16F693B926DDCAE400027AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F693B726DDCAE400027AE7 /* Main.storyboard */; };
@@ -88,6 +90,8 @@
 		16BF1F5C27043B9D00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "FoodPin/StoryBoard/zh-Hans.lproj/About.strings"; sourceTree = "<group>"; };
 		16BF1F5D27043B9D00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		16BF1F5E27043B9E00834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		16BF1F6027044B0900834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		16BF1F6327044B0900834BF2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		16F693AE26DDCAE400027AE7 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F693B126DDCAE400027AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F693B326DDCAE400027AE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				1600C91A26E2087B00DC10C4 /* View */,
 				16F693BA26DDCAE500027AE7 /* Assets.xcassets */,
 				16F693BF26DDCAE500027AE7 /* Info.plist */,
+				16BF1F6227044B0900834BF2 /* Localizable.strings */,
+				16BF1F5F27044B0900834BF2 /* InfoPlist.strings */,
 				1642FD4826F486C0002DEAD7 /* FoodPin.xcdatamodeld */,
 			);
 			path = FoodPin;
@@ -310,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1600C93A26E219E400DC10C4 /* Rubik-Black.ttf in Resources */,
+				16BF1F6127044B0900834BF2 /* InfoPlist.strings in Resources */,
 				16F88C9A27020B2700D9D1D1 /* About.storyboard in Resources */,
 				16F693BE26DDCAE500027AE7 /* LaunchScreen.storyboard in Resources */,
 				1600C93526E219E400DC10C4 /* Rubik-Light.ttf in Resources */,
@@ -321,6 +328,7 @@
 				1600C93826E219E400DC10C4 /* Rubik-LightItalic.ttf in Resources */,
 				16F693BB26DDCAE500027AE7 /* Assets.xcassets in Resources */,
 				16F693B926DDCAE400027AE7 /* Main.storyboard in Resources */,
+				16BF1F6427044B0900834BF2 /* Localizable.strings in Resources */,
 				1600C93426E219E400DC10C4 /* Rubik-Italic.ttf in Resources */,
 				1600C93026E219E400DC10C4 /* Rubik-BoldItalic.ttf in Resources */,
 				1600C92E26E219E400DC10C4 /* Rubik-Bold.ttf in Resources */,
@@ -368,6 +376,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		16BF1F5F27044B0900834BF2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16BF1F6027044B0900834BF2 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		16BF1F6227044B0900834BF2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16BF1F6327044B0900834BF2 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		16F693B726DDCAE400027AE7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

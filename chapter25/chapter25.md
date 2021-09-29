@@ -36,9 +36,15 @@ To use this function, click *FoodPin* -> *Editor* -> *Export For Localization*.A
 
 导出之后需要自己更改.xliff文件里的内容至\<target>,惊了。。。
 
+Note that `.swift` files do not have \<target>, we need to add ourselves.
+
 # Import Localizations
 
+Select *FoodPin*, *Editor*-> *Import Localizations*. Choose `zh-Hans.xcloc`.
 
+Then, we note that the `Main.storyboard` is now split into two files.One is base, theother is for the language we just import. The `base` one is introduced in Xcode 10 so that we only need to edit one storyboard instead of multiple ones.
+
+![storyboard](graph/storyboard.png)
 
 
 
