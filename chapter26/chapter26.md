@@ -22,3 +22,26 @@ My device is iPhone 12 Pro, iOS 14.8. macOS 10.15.7 -> Xcode 11.3 This version's
 ---
 
 By using Zhiqi Chen's Mac, run in a real device successfully!!! So Cooooooooool~~!!!!!!
+
+# Deploying the App over Wi-Fi
+
+This one is easy. Just connect our device to mac, in Xcode, choose *Window*->*Devices and Simulators*, check *Connect via network*.Then, disconnect. We can deploy the app over Wi-Fi now.Oh, remember to connect Mac and iPhone in the same network.
+
+![Wi-Fi](graph/Wi-Fi.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
