@@ -29,13 +29,19 @@ This one is easy. Just connect our device to mac, in Xcode, choose *Window*->*De
 
 ![Wi-Fi](graph/Wi-Fi.png)
 
+# DIY
+
+Let's make the app icon now! In the [website](https://icon.wuruihong.com/icon?utm_source=EJ3vGyMh#/ios), generate the icons using our own image, and drag them to the corresponding place~
+
+![image-20210930151233228](graph/icon.png)
+
+So beautiful!~~:-D
+
+![realdevice](graph/realdevice.png)
 
 
 
-
-
-
-
+Also, I make the Launch Screen stay longer by adding `sleep(3)` in `AppDelegate.swift` 's `func application(_ application, didFinishLaunchingWithOptions) -> Bool` method.
 
 
 
