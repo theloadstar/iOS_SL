@@ -19,3 +19,18 @@ iOS Self Learning Recording
 >
 > 摘录来自: Simon Ng. “Beginning iOS 13 Programming with Swift。” Apple Books. 
 
+# 20211005
+
+​		今天是国庆假期的第五天，也是重拾iOS开发的第41天。目前除了需要加入Apple开发者计划的相关内容（iCloud、TestFlight、Notification等），其余部分已经基本都看完了。（3D Touch那章还剩一点点小尾巴🤏）在学习过程中，自己也看了很多其他的资料，包括stack overflow、官方开发文档、csdn等。虽然才短短四十天，但前阵子看到自己写的app能够运行在真机上，着实激动了好一会儿。接下去的计划就是加一些自己认为需要的功能，具体内容会单独开设一个*DIY*文件夹来记录；之后呢也会看一看进阶的那本书。同时呢，实习相关的准备也得重新捡起来，不能留在舒适圈不是～最主要的，打算把iOS开发相关的学习重心移到官方开发文档上去：官方的开发文档是最好的教程，也是最规范的例子，同时也是最新的版本，而且免费，面向所有人，岂不美哉？
+
+![1005_阶段性总结](graph/1005_阶段性总结.png)
+
+​		对了，今天也是乔帮主逝世十周年，时间真的过得好快啊。遥想十年前，还在上初中，也是差不多十年前吧，第一次接触到了iPhone。且不论乔帮主的其他，感谢乔帮主创建Apple～
+
+![SteveJobs](graph/SteveJobs.jpeg)
+
+> Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking. Don't let the noise of other's opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition. They somehow already know what you truly want to become. Everything else is secondary.
+>
+> ---Steve Jobs
+
+**Follow Your Heart,don't waste it living someone else's life.**
