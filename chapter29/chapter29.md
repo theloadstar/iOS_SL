@@ -42,6 +42,18 @@ Insert following code in `WalkThroughViewController`
 
    <font color = "red">Note:</font> By far this feature only works in devices that support 3D-touch, regardless simulator or real devices.
 
+---
+
+I tried to figure out how to implemente *Haptic Touch* , but found that Apple did not provide API like `shortcutItems`. Instead, we need to replace it with API `context menu`.
+
+Actually, the tutorial mentioned this on the previous part of this chapter:
+
+> If you've used 3D Touch before, Peep and Pop is a very nice feature that gives users a quicker access to the app's contents. In iOS 13, this feature is replaced by Context Menus. It's very similar to Peep and Pop but with an instant access to a list of action items. What's more is that Context Menus work on all devices running on iOS 13 (or later).
+
+So, let's complete this chapter first and implemente the quick actions by *Context Menu*.
+
+---
+
 
 
 
