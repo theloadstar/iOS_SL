@@ -1,3 +1,5 @@
+# Quick Actions
+
 There two types of *Quick Actions*: *Static* and *Dynamic*.As the name suggests: the former is static and hardcoded in the `Info.plist`.  The latter can be updated at runtime.
 
 For a quick action, there are five properities:
@@ -44,13 +46,19 @@ Insert following code in `WalkThroughViewController`
 
 ---
 
-I tried to figure out how to implemente *Haptic Touch* , but found that Apple did not provide API like `shortcutItems`. Instead, we need to replace it with API `context menu`.
+I tried to figure out how to implemente *Haptic Touch* , but found that Apple did not provide API like `shortcutItems`. ~~Instead, we need to replace it with API `context menu`.~~
 
-Actually, the tutorial mentioned this on the previous part of this chapter:
+~~Actually, the tutorial mentioned this on the previous part of this chapter:~~
 
-> If you've used 3D Touch before, Peep and Pop is a very nice feature that gives users a quicker access to the app's contents. In iOS 13, this feature is replaced by Context Menus. It's very similar to Peep and Pop but with an instant access to a list of action items. What's more is that Context Menus work on all devices running on iOS 13 (or later).
+> ~~If you've used 3D Touch before, Peep and Pop is a very nice feature that gives users a quicker access to the app's contents. In iOS 13, this feature is replaced by Context Menus. It's very similar to Peep and Pop but with an instant access to a list of action items. What's more is that Context Menus work on all devices running on iOS 13 (or later).~~
 
-So, let's complete this chapter first and implemente the quick actions by *Context Menu*.
+~~So, let's complete this chapter first and implemente the quick actions by *Context Menu*.~~
+
+Following the official [guide](https://developer.apple.com/documentation/uikit/menus_and_shortcuts/add_home_screen_quick_actions/), we found that if we want to implement *Haptic Touch*, we must add the shortcuts in SceneDelegate.swift's `sceneWillResignActive`. And here comes the strange thing: when I first test this action menu in October 1st, 3D Touch works even if I did not implement the code in SceneDelegate.But we can't renew the menu's information unless we delete the app and load again.
+
+But today, October 5th, if I just implement the code in `WalkthroughViewController` , there will not be any Quick Actions unless implement in `SceneDelegate.swift`. Besides, the Quick Action can be renewed now.............
+
+![QuickActionsTest](graph/QuickActionsTest.jpeg)
 
 ---
 
