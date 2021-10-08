@@ -14,15 +14,23 @@ import UIKit
 //// call the function.
 //join2("hello", "world", for: "-")
 
-var s = 1
+//var s = 1
+//
+//switch s {
+//case 0:
+//    print("000")
+//case 1:
+//    print("111")
+//case 2:
+//    print("222")
+//default:
+//    print("333")
+//}
 
-switch s {
-case 0:
-    print("000")
-case 1:
-    print("111")
-case 2:
-    print("222")
-default:
-    print("333")
+//chapter 29
+var sperator = "abc.def.ghi"
+sperator.components(separatedBy: ".")
+
+for ss in sperator.components(separatedBy: "."){
+    print(ss)
 }

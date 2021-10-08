@@ -54,7 +54,54 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+    // MARK: - Qucik Actions
+    enum QuickAction: String{
+        case OpenFavourites = "OpenFavourites"
+        case OpenDiscover = "OpenDiscover"
+        case NewRestaurant = "NewRestaurant"
+        
+        init?(fullIdentifier: String){
+            guard let shortcutIdentifier = fullIdentifier.components(separatedBy: ".").last else{
+                return nil
+            }
+            
+            self.init(rawValue: shortcutIdentifier)
+        }
+    }
+    
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(handleQuickAction(shortItem: shortcutItem))
+    }
+    
+    private func handleQuickAction(shortItem: UIApplicationShortcutItem)-> Bool{
+        let shortcutType = shortItem.type
+        
+        guard let shortIdentifier = QuickAction(fullIdentifier: shortcutType) else{
+            return false
+        }
+        
+        guard let tabController = window?.rootViewController as? UITabBarController else{
+            return false
+        }
+        
+        switch shortIdentifier {
+        case .OpenFavourites:
+            tabController.selectedIndex = 0
+        case .OpenDiscover:
+            tabController.selectedIndex = 1
+        case .NewRestaurant:
+            if let navController = tabController.viewControllers?[0]{
+                let restaurantTableViewController = navController.children[0]
+                restaurantTableViewController.performSegue(withIdentifier: "addRestaurant", sender: restaurantTableViewController)
+            }
+            else{
+                return false
+            }
+        }
+        
+        return true
+    }
+    
 }
 

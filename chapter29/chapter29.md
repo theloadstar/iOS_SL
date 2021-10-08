@@ -62,6 +62,88 @@ But today, October 5th, if I just implement the code in `WalkthroughViewControll
 
 ---
 
+Now, let's go back to the tutorial.By far, what we've implemented is adding Qucik Action menu, haven't implemented any functions. When the app is loaded and user selected a quick action, the method `windowScene(_:performActionFor:completionHandler:)` in `SceneDelegate.swift`will be called.
+
+First, let's declare an enum 
+
+```sw
+    enum QuickAction: String{
+        case OpenFavourites = "OpenFavourites"
+        case OpenDiscover = "OpenDiscover"
+        case NewRestaurant = "NewRestaurant"
+        
+        init?(fullIdentifier: String){
+            guard let shortcutIdentifier = fullIdentifier.components(separatedBy: ".").last else{
+                return nil
+            }
+            
+            self.init(rawValue: shortcutIdentifier)
+        }
+    }
+```
+
+> 在swift的枚举类型中，有成员值、哈希值以及原始值（rawValue）。其中，成员值即为上面的OpenFavourites等，注意<font color = "red">成员值并不是整型的，仅仅只是代表一个符号</font>。字符串的实际内容即为原始值。而哈希值则是编译器用来指代成员值的值，实际上也是个整数。[ref](https://blog.csdn.net/super_lee2013/article/details/47626427)
+
+* `.components`: used for separated, excluding the `separatedBy`.
+
+* <font color = "red">guard</font>:
+
+  > 与if语句相同的是，guard也是基于一个表达式的布尔值去判断一段代码是否该被执行。与if语句不同的是，guard只有在条件不满足的时候才会执行这段代码。你可以把guard近似的看做是Assert，但是你可以优雅的退出而非崩溃。[ref](https://www.jianshu.com/p/3a8e45af7fdd)
+  >
+  > A `guard` statement is used to transfer program control out of a scope if one or more conditions aren’t met.
+
+* `init?`:
+
+  > 有时候我们需要定义一个可失败的类、结构体或者枚举的初始化方法；失败的情况可能由无效的初始化参数值、缺少所需的外部资源或者一些其它阻止初始化成功的情况触发。
+  > 比如：人的头发数量比如大于等于一，如果传进来的参数是负值，那就可以触发初始化失败。
+  > <font color = "red">可失败的初始化方法创造了一个初始化对象的可选型(option)</font>
+  >
+  > [ref](https://www.jianshu.com/p/61fb73de4fcd)
+
+* `init(rawValue: shortcutIdentifier)`: IMU, the initinal `init` func of enum type.
+
+Then, declare a func for `windowScene`'s completionHandler.
+
+```sw
+private func handleQuickAction(shortItem: UIApplicationShortcutItem)-> Bool{
+        let shortcutType = shortItem.type
+        
+        guard let shortIdentifier = QuickAction(fullIdentifier: shortcutType) else{
+            return false
+        }
+        
+        guard let tabController = window?.rootViewController as? UITabBarController else{
+            return false
+        }
+        
+        switch shortIdentifier {
+        case .OpenFavourites:
+            tabController.selectedIndex = 0
+        case .OpenDiscover:
+            tabController.selectedIndex = 1
+        case .NewRestaurant:
+            if let navController = tabController.viewControllers?[0]{
+                let restaurantTableViewController = navController.children[0]
+                restaurantTableViewController.performSegue(withIdentifier: "addRestaurant", sender: restaurantTableViewController)
+            }
+            else{
+                return false
+            }
+        }
+        
+        return true
+    }
+```
+
+1. Why the switch statement has dot statement? This is because these dot are not rawValue but 成员值, the full name is `QuickAction.openFavourites`.
+
+2. For the relation between views, see the graph blow:
+
+   ![viewrelations](graph/viewrelations.png)
+
+<font color = "red">Question1:</font> <span jump id = "q1">In my test</span>, the shortcut "New Restanrant" works only when the app is loaded. So how can a quick perform segue when the app is not loaded?
+
+---
 
 
 
@@ -78,3 +160,15 @@ But today, October 5th, if I just implement the code in `WalkthroughViewControll
 
 
 
+
+
+
+
+
+
+
+
+
+# To Do
+
+- [ ] [Question1](#q1)
