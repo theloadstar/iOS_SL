@@ -276,5 +276,21 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
             present(walkthroughViewController, animated: true, completion: nil)
         }
     }
+    
+    //MARK: - context menu
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: indexPath.row as NSCopying, previewProvider: {
+            guard let restaurantDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else{
+                return nil
+            }
+            let selectedRestaurant = self.restaurants[indexPath.row]
+            restaurantDetailViewController.restaurant = selectedRestaurant
+            return restaurantDetailViewController
+        }) { actions in
+            return UIMenu(title: "", children: [])
+        }
+        
+        return configuration
+    }
 
 }

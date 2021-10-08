@@ -145,7 +145,9 @@ private func handleQuickAction(shortItem: UIApplicationShortcutItem)-> Bool{
 
 ---
 
+# Context Menu
 
+To create a contect menu, we can adopt two methods:`tableView(_:contextMenuConfigurationForRowAt:point:)` and `tableView(_:willPerformPreviewActionForMenuWith:animator:)`. The formor is used to configure the details of the context menu like action items and the view controller for previewing the content.The latter controls what to be performed when the preview is tapped as its name looks like.
 
 
 
