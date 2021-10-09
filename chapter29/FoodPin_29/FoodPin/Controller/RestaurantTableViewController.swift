@@ -128,8 +128,6 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
             completionHandler(true)
         }
         
-//        deleteAction.backgroundColor = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)
-        //after extension
         deleteAction.backgroundColor = UIColor(242, 38, 19)
         deleteAction.image = UIImage(systemName: "trash")
         let shareAction = UIContextualAction(style: .normal, title: NSLocalizedString("Share",comment: "Share")){(action, sourceView, completionhandler) in
@@ -287,7 +285,45 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
             restaurantDetailViewController.restaurant = selectedRestaurant
             return restaurantDetailViewController
         }) { actions in
-            return UIMenu(title: "", children: [])
+            
+            //check in
+            let checkInAction = UIAction(title: "Check-In", image: UIImage(systemName: "checkmark"), discoverabilityTitle: "Check-In at this restaurant" ){ action in
+                let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+                self.restaurants[indexPath.row].isVisited = !self.restaurants[indexPath.row].isVisited
+                cell.thumbnailImageView.isHidden = !self.restaurants[indexPath.row].isVisited
+            }
+            //delete action
+            let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), discoverabilityTitle: "Delete this restaurant", attributes: .destructive , state: .off ){action in
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                    let context = appDelegate.persistentContainer.viewContext
+                    let restaurantToDelete = self.fetchResultController.object(at: indexPath)
+                    context.delete(restaurantToDelete)
+                    appDelegate.saveContext()
+                }
+                
+            }
+            //shareAction
+            let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), discoverabilityTitle: "Share this restaurant"){action in
+                let defaultText = NSLocalizedString("Just Checking in at ",comment: "Just Checking in at ") + (self.restaurants[indexPath.row].name ?? "")
+                let activityController : UIActivityViewController
+                if let restaurantImage = self.restaurants[indexPath.row].image, let imageToShare = UIImage(data: restaurantImage as Data){
+                    activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+                }
+                else{
+                    activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+                }
+                //for iPad
+                if let popoverController = activityController.popoverPresentationController{
+                    if let cell = tableView.cellForRow(at: indexPath){
+                        popoverController.sourceView = cell
+                        popoverController.sourceRect = cell.bounds
+                    }
+                }
+                
+                self.present(activityController, animated: true, completion: nil)
+            }
+            
+            return UIMenu(title: "", children: [shareAction, checkInAction, deleteAction])
         }
         
         return configuration
