@@ -745,7 +745,7 @@
         <scene sceneID="nFD-Zq-mHX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AVe-p9-Wer" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favourite" image="favorite" selectedImage="favourite" id="2yN-xN-ib3"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="favourite" selectedImage="favourite" id="2yN-xN-ib3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Trb-C7-s6z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -824,7 +824,6 @@
         <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="cool" width="78" height="83"/>
         <image name="empty" width="310" height="372"/>
-        <image name="favorite" width="22" height="22"/>
         <image name="favourite" width="22" height="22"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart-tick" width="22" height="21"/>
