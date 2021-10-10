@@ -328,5 +328,25 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         
         return configuration
     }
+    
+    override func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        
+        guard let selectRow = configuration.identifier as? Int else{
+            print("Fail to get the row number")
+            return
+        }
+        
+        guard let restaurantDeatilViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else{
+            return
+        }
+        
+        let selectRestaurant = self.restaurants[selectRow]
+        restaurantDeatilViewController.restaurant = selectRestaurant
+        
+        animator.preferredCommitStyle = .pop
+        animator.addCompletion {
+            self.show(restaurantDeatilViewController, sender: self)
+        }
+    }
 
 }

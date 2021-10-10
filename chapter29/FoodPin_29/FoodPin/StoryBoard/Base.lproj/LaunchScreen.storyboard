@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lyf" translatesAutoresizingMaskIntoConstraints="NO" id="ckZ-5o-iyd">
-                                <rect key="frame" x="-155" y="-95" width="724" height="1086"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lyf3" translatesAutoresizingMaskIntoConstraints="NO" id="ckZ-5o-iyd">
+                                <rect key="frame" x="-132.5" y="-131" width="679" height="1158"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bc7-EW-GsO"/>
@@ -35,7 +35,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lyf" width="724" height="1086"/>
+        <image name="lyf3" width="679" height="1158"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

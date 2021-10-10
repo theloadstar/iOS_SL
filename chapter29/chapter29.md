@@ -214,7 +214,39 @@ Result:
 
 ![result1](graph/result1.png)
 
+# Tap to preview
 
+Add these code:
+
+```sw
+override func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        
+        guard let selectRow = configuration.identifier as? Int else{
+            print("Fail to get the row number")
+            return
+        }
+        
+        guard let restaurantDeatilViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else{
+            return
+        }
+        
+        let selectRestaurant = self.restaurants[selectRow]
+        restaurantDeatilViewController.restaurant = selectRestaurant
+        
+        animator.preferredCommitStyle = .pop
+        animator.addCompletion {
+            self.show(restaurantDeatilViewController, sender: self)
+        }
+    }
+```
+
+If we use `.dismiss` in line 15, the detailview will show after the context menu disappears.
+
+![dismiss](graph/dismiss.gif)
+
+If we use `.pop` instead, we will get animation like this, which is expected:
+
+![pop](graph/pop.gif)
 
 
 
@@ -237,3 +269,4 @@ Result:
 # To Do
 
 - [ ] [Question1](#q1)
+- [ ] If I change the launch screen image, it doesn't work in real device while works in simulators🤦‍♂️
