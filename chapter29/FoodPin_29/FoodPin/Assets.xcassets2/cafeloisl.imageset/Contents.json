@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "lyf3.jpeg",
+      "filename" : "cafeloisl.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "cafeloisl@2x.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "cafeloisl@3x.jpg",
       "scale" : "3x"
     }
   ],

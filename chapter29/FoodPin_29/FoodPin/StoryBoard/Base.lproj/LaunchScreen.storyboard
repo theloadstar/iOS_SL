@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -14,18 +14,20 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lyf3" translatesAutoresizingMaskIntoConstraints="NO" id="ckZ-5o-iyd">
-                                <rect key="frame" x="-132.5" y="-131" width="679" height="1158"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lyf" translatesAutoresizingMaskIntoConstraints="NO" id="mZ6-sF-QPM">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bc7-EW-GsO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ckZ-5o-iyd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Kmt-es-EHw"/>
-                            <constraint firstItem="ckZ-5o-iyd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="O0Q-pY-158"/>
+                            <constraint firstAttribute="bottom" secondItem="mZ6-sF-QPM" secondAttribute="bottom" id="Ece-Od-V6b"/>
+                            <constraint firstItem="mZ6-sF-QPM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="J3F-Va-Ct0"/>
+                            <constraint firstItem="mZ6-sF-QPM" firstAttribute="trailing" secondItem="bc7-EW-GsO" secondAttribute="trailing" id="bsf-hD-p8n"/>
+                            <constraint firstItem="mZ6-sF-QPM" firstAttribute="leading" secondItem="bc7-EW-GsO" secondAttribute="leading" id="dqg-3b-BY2"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,7 +37,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lyf3" width="679" height="1158"/>
+        <image name="lyf" width="679" height="1158"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

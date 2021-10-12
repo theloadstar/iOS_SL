@@ -248,7 +248,9 @@ If we use `.pop` instead, we will get animation like this, which is expected:
 
 ![pop](graph/pop.gif)
 
+# LaunchScreen Image
 
+I tried to change the launch screen image, but failed in real device while succeeding in simulator.After looking up a [post](https://developer.apple.com/forums/thread/19759) six years age, I create a new folder and copy all the image folders to the new folder, rename the folder to `Assets.xcassets`, the it works in read devices~ Great!!!
 
 
 
@@ -269,4 +271,4 @@ If we use `.pop` instead, we will get animation like this, which is expected:
 # To Do
 
 - [ ] [Question1](#q1)
-- [ ] If I change the launch screen image, it doesn't work in real device while works in simulators🤦‍♂️
+- [x] If I change the launch screen image, it doesn't work in real device while works in simulators🤦‍♂️
