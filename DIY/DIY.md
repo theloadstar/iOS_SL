@@ -6,3 +6,5 @@ Okay, finally we come to here. By far, I've finished all the chapters that are n
 - [ ] Edit the review information by tapping the rate image view in *restaurantDetailView*.
 - [ ] Make the *Check-In* action embed in Core Data.
 - [ ] How to hide the buttom bar when tapping the preview view **by code**.
+- [ ] Some items are not visible in Dark Mode, [ref](https://www.jianshu.com/p/176537b0d9dd)
+- [ ] 
