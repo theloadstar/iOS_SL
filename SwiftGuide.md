@@ -43,3 +43,38 @@ Unlike many other languages, Swift doesn’t require you to write a semicolon (`
 
 For usigned int -> `UInt`, for max or min of that -> `UInt.max` or `UInt.min`
 
+### Numeric Literals
+
+A literal value is a value that appears directly in your source code. For Numeric Literals, they can be written as:
+
+* A *decimal* number, with no prefix
+* A *binary* number, with a `0b` prefix
+* An *octal* number, with a `0o` prefix
+* A *hexadecimal* number, with a `0x` prefix
+
+对于浮点数，可以使用十进制表示也可以使用十六进制（需要前缀`0x`）。对于十进制，底数为10；对于十六进制，底数为2。
+
+以下表示均为`12.1875`
+
+```sw
+let decimalDouble = 12.1875
+let exponentDouble = 1.21875e1
+let hexadecimalDouble = 0xC.3p0
+```
+
+其中，第三行：`0xC.3p0 = (12+3/16)*2^0=12.1875`
+
+此外，允许使用前置0或者下划线以增加可读性
+
+```sw
+let paddedDouble = 000123.456
+let oneMillion = 1_000_000
+let justOverOneMillion = 1_000_000.000_000_1
+```
+
+
+
+
+
+
+
