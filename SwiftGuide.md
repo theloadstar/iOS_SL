@@ -72,6 +72,21 @@ let oneMillion = 1_000_000
 let justOverOneMillion = 1_000_000.000_000_1
 ```
 
+### Boolean
+
+与C/C++不同，swift不能直接使用简单的表达式作为condition语句：
+
+```sw
+let i = 1
+if i {
+    // this example will not compile, and will report an error
+}
+```
+
+### Tuples
+
+Swift中元组、数组、字典[区别](https://blog.csdn.net/feosun/article/details/78134795)
+
 
 
 
